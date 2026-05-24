@@ -286,7 +286,7 @@
     .m-sns a:hover { color: #fff; }
 
     /* ===================== SUB VISUAL ===================== */
-    #sub-inner-wrap { padding-top: 84px; }
+    #sub-inner-wrap { padding-top: 0; }
 
     .subVisual {
       position: relative;
@@ -301,24 +301,22 @@
     }
     .subVisual-text {
       position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
+      left: 62%;
+      top: 55%;
+      transform: translateY(-50%);
+      text-align: left;
       pointer-events: none;
       white-space: nowrap;
     }
     .subVisual-text h1 {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(48px, 7vw, 96px);
-      font-weight: 700;
-      color: #fff;
-      letter-spacing: 0.1em;
+      font-size: clamp(32px, 4.5vw, 68px);
+      font-weight: 300;
+      color: #1a1a1a;
+      letter-spacing: 0.08em;
       line-height: 1;
       margin: 0;
-      text-shadow:
-        0 2px 12px rgba(0,0,0,0.55),
-        0 0  40px rgba(0,0,0,0.30);
+      text-shadow: none;
     }
 
     /* ===================== CONTENT SECTIONS ===================== */
