@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>NTMD Portfolio</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <!-- Bootstrap 3 -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <!-- Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Noto+Sans+KR:wght@300;400;500;700&family=Nunito:wght@400;900&display=swap">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Material Icons -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <!-- AOS -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+
+  <style>
+    /* ===================== RESET & BASE ===================== */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Noto Sans KR', 'Helvetica Neue', Arial, sans-serif;
+      color: #333;
+      background: #fff;
+      overflow-x: hidden;
+    }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; margin: 0; padding: 0; }
+    img { max-width: 100%; display: block; }
+    .clearfix::after { content: ''; display: table; clear: both; }
+
+    /* ===================== TRANSITIONS ===================== */
+    .animate02 { transition: all 0.2s ease; }
+    .animate03 { transition: all 0.3s ease; }
+
+    /* ===================== HEADER ===================== */
+    #header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      transition: background 0.35s ease, box-shadow 0.35s ease;
+    }
+    #header.is-scrolled {
+      background: #fff;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+    }
+
+    /* Desktop nav container */
+    #header .hd-inner {
+      max-width: 1310px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 84px;
+    }
+
+    /* ── NTMD Logo ── */
+    .ntmd-logo {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+      line-height: 1;
+      gap: 3px;
+    }
+    .ntmd-logo .nl-letters {
+      display: flex;
+      align-items: baseline;
+      gap: 0px;
+    }
+    .ntmd-logo .nl-letters span {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      font-size: 30px;
+      line-height: 1;
+      letter-spacing: -0.01em;
+    }
+    .ntmd-logo .nl-letters .nl-n { color: #e8517c; }
+    .ntmd-logo .nl-letters .nl-t { color: #4a9eca; }
+    .ntmd-logo .nl-letters .nl-m { color: #3fbfac; }
+    .ntmd-logo .nl-letters .nl-d { color: #f5834a; }
+    .ntmd-logo .nl-tag {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 400;
+      font-size: 8.5px;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: rgba(180,180,180,0.9);
+    }
+    #header.is-scrolled .ntmd-logo .nl-tag { color: #aaa; }
+
+    /* Mobile logo size */
+    .ntmd-logo.sm .nl-letters span { font-size: 22px; }
+    .ntmd-logo.sm .nl-tag          { font-size: 7px; letter-spacing: 0.28em; }
+
+    /* Footer logo */
+    .ntmd-logo.footer .nl-letters span { font-size: 32px; }
+    .ntmd-logo.footer .nl-tag          { font-size: 9px; letter-spacing: 0.35em; color: rgba(255,255,255,0.35); }
+
+    /* Nav list */
+    .gnb-pc {
+      display: flex;
+      align-items: center;
+      gap: 38px;
+    }
+    .gnb-pc > li { position: relative; }
+    .gnb-pc > li > a {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.92);
+      padding: 6px 0;
+      display: block;
+      position: relative;
+      transition: color 0.2s;
+    }
+    .gnb-pc > li > a::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 0; height: 1px;
+      background: currentColor;
+      transition: width 0.25s ease;
+    }
+    .gnb-pc > li > a:hover::after,
+    .gnb-pc > li.active > a::after { width: 100%; }
+    .gnb-pc > li > a:hover { color: #fff; }
+    #header.is-scrolled .gnb-pc > li > a { color: #222; }
+    #header.is-scrolled .gnb-pc > li > a:hover { color: #111; }
+
+    /* Dropdown overlay bg */
+    .menu-over-bg {
+      display: none;
+      position: fixed;
+      top: 84px; left: 0; right: 0;
+      height: 0;
+      background: #fff;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+      z-index: 998;
+      transition: height 0.2s;
+    }
+
+    /* Language switcher */
+    .lang-wrap {
+      position: relative;
+      margin-left: 32px;
+    }
+    .lang-btn {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.85);
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    .lang-btn .arrow {
+      font-size: 9px;
+      transition: transform 0.2s;
+    }
+    .lang-wrap:hover .arrow { transform: rotate(180deg); }
+    #header.is-scrolled .lang-btn { color: #333; }
+    .lang-drop {
+      display: none;
+      position: absolute;
+      top: calc(100% + 12px);
+      right: 0;
+      background: #fff;
+      min-width: 72px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+    }
+    .lang-wrap:hover .lang-drop { display: block; }
+    .lang-drop a {
+      display: block;
+      padding: 9px 16px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: #444;
+      transition: background 0.15s;
+    }
+    .lang-drop a:hover { background: #f5f5f5; color: #111; }
+
+    /* ===================== MOBILE NAV ===================== */
+    .gnb-mobile-bar {
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      height: 62px;
+      padding: 0 18px;
+    }
+    .gnb-mobile-bar .ntmd-logo { gap: 2px; }
+    .hamburger {
+      width: 28px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding: 4px 0;
+    }
+    .hamburger span {
+      display: block;
+      height: 1.5px;
+      background: #fff;
+      transition: background 0.3s;
+    }
+    #header.is-scrolled .hamburger span { background: #111; }
+
+    /* Full-screen mobile nav overlay */
+    #m-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: #0f0f0f;
+      z-index: 5000;
+      display: flex;
+      flex-direction: column;
+      padding: 30px 30px 40px;
+      transform: translateX(100%);
+      transition: transform 0.4s cubic-bezier(0.76, 0, 0.24, 1);
+    }
+    #m-overlay.open { transform: translateX(0); }
+    .m-overlay-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 50px;
+    }
+    .m-overlay-logo { /* replaced by .ntmd-logo.sm */ }
+    .m-close {
+      width: 32px; height: 32px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+    }
+    .m-close::before,
+    .m-close::after {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 1.5px;
+      background: #fff;
+    }
+    .m-close::before { transform: rotate(45deg) translateY(0.75px); }
+    .m-close::after  { transform: rotate(-45deg) translateY(-0.75px); }
+
+    .m-nav-list li {
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .m-nav-list li a {
+      display: block;
+      padding: 20px 0;
+      font-size: 20px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: rgba(255,255,255,0.85);
+      transition: color 0.2s, padding-left 0.2s;
+    }
+    .m-nav-list li a:hover { color: #fff; padding-left: 6px; }
+    .m-extra {
+      margin-top: auto;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .m-extra p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 16px;
+    }
+    .m-sns { display: flex; gap: 14px; }
+    .m-sns a {
+      color: rgba(255,255,255,0.5);
+      font-size: 16px;
+      transition: color 0.2s;
+    }
+    .m-sns a:hover { color: #fff; }
+
+    /* ===================== SUB VISUAL ===================== */
+    #sub-inner-wrap { padding-top: 84px; }
+
+    .subVisual {
+      position: relative;
+      background: #e8e8e8;
+      overflow: hidden;
+      line-height: 0;
+    }
+    .subVisual-img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .subVisual-text {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      pointer-events: none;
+      white-space: nowrap;
+    }
+    .subVisual-text h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(48px, 7vw, 96px);
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 0.1em;
+      line-height: 1;
+      margin: 0;
+      text-shadow:
+        0 2px 12px rgba(0,0,0,0.55),
+        0 0  40px rgba(0,0,0,0.30);
+    }
+
+    /* ===================== CONTENT SECTIONS ===================== */
+    .sub0301_view { }
+
+    .works {
+      padding: 80px 0;
+      border-bottom: 1px solid #ebebeb;
+    }
+    .works:last-child { border-bottom: none; }
+
+    .works > .container {
+      max-width: 1310px;
+    }
+
+    /* Two-column layout inside each section */
+    .works .col-left {
+      float: left;
+      width: 240px;
+      padding-right: 30px;
+    }
+    .works .col-left .sec-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 56px;
+      font-weight: 700;
+      color: #111;
+      line-height: 1;
+      letter-spacing: -0.01em;
+    }
+    .works .col-right {
+      margin-left: 240px;
+    }
+
+    /* ===================== PROFILE ===================== */
+    .profile-name {
+      display: flex;
+      align-items: baseline;
+      gap: 0;
+      margin-bottom: 18px;
+    }
+    .profile-name h2 {
+      font-size: 22px;
+      font-weight: 700;
+      color: #111;
+      margin: 0;
+    }
+    .profile-name span {
+      font-size: 14px;
+      font-weight: 300;
+      color: #999;
+      padding-left: 16px;
+    }
+    .profile-row {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      font-size: 14px;
+      color: #111;
+      margin-bottom: 12px;
+    }
+    .profile-row .lbl {
+      color: #aaa;
+      font-weight: 300;
+      min-width: 75px;
+      font-size: 13px;
+    }
+    .sns-row {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      margin-bottom: 0;
+    }
+    .sns-row .lbl {
+      color: #aaa;
+      font-weight: 300;
+      min-width: 75px;
+      font-size: 13px;
+    }
+    .sns-icons {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .sns-icons a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px; height: 30px;
+      border: 1px solid #ccc;
+      border-radius: 50%;
+      font-size: 12px;
+      color: #666;
+      transition: all 0.2s;
+    }
+    .sns-icons a:hover {
+      background: #111;
+      border-color: #111;
+      color: #fff;
+    }
+    .sns-icons a .tiktok-icon {
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: -0.05em;
+    }
+
+    /* ===================== TABS ===================== */
+    .tab-nav {
+      display: flex;
+      border-bottom: 2px solid #111;
+      margin-bottom: 34px;
+      gap: 0;
+    }
+    .tab-nav li { margin-bottom: -2px; }
+    .tab-nav li a {
+      display: block;
+      padding: 10px 22px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #bbb;
+      border: 2px solid transparent;
+      border-bottom: none;
+      transition: color 0.2s;
+    }
+    .tab-nav li a:hover { color: #555; }
+    .tab-nav li.active a {
+      color: #111;
+      border-color: #111;
+      border-bottom: 2px solid #fff;
+      background: #fff;
+    }
+
+    /* Tab panes */
+    .tab-content .tab-pane { display: none; }
+    .tab-content .tab-pane.active { display: block; animation: fadeInUp 0.35s ease; }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ===================== ALBUM / DRAMA / MOVIE GRID ===================== */
+    .media-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 28px 18px;
+    }
+    .media-item .thumb {
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      background: #f0f0f0;
+      margin-bottom: 12px;
+    }
+    .media-item .thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .media-item:hover .thumb img { transform: scale(1.07); }
+    .media-item .info h3 {
+      font-size: 12.5px;
+      font-weight: 400;
+      color: #111;
+      line-height: 1.5;
+      margin-bottom: 5px;
+    }
+    .media-item .info h3 b { font-weight: 700; }
+    .media-item .info .date {
+      font-size: 12px;
+      color: #aaa;
+    }
+
+    /* Hidden "more" items */
+    .media-item.more { display: none; }
+
+    /* MORE VIEW button */
+    .btn-more-wrap { margin-top: 36px; }
+    #btn-more {
+      display: inline-block;
+      padding: 11px 36px;
+      border: 1.5px solid #111;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      color: #111;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.22s;
+    }
+    #btn-more:hover,
+    #btn-more.active {
+      background: #111;
+      color: #fff;
+    }
+
+    /* ===================== SKILLS ===================== */
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 12px;
+      padding: 8px 0 20px;
+    }
+    .skill-tag {
+      display: inline-block;
+      padding: 9px 20px;
+      border: 1.5px solid #ddd;
+      font-size: 12.5px;
+      font-weight: 500;
+      color: #333;
+      letter-spacing: 0.04em;
+      transition: all 0.2s;
+      cursor: default;
+    }
+    .skill-tag:hover { border-color: #111; background: #111; color: #fff; }
+    .skill-tag.sk-pink  { border-color: #e8517c; color: #e8517c; }
+    .skill-tag.sk-blue  { border-color: #4a9eca; color: #4a9eca; }
+    .skill-tag.sk-mint  { border-color: #3fbfac; color: #3fbfac; }
+    .skill-tag.sk-orange{ border-color: #f5834a; color: #f5834a; }
+    .skill-tag.sk-pink:hover  { background:#e8517c; color:#fff; border-color:#e8517c; }
+    .skill-tag.sk-blue:hover  { background:#4a9eca; color:#fff; border-color:#4a9eca; }
+    .skill-tag.sk-mint:hover  { background:#3fbfac; color:#fff; border-color:#3fbfac; }
+    .skill-tag.sk-orange:hover{ background:#f5834a; color:#fff; border-color:#f5834a; }
+
+    .skill-section-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #bbb;
+      margin: 24px 0 12px;
+    }
+    .skill-section-title:first-child { margin-top: 0; }
+
+    /* ===================== EXPERIENCE LIST ===================== */
+    .exp-list li {
+      padding: 20px 0;
+      border-bottom: 1px solid #f0f0f0;
+      transition: padding-left 0.15s;
+    }
+    .exp-list li:first-child { border-top: 1px solid #f0f0f0; }
+    .exp-list li:hover { padding-left: 6px; }
+    .exp-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #111;
+      margin-bottom: 5px;
+    }
+    .exp-company {
+      font-size: 12px;
+      color: #e8517c;
+      font-weight: 500;
+      margin-bottom: 6px;
+      letter-spacing: 0.03em;
+    }
+    .exp-desc {
+      font-size: 12.5px;
+      color: #777;
+      line-height: 1.7;
+    }
+
+    /* ===================== AWARDS LIST ===================== */
+    .awards-list li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 15px 0;
+      border-bottom: 1px solid #f0f0f0;
+      transition: background 0.15s;
+    }
+    .awards-list li:first-child { border-top: 1px solid #f0f0f0; }
+    .awards-list li:hover { background: #fafafa; padding-left: 6px; }
+    .awards-list .a-name {
+      font-size: 13.5px;
+      font-weight: 400;
+      color: #222;
+      line-height: 1.4;
+    }
+    .awards-list .a-year {
+      font-size: 12px;
+      color: #bbb;
+      font-weight: 300;
+      white-space: nowrap;
+    }
+
+    /* ===================== FOOTER ===================== */
+    #footerWrap {
+      background: #121212;
+      padding: 65px 0 55px;
+      position: relative;
+    }
+    #footerWrap > .container {
+      max-width: 1310px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    .foot-left .ntmd-logo.footer { gap: 4px; }
+    .foot-right { text-align: right; }
+    .foot-sns {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+    .foot-sns a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px; height: 34px;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 50%;
+      color: rgba(255,255,255,0.6);
+      font-size: 13px;
+      transition: all 0.2s;
+    }
+    .foot-sns a:hover {
+      background: rgba(255,255,255,0.12);
+      color: #fff;
+      border-color: rgba(255,255,255,0.4);
+    }
+    .foot-copy {
+      font-size: 12px;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 10px;
+    }
+    .foot-addr {
+      font-style: normal;
+      line-height: 1.8;
+    }
+    .foot-addr p {
+      display: inline;
+      font-size: 12px;
+      color: rgba(255,255,255,0.45);
+    }
+    .foot-addr p + p::before {
+      content: ' · ';
+      color: rgba(255,255,255,0.2);
+    }
+
+    /* Go to top */
+    .goTop {
+      position: absolute;
+      right: 30px;
+      bottom: 30px;
+      width: 44px; height: 44px;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.6);
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+    .goTop:hover {
+      background: rgba(255,255,255,0.1);
+      color: #fff;
+      border-color: rgba(255,255,255,0.5);
+    }
+    .goTop .material-icons { font-size: 20px; }
+
+    /* ===================== RESPONSIVE ===================== */
+    @media (max-width: 991px) {
+      /* Hide desktop nav */
+      .hd-desktop { display: none !important; }
+      .gnb-mobile-bar { display: flex !important; }
+
+      #sub-inner-wrap { padding-top: 62px; }
+      .subVisual-text { left: 50%; transform: translate(-50%, -50%); }
+
+      .works { padding: 50px 0; }
+      .works .col-left {
+        float: none; width: 100%;
+        padding-right: 0;
+        margin-bottom: 24px;
+      }
+      .works .col-left .sec-title { font-size: 38px; }
+      .works .col-right { margin-left: 0; }
+
+      .media-grid {
+        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+        gap: 20px 14px;
+      }
+
+      #footerWrap > .container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 28px;
+      }
+      .foot-right { text-align: left; }
+      .foot-sns { justify-content: flex-start; }
+    }
+
+    @media (max-width: 575px) {
+      .subVisual-text { right: 4%; }
+      .media-grid { grid-template-columns: repeat(2, 1fr); gap: 16px 12px; }
+      .tab-nav li a { padding: 8px 12px; font-size: 11px; }
+      .awards-list .a-name { font-size: 12.5px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ==================== HEADER ==================== -->
+<div id="header" class="animate03">
+
+  <!-- Desktop -->
+  <div class="hd-desktop">
+    <div class="hd-inner">
+      <div class="logo-wrap">
+        <a href="#" class="ntmd-logo">
+          <div class="nl-letters">
+            <span class="nl-n">N</span><span class="nl-t">T</span><span class="nl-m">M</span><span class="nl-d">D</span>
+          </div>
+          <div class="nl-tag">Portfolio</div>
+        </a>
+      </div>
+
+      <div style="display:flex; align-items:center;">
+        <ul class="gnb-pc">
+          <li><a href="#">NTMD</a></li>
+          <li><a href="#">NOTICE</a></li>
+          <li class="active"><a href="#">ARTISTS</a></li>
+          <li><a href="#" target="_blank">madeNTMD</a></li>
+          <li><a href="#">AUDITION</a></li>
+          <li><a href="#">CONTACT US</a></li>
+        </ul>
+
+        <div class="lang-wrap">
+          <div class="lang-btn">
+            ENG <span class="arrow">&#9660;</span>
+          </div>
+          <div class="lang-drop">
+            <a href="#">KOR</a>
+            <a href="#">CHN</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile bar -->
+  <div class="gnb-mobile-bar" style="display:none;">
+    <a href="#" class="ntmd-logo sm">
+      <div class="nl-letters">
+        <span class="nl-n">N</span><span class="nl-t">T</span><span class="nl-m">M</span><span class="nl-d">D</span>
+      </div>
+      <div class="nl-tag">Portfolio</div>
+    </a>
+    <div class="hamburger" id="ham-btn">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</div>
+
+<!-- Mobile full-screen overlay -->
+<div id="m-overlay">
+  <div class="m-overlay-head">
+    <a href="#" class="ntmd-logo sm">
+      <div class="nl-letters">
+        <span class="nl-n">N</span><span class="nl-t">T</span><span class="nl-m">M</span><span class="nl-d">D</span>
+      </div>
+      <div class="nl-tag" style="color:rgba(255,255,255,0.4)">Portfolio</div>
+    </a>
+    <div class="m-close" id="m-close-btn"></div>
+  </div>
+
+  <ul class="m-nav-list">
+    <li><a href="#">NTMD</a></li>
+    <li><a href="#">NOTICE</a></li>
+    <li><a href="#">ARTISTS</a></li>
+    <li><a href="#" target="_blank">madeNTMD</a></li>
+    <li><a href="#">AUDITION</a></li>
+    <li><a href="#">CONTACT US</a></li>
+  </ul>
+
+  <div class="m-extra">
+    <p>mydieu442003@gmail.com</p>
+    <div class="m-sns">
+      <a href="#"><i class="fa fa-twitter"></i></a>
+      <a href="#"><i class="fa fa-instagram"></i></a>
+      <a href="#"><i class="fa fa-youtube-play"></i></a>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== MAIN ==================== -->
+<div id="sub-inner-wrap">
+<div class="sub0301_view">
+
+  <!-- Sub Visual -->
+  <div class="subVisual">
+    <img class="subVisual-img" src="image/9d171256-5d53-4482-8b5c-a38731db6858.jpg" alt="Mỹ Diệu">
+    <div class="subVisual-text">
+      <h1>Mỹ Diệu</h1>
+    </div>
+  </div>
+
+  <!-- ===== PROFILE SECTION ===== -->
+  <section class="works" data-aos="fade-up" data-aos-duration="1200">
+    <div class="container clearfix">
+
+      <div class="col-left">
+        <h2 class="sec-title">Profile</h2>
+      </div>
+
+      <div class="col-right">
+        <div class="profile-name">
+          <h2>Mỹ Diệu</h2>
+          <span>Nguyễn Thị Mỹ Diệu &nbsp;·&nbsp; Livestream Performance</span>
+        </div>
+
+        <div class="profile-row">
+          <span class="lbl">Sinh</span>
+          04/04/2003
+        </div>
+
+        <div class="profile-row">
+          <span class="lbl">Địa chỉ</span>
+          TP. Hồ Chí Minh
+        </div>
+
+        <div class="profile-row">
+          <span class="lbl">Email</span>
+          <a href="mailto:mydieu442003@gmail.com" style="color:#111;">mydieu442003@gmail.com</a>
+        </div>
+
+        <div class="profile-row">
+          <span class="lbl">Điện thoại</span>
+          0942 964 102
+        </div>
+
+        <div class="sns-row">
+          <span class="lbl">Mạng xã hội</span>
+          <div class="sns-icons">
+            <a href="https://www.tiktok.com/" target="_blank" title="TikTok" style="font-size:10px;font-weight:800;">TK</a>
+            <a href="https://www.facebook.com/" target="_blank" title="Facebook"><i class="fa fa-facebook"></i></a>
+            <a href="https://www.instagram.com/" target="_blank" title="Instagram"><i class="fa fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== WORKS SECTION ===== -->
+  <section class="works" data-aos="fade-up" data-aos-duration="1200">
+    <div class="container clearfix">
+
+      <div class="col-left">
+        <h2 class="sec-title">Works</h2>
+      </div>
+
+      <div class="col-right">
+
+        <!-- Tabs nav -->
+        <ul class="tab-nav">
+          <li class="active"><a href="#" data-target="album">Chiến dịch</a></li>
+          <li><a href="#" data-target="drama">Kinh nghiệm</a></li>
+          <li><a href="#" data-target="movie">Kỹ năng</a></li>
+          <li><a href="#" data-target="awards">Thành tích</a></li>
+        </ul>
+
+        <!-- ===== CHIẾN DỊCH ===== -->
+        <div id="tab-album" class="tab-pane active">
+          <div class="media-grid">
+
+            <div class="media-item">
+              <div class="thumb"><img src="https://placehold.co/300x300/e8517c/ffffff?text=Mega+Live" alt="Mega Live 2025"></div>
+              <div class="info"><h3><b>Mega Live Campaign</b><br>Kỷ lục GMV 6.9 tỷ VND</h3><p class="date">2025 · MIA.vn</p></div>
+            </div>
+
+            <div class="media-item">
+              <div class="thumb"><img src="https://placehold.co/300x300/4a9eca/ffffff?text=Flash+Sale" alt="Flash Sale"></div>
+              <div class="info"><h3><b>Flash Sale Campaign</b><br>Vận hành Flash Sale & Voucher độc quyền</h3><p class="date">2024–2025 · MIA.vn</p></div>
+            </div>
+
+            <div class="media-item">
+              <div class="thumb"><img src="https://placehold.co/300x300/3fbfac/ffffff?text=GMVMax+Product" alt="GMVMax Product"></div>
+              <div class="info"><h3><b>GMVMax Product</b><br>Tối ưu hiển thị & chuyển đổi sản phẩm</h3><p class="date">2024–2025 · MIA.vn</p></div>
+            </div>
+
+            <div class="media-item">
+              <div class="thumb"><img src="https://placehold.co/300x300/f5834a/ffffff?text=GMVMax+Live" alt="GMVMax Live"></div>
+              <div class="info"><h3><b>GMVMax Live</b><br>Vận hành giải pháp thúc đẩy hiển thị phiên Live</h3><p class="date">2024–2025 · MIA.vn</p></div>
+            </div>
+
+            <div class="media-item">
+              <div class="thumb"><img src="https://placehold.co/300x300/e8517c/ffffff?text=KOC%2FKOL" alt="KOC/KOL Affiliate"></div>
+              <div class="info"><h3><b>KOC / KOL Affiliate</b><br>Booking & hợp tác mở rộng doanh thu</h3><p class="date">2023–2025 · MIA.vn</p></div>
+            </div>
+
+            <div class="media-item">
+              <div class="thumb"><img src="https://placehold.co/300x300/4a9eca/ffffff?text=TikTok+Ads" alt="TikTok Ads Campaign"></div>
+              <div class="info"><h3><b>TikTok / Facebook Ads</b><br>Chiến dịch quảng cáo trả phí & tối ưu ROAS</h3><p class="date">2023–2025 · MIA.vn</p></div>
+            </div>
+
+          </div><!-- /media-grid -->
+        </div>
+
+        <!-- ===== KINH NGHIỆM ===== -->
+        <div id="tab-drama" class="tab-pane">
+          <ul class="exp-list list-unstyled">
+            <li>
+              <div class="exp-title">Vận hành Livestream &amp; Quản lý Chiến dịch</div>
+              <div class="exp-company">MIA.vn · TikTok Ecommerce &nbsp;|&nbsp; 2023 – 2025</div>
+              <div class="exp-desc">Làm việc trực tiếp với AM TikTok Shop — kích hoạt Voucher độc quyền, thiết lập Flash Sale và tối ưu hiển thị theo từng giai đoạn chiến dịch. Quản lý tồn kho thời gian thực, đề xuất combo sản phẩm linh hoạt để giải phóng hàng và thúc đẩy GMV. Vận hành GMVMax Product &amp; GMVMax Live, phối hợp chặt chẽ với team Media, Kỹ thuật và Vận hành chuỗi cung ứng.</div>
+            </li>
+            <li>
+              <div class="exp-title">Trực tiếp Livestream &amp; Phát triển Nội dung</div>
+              <div class="exp-company">MIA.vn · Hosting &amp; Content Strategy &nbsp;|&nbsp; 2023 – 2025</div>
+              <div class="exp-desc">Đảm nhận vai trò Host Livestream chuyên nghiệp; dẫn dắt không khí phiên live năng lượng cao và xử lý khéo léo các tình huống phát sinh. Nghiên cứu hành vi người xem, biên soạn kịch bản chi tiết, thiết lập chuỗi Minigame kích thích tương tác và giữ chân người xem (tăng Retention Rate). Lên ý tưởng concept studio, setup ánh sáng, tư vấn trang phục phù hợp từng line hàng.</div>
+            </li>
+            <li>
+              <div class="exp-title">Tiếp thị Kỹ thuật số &amp; Hợp tác KOC/KOL</div>
+              <div class="exp-company">MIA.vn · Digital Marketing &amp; Booking &nbsp;|&nbsp; 2023 – 2025</div>
+              <div class="exp-desc">Thiết lập và tối ưu chiến dịch TikTok Ads, Spark Ads, Facebook Ads để đẩy lưu lượng truy cập vào phiên livestream. Theo dõi sát chỉ số ROAS theo thời gian thực và điều chỉnh tập đối tượng. Tìm kiếm, đánh giá và kết nối mạng lưới KOC/KOL phù hợp; đàm phán hợp tác dựa trên lịch sử doanh số. Chuẩn hóa SEO gian hàng: danh mục, thumbnail, hình ảnh chi tiết, mô tả sản phẩm.</div>
+            </li>
+            <li>
+              <div class="exp-title">Quản lý Nhân sự &amp; Đào tạo</div>
+              <div class="exp-company">MIA.vn · Team Management &amp; Training &nbsp;|&nbsp; 2023 – 2025</div>
+              <div class="exp-desc">Chịu trách nhiệm tuyển dụng, phỏng vấn và hướng dẫn hội nhập cho nhân sự mới. Trực tiếp đứng lớp chia sẻ kinh nghiệm, training kỹ năng làm chủ kênh, điều phối giọng nói và xử lý khủng hoảng thông tin cho Host mới. Quản lý hệ thống nhân sự livestream: sắp xếp lịch ca live, theo dõi hiệu suất, chấm công và tổng hợp dữ liệu tính lương cho team.</div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- ===== KỸ NĂNG ===== -->
+        <div id="tab-movie" class="tab-pane">
+          <p class="skill-section-title">Kỹ năng chuyên môn</p>
+          <div class="skills-grid">
+            <span class="skill-tag sk-pink">Livestream TikTok Shop</span>
+            <span class="skill-tag sk-pink">TikTok Ecommerce</span>
+            <span class="skill-tag sk-blue">Vận hành GMVMax</span>
+            <span class="skill-tag sk-blue">Kịch bản Livestream</span>
+            <span class="skill-tag sk-mint">TikTok / Facebook Ads</span>
+            <span class="skill-tag sk-mint">KOC / KOL Booking</span>
+            <span class="skill-tag sk-orange">Đo lường ROAS</span>
+            <span class="skill-tag sk-orange">SEO TikTok Shop</span>
+            <span class="skill-tag sk-pink">Quản lý Lịch &amp; Ca live</span>
+            <span class="skill-tag sk-blue">Training Kỹ năng Host</span>
+          </div>
+
+          <p class="skill-section-title">Điểm mạnh cốt lõi</p>
+          <div class="skills-grid">
+            <span class="skill-tag">Tự tin &amp; Năng lượng cao trước ống kính</span>
+            <span class="skill-tag">Nắm bắt tâm lý người xem</span>
+            <span class="skill-tag">Chịu áp lực tốt</span>
+            <span class="skill-tag">Xử lý tình huống tốc độ cao</span>
+            <span class="skill-tag">Teamwork nhịp nhàng</span>
+            <span class="skill-tag">Chủ động &amp; Trách nhiệm</span>
+          </div>
+
+          <p class="skill-section-title">Học vấn</p>
+          <div class="skills-grid">
+            <span class="skill-tag sk-mint">ĐH Sư phạm Kỹ thuật TP.HCM (HCMUTE)</span>
+            <span class="skill-tag">Chuyên ngành: Kế toán</span>
+          </div>
+        </div>
+
+        <!-- ===== THÀNH TÍCH ===== -->
+        <div id="tab-awards" class="tab-pane">
+          <ul class="awards-list">
+            <li>
+              <span class="a-name">Lập Kỷ Lục Doanh Thu &amp; Tăng Trưởng 2025 — Team Livestream (TikTok) · MIA.vn<br>
+                <small style="color:#aaa;font-weight:300;">Vinh danh đội ngũ vận hành &amp; livestream xuất sắc nhất trong việc tối ưu tỉ lệ chuyển đổi, bứt phá GMV và xác lập kỷ lục mới trên TikTok Shop.</small>
+              </span>
+              <span class="a-year">2025</span>
+            </li>
+            <li>
+              <span class="a-name">Chiến Binh Livestream Xuất Sắc 2025 — MIA.vn<br>
+                <small style="color:#aaa;font-weight:300;">Giải thưởng cá nhân danh giá dành cho Host Livestream có hiệu suất lên sóng vượt trội. Kỷ lục doanh thu cá nhân: <strong style="color:#e8517c;">6.9 tỷ VND</strong> trong các chiến dịch Mega Live.</small>
+              </span>
+              <span class="a-year">2025</span>
+            </li>
+          </ul>
+        </div>
+
+      </div><!-- /col-right -->
+    </div><!-- /container -->
+  </section>
+
+</div><!-- /sub0301_view -->
+</div><!-- /sub-inner-wrap -->
+
+<!-- ==================== FOOTER ==================== -->
+<footer id="footerWrap">
+  <div class="container">
+    <div class="foot-left">
+      <a href="#" class="ntmd-logo footer">
+        <div class="nl-letters">
+          <span class="nl-n">N</span><span class="nl-t">T</span><span class="nl-m">M</span><span class="nl-d">D</span>
+        </div>
+        <div class="nl-tag">Portfolio</div>
+      </a>
+    </div>
+
+    <div class="foot-right">
+      <div class="foot-sns">
+        <a href="https://blog.naver.com/edament" target="_blank" title="Naver Blog">
+          <i class="fa fa-bookmark"></i>
+        </a>
+        <a href="https://twitter.com/edam_ent" target="_blank" title="Twitter">
+          <i class="fa fa-twitter"></i>
+        </a>
+        <a href="https://www.instagram.com/EDAM.Official" target="_blank" title="Instagram">
+          <i class="fa fa-instagram"></i>
+        </a>
+        <a href="http://www.youtube.com/c/EdamEnt" target="_blank" title="YouTube">
+          <i class="fa fa-youtube-play"></i>
+        </a>
+      </div>
+      <div class="foot-copy">&copy; 2025 NTMD Portfolio. All rights reserved.</div>
+      <address class="foot-addr">
+        <p>Nguyễn Thị Mỹ Diệu</p>
+        <p>TP. Hồ Chí Minh, Việt Nam</p>
+        <p>mydieu442003@gmail.com</p>
+        <p>0942 964 102</p>
+      </address>
+    </div>
+  </div>
+
+  <a href="#" class="goTop">
+    <i class="material-icons">arrow_upward</i>
+  </a>
+</footer>
+
+<!-- ==================== SCRIPTS ==================== -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+<script>
+  // AOS
+  AOS.init({ once: true });
+
+  // ── Header: transparent → white on scroll ──
+  var $header = $('#header');
+  $(window).on('scroll', function () {
+    if ($(this).scrollTop() > 60) {
+      $header.addClass('is-scrolled');
+    } else {
+      $header.removeClass('is-scrolled');
+    }
+  });
+
+  // ── Tabs ──
+  $('.tab-nav a').on('click', function (e) {
+    e.preventDefault();
+    var target = $(this).data('target');
+    // update nav
+    $('.tab-nav li').removeClass('active');
+    $(this).closest('li').addClass('active');
+    // update panes
+    $('.tab-pane').removeClass('active');
+    $('#tab-' + target).addClass('active');
+  });
+
+  // ── More / Less toggle for album ──
+  var expanded = false;
+  $('#btn-more').on('click', function (e) {
+    e.preventDefault();
+    expanded = !expanded;
+    if (expanded) {
+      $('.media-item.more').css({ display: 'block' });
+      // re-trigger grid layout
+      setTimeout(function () {
+        $('.media-item.more').css('opacity', 0).animate({ opacity: 1 }, 400);
+      }, 10);
+      $(this).text('LESS VIEW').addClass('active');
+    } else {
+      $('.media-item.more').fadeOut(300);
+      $(this).text('MORE VIEW').removeClass('active');
+    }
+  });
+
+  // ── Mobile menu ──
+  $('#ham-btn').on('click', function () {
+    $('#m-overlay').addClass('open');
+    $('body').css('overflow', 'hidden');
+  });
+  $('#m-close-btn, #m-overlay .m-nav-list a').on('click', function () {
+    $('#m-overlay').removeClass('open');
+    $('body').css('overflow', '');
+  });
+
+  // ── Go to top ──
+  $('.goTop').on('click', function (e) {
+    e.preventDefault();
+    $('html, body').animate({ scrollTop: 0 }, 300);
+  });
+
+  // ── Nav hover: show background overlay strip ──
+  $('.gnb-pc').on('mouseenter', function () {
+    if (!$header.hasClass('is-scrolled')) {
+      $header.css('background', 'rgba(255,255,255,0.97)');
+      $header.find('.logo-wrap a').css('color', '#111');
+      $header.find('.gnb-pc > li > a').css('color', '#222');
+      $header.find('.lang-btn').css('color', '#333');
+    }
+  }).on('mouseleave', function () {
+    if (!$header.hasClass('is-scrolled')) {
+      $header.css('background', '');
+      $header.find('.logo-wrap a').css('color', '');
+      $header.find('.gnb-pc > li > a').css('color', '');
+      $header.find('.lang-btn').css('color', '');
+    }
+  });
+
+  // ── Image hover: switchImg effect ──
+  $('.sns-icons a').on('mouseenter', function () {
+    $(this).find('i').addClass('fa-spin-once');
+  });
+</script>
+</body>
+</html>
