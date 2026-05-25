@@ -11,8 +11,11 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <!-- Fonts -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Noto+Sans+KR:wght@300;400;500;700&family=Nunito:wght@400;900&family=Cinzel:wght@400;600&display=swap">
-  <!-- Font Awesome -->
+  <!-- Font Awesome 4 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Font Awesome 6 Brands (for TikTok) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/brands.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/fontawesome.min.css">
   <!-- Material Icons -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <!-- AOS -->
@@ -425,10 +428,50 @@
       border-color: #111;
       color: #fff;
     }
-    .sns-icons a .tiktok-icon {
+    .sns-icons { position: relative; }
+    #zalo-popup {
+      display: none;
+      position: absolute;
+      bottom: calc(100% + 10px);
+      left: 0;
+      background: #fff;
+      border: 1px solid #e8e8e8;
+      border-radius: 8px;
+      padding: 12px 18px;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.12);
+      z-index: 200;
+      white-space: nowrap;
+    }
+    #zalo-popup::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 20px;
+      border: 7px solid transparent;
+      border-top-color: #fff;
+    }
+    #zalo-popup::before {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 19px;
+      border: 8px solid transparent;
+      border-top-color: #e8e8e8;
+    }
+    #zalo-popup.show { display: block; }
+    #zalo-popup .zp-label {
       font-size: 10px;
-      font-weight: 800;
-      letter-spacing: -0.05em;
+      color: #aaa;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    #zalo-popup .zp-phone {
+      font-size: 15px;
+      font-weight: 700;
+      color: #111;
+      letter-spacing: 0.05em;
     }
 
     /* ===================== TABS ===================== */
@@ -1012,9 +1055,13 @@
         <div class="sns-row">
           <span class="lbl" data-i18n="lbl_social">Mạng xã hội</span>
           <div class="sns-icons">
-            <a href="https://www.tiktok.com/" target="_blank" title="TikTok" style="font-size:10px;font-weight:800;">TK</a>
-            <a href="https://www.facebook.com/" target="_blank" title="Facebook"><i class="fa fa-facebook"></i></a>
-            <a href="https://www.instagram.com/" target="_blank" title="Instagram"><i class="fa fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@midiu453" target="_blank" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="https://www.facebook.com/nguyen.my.dieu.609400" target="_blank" title="Facebook"><i class="fa fa-facebook"></i></a>
+            <a href="#" id="zalo-btn" title="Zalo" style="font-size:11px;font-weight:800;font-family:'Nunito',sans-serif;">Za</a>
+            <div id="zalo-popup">
+              <div class="zp-label">Zalo</div>
+              <div class="zp-phone">0942 964 102</div>
+            </div>
           </div>
         </div>
       </div>
@@ -1314,6 +1361,17 @@
   $('#m-close-btn, #m-overlay .m-nav-list a').on('click', function () {
     $('#m-overlay').removeClass('open');
     $('body').css('overflow', '');
+  });
+
+  // ── Zalo popup ──
+  $('#zalo-btn').on('click', function(e) {
+    e.preventDefault();
+    $('#zalo-popup').toggleClass('show');
+  });
+  $(document).on('click', function(e) {
+    if (!$(e.target).closest('#zalo-btn, #zalo-popup').length) {
+      $('#zalo-popup').removeClass('show');
+    }
   });
 
   // ── Go to top ──
