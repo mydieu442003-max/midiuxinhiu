@@ -917,6 +917,82 @@
       .tab-nav li a { padding: 8px 12px; font-size: 11px; }
       .awards-list .a-name { font-size: 12.5px; }
     }
+
+    /* ===================== PHOTO / AWARD GALLERY ===================== */
+    .photo-gallery {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+      margin-top: 20px;
+    }
+    .award-gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-top: 20px;
+    }
+    .gal-item {
+      display: block;
+      overflow: hidden;
+      aspect-ratio: 1 / 1;
+      background: #f2f2f2;
+      cursor: pointer;
+    }
+    .gal-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .gal-item:hover img { transform: scale(1.07); }
+    .gal-section-label {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #bbb;
+      font-weight: 400;
+      margin: 28px 0 10px;
+    }
+
+    /* Lightbox */
+    #lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.94);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      cursor: zoom-out;
+    }
+    #lightbox.open { display: flex; }
+    #lightbox-img {
+      max-width: 92vw;
+      max-height: 88vh;
+      object-fit: contain;
+      border-radius: 3px;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.5);
+    }
+    #lightbox-close {
+      position: absolute;
+      top: 22px;
+      right: 28px;
+      color: #fff;
+      font-size: 36px;
+      line-height: 1;
+      cursor: pointer;
+      opacity: 0.65;
+      transition: opacity 0.2s;
+      font-weight: 200;
+      user-select: none;
+    }
+    #lightbox-close:hover { opacity: 1; }
+
+    @media (max-width: 767px) {
+      .award-gallery { grid-template-columns: repeat(3, 1fr); gap: 5px; }
+      .photo-gallery { gap: 6px; }
+    }
   </style>
 </head>
 <body>
@@ -1130,18 +1206,20 @@
 
         <!-- ===== PHOTO ===== -->
         <div id="tab-photo" class="tab-pane">
-          <ul class="work-list">
-            <li>
-              <div class="wl-thumb" style="background:#ddd;display:flex;align-items:center;justify-content:center;">
-                <i class="fa fa-camera" style="font-size:22px;color:#bbb;"></i>
-              </div>
-              <div class="wl-info">
-                <div class="wl-title"><b>Ảnh sẽ được cập nhật sớm</b></div>
-                <div class="wl-sub">Hình ảnh trong quá trình làm việc &amp; sự kiện</div>
-                <div class="wl-date">Coming soon</div>
-              </div>
-            </li>
-          </ul>
+          <div class="photo-gallery">
+            <a class="gal-item" data-src="images/photo/502921831_2217927605333028_6923909194345131921_n.jpg">
+              <img src="images/photo/502921831_2217927605333028_6923909194345131921_n.jpg" alt="Photo" loading="lazy">
+            </a>
+            <a class="gal-item" data-src="images/photo/503102084_2217925825333206_1542008029086343562_n.jpg">
+              <img src="images/photo/503102084_2217925825333206_1542008029086343562_n.jpg" alt="Photo" loading="lazy">
+            </a>
+            <a class="gal-item" data-src="images/photo/503249540_2217927618666360_6573219753030840519_n.jpg">
+              <img src="images/photo/503249540_2217927618666360_6573219753030840519_n.jpg" alt="Photo" loading="lazy">
+            </a>
+            <a class="gal-item" data-src="images/photo/503252279_2217927751999680_2236440742273430961_n.jpg">
+              <img src="images/photo/503252279_2217927751999680_2236440742273430961_n.jpg" alt="Photo" loading="lazy">
+            </a>
+          </div>
         </div>
 
         <!-- ===== VIDEO ===== -->
@@ -1183,6 +1261,37 @@
             </li>
 
           </ul>
+
+          <div class="gal-section-label">Gallery</div>
+          <div class="award-gallery">
+            <a class="gal-item" data-src="images/award/631352437_2436279576831162_8366921677159252185_n.jpg">
+              <img src="images/award/631352437_2436279576831162_8366921677159252185_n.jpg" alt="Award" loading="lazy">
+            </a>
+            <a class="gal-item" data-src="images/award/631580102_2436293360163117_79697568492159050_n.jpg">
+              <img src="images/award/631580102_2436293360163117_79697568492159050_n.jpg" alt="Award" loading="lazy">
+            </a>
+            <a class="gal-item" data-src="images/award/631789228_2436293426829777_458553714891598834_n.jpg">
+              <img src="images/award/631789228_2436293426829777_458553714891598834_n.jpg" alt="Award" loading="lazy">
+            </a>
+            <a class="gal-item" data-src="images/award/632329636_2436293293496457_6206036198287223446_n.jpg">
+              <img src="images/award/632329636_2436293293496457_6206036198287223446_n.jpg" alt="Award" loading="lazy">
+            </a>
+            <a class="gal-item" data-src="images/award/633123186_2436293326829787_7905675155955613988_n.jpg">
+              <img src="images/award/633123186_2436293326829787_7905675155955613988_n.jpg" alt="Award" loading="lazy">
+            </a>
+            <a class="gal-item" data-src="images/award/633159117_2436293353496451_3704647611853874384_n.jpg">
+              <img src="images/award/633159117_2436293353496451_3704647611853874384_n.jpg" alt="Award" loading="lazy">
+            </a>
+            <a class="gal-item" data-src="images/award/633185696_2436293180163135_8596955500573532876_n.jpg">
+              <img src="images/award/633185696_2436293180163135_8596955500573532876_n.jpg" alt="Award" loading="lazy">
+            </a>
+            <a class="gal-item" data-src="images/award/633790814_2436281316830988_7329674540135208801_n.jpg">
+              <img src="images/award/633790814_2436281316830988_7329674540135208801_n.jpg" alt="Award" loading="lazy">
+            </a>
+            <a class="gal-item" data-src="images/award/954edc3a-4c25-4c1a-a855-5e24bea5f1a3.jpg">
+              <img src="images/award/954edc3a-4c25-4c1a-a855-5e24bea5f1a3.jpg" alt="Award" loading="lazy">
+            </a>
+          </div>
         </div>
 
       </div><!-- /col-right -->
@@ -1331,12 +1440,29 @@
   $('.tab-nav a').on('click', function (e) {
     e.preventDefault();
     var target = $(this).data('target');
-    // update nav
     $('.tab-nav li').removeClass('active');
     $(this).closest('li').addClass('active');
-    // update panes
     $('.tab-pane').removeClass('active');
     $('#tab-' + target).addClass('active');
+    if (target === 'photo' || target === 'awards') {
+      setTimeout(function () {
+        var $pane = $('#tab-' + target);
+        $('html,body').animate({ scrollTop: $pane.offset().top - 80 }, 600);
+      }, 60);
+    }
+  });
+
+  // ── Lightbox ──
+  $(document).on('click', '.gal-item', function (e) {
+    e.preventDefault();
+    var src = $(this).data('src');
+    $('#lightbox-img').attr('src', src);
+    $('#lightbox').addClass('open');
+    $('body').css('overflow', 'hidden');
+  });
+  $('#lightbox, #lightbox-close').on('click', function () {
+    $('#lightbox').removeClass('open');
+    $('body').css('overflow', '');
   });
 
   // ── More / Less toggle for album ──
@@ -1418,5 +1544,11 @@
     $(this).find('i').addClass('fa-spin-once');
   });
 </script>
+
+<!-- Lightbox -->
+<div id="lightbox">
+  <span id="lightbox-close">&times;</span>
+  <img id="lightbox-img" src="" alt="">
+</div>
 </body>
 </html>
