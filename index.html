@@ -871,9 +871,9 @@
             ENG <span class="arrow">&#9660;</span>
           </div>
           <div class="lang-drop">
-            <a href="#" title="Tiếng Việt">VN</a>
-            <a href="#" title="English" style="color:#111;font-weight:700;">ENG</a>
-            <a href="#" title="中文">CN</a>
+            <a href="#" data-lang="vn" onclick="setLang('vn');return false;">VN</a>
+            <a href="#" data-lang="en" onclick="setLang('en');return false;">ENG</a>
+            <a href="#" data-lang="cn" onclick="setLang('cn');return false;">CN</a>
           </div>
         </div>
       </div>
@@ -949,16 +949,16 @@
         <div class="profile-name" style="flex-direction:column; align-items:flex-start; gap:6px;">
           <h2>Mỹ Diệu</h2>
           <div style="font-size:13px;font-weight:400;color:#888;letter-spacing:0.02em;">Nguyễn Thị Mỹ Diệu</div>
-          <div style="font-size:12px;font-weight:600;color:#e8517c;letter-spacing:0.08em;text-transform:uppercase;">Livestreamer &nbsp;/&nbsp; Livestream Operations</div>
+          <div data-i18n="profile_role" style="font-size:12px;font-weight:600;color:#e8517c;letter-spacing:0.08em;text-transform:uppercase;">Livestreamer &nbsp;/&nbsp; Vận hành Livestream</div>
         </div>
 
         <div class="profile-row">
-          <span class="lbl">Sinh</span>
+          <span class="lbl" data-i18n="lbl_born">Sinh</span>
           04/04/2003
         </div>
 
         <div class="profile-row">
-          <span class="lbl">Địa chỉ</span>
+          <span class="lbl" data-i18n="lbl_address">Địa chỉ</span>
           TP. Hồ Chí Minh
         </div>
 
@@ -968,12 +968,12 @@
         </div>
 
         <div class="profile-row">
-          <span class="lbl">Điện thoại</span>
+          <span class="lbl" data-i18n="lbl_phone">Điện thoại</span>
           0942 964 102
         </div>
 
         <div class="sns-row">
-          <span class="lbl">Mạng xã hội</span>
+          <span class="lbl" data-i18n="lbl_social">Mạng xã hội</span>
           <div class="sns-icons">
             <a href="https://www.tiktok.com/" target="_blank" title="TikTok" style="font-size:10px;font-weight:800;">TK</a>
             <a href="https://www.facebook.com/" target="_blank" title="Facebook"><i class="fa fa-facebook"></i></a>
@@ -997,10 +997,10 @@
 
         <!-- Tabs nav -->
         <ul class="tab-nav">
-          <li class="active"><a href="#" data-target="album">Chiến dịch</a></li>
-          <li><a href="#" data-target="drama">Kinh nghiệm</a></li>
-          <li><a href="#" data-target="movie">Kỹ năng</a></li>
-          <li><a href="#" data-target="awards">Thành tích</a></li>
+          <li class="active"><a href="#" data-target="album" data-i18n="tab_campaign">Chiến dịch</a></li>
+          <li><a href="#" data-target="drama" data-i18n="tab_experience">Kinh nghiệm</a></li>
+          <li><a href="#" data-target="movie" data-i18n="tab_skills">Kỹ năng</a></li>
+          <li><a href="#" data-target="awards" data-i18n="tab_awards">Thành tích</a></li>
         </ul>
 
         <!-- ===== CHIẾN DỊCH ===== -->
@@ -1094,7 +1094,7 @@
 
         <!-- ===== KỸ NĂNG ===== -->
         <div id="tab-movie" class="tab-pane">
-          <p class="skill-section-title">Kỹ năng chuyên môn</p>
+          <p class="skill-section-title" data-i18n="skill_pro">Kỹ năng chuyên môn</p>
           <div class="skills-grid">
             <span class="skill-tag sk-pink">Host Livestream</span>
             <span class="skill-tag sk-pink">Setup phòng live</span>
@@ -1106,14 +1106,14 @@
             <span class="skill-tag sk-orange">Đóng góp concept &amp; idea</span>
           </div>
 
-          <p class="skill-section-title">Tin học văn phòng</p>
+          <p class="skill-section-title" data-i18n="skill_office">Tin học văn phòng</p>
           <div class="skills-grid">
             <span class="skill-tag">Microsoft Word</span>
             <span class="skill-tag">Microsoft Excel</span>
             <span class="skill-tag">PowerPoint</span>
           </div>
 
-          <p class="skill-section-title">Điểm mạnh cốt lõi</p>
+          <p class="skill-section-title" data-i18n="skill_strength">Điểm mạnh cốt lõi</p>
           <div class="skills-grid">
             <span class="skill-tag">Hoạt bát &amp; Nhiệt tình trước ống kính</span>
             <span class="skill-tag">Thích ứng nhanh môi trường mới</span>
@@ -1122,7 +1122,7 @@
             <span class="skill-tag">Chịu áp lực &amp; làm việc nhóm tốt</span>
           </div>
 
-          <p class="skill-section-title">Học vấn</p>
+          <p class="skill-section-title" data-i18n="skill_edu">Học vấn</p>
           <div class="skills-grid">
             <span class="skill-tag sk-mint">ĐH Sư phạm Kỹ thuật TP.HCM (HCMUTE)</span>
             <span class="skill-tag">Chuyên ngành: Kế toán &nbsp;·&nbsp; 09/2021 – Nay</span>
@@ -1202,6 +1202,80 @@
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
 <script>
+  // ── i18n Language System ──
+  var i18n = {
+    vn: {
+      profile_role:   'Livestreamer &nbsp;/&nbsp; Vận hành Livestream',
+      lbl_born:       'Sinh',
+      lbl_address:    'Địa chỉ',
+      lbl_phone:      'Điện thoại',
+      lbl_social:     'Mạng xã hội',
+      tab_campaign:   'Chiến dịch',
+      tab_experience: 'Kinh nghiệm',
+      tab_skills:     'Kỹ năng',
+      tab_awards:     'Thành tích',
+      skill_pro:      'Kỹ năng chuyên môn',
+      skill_office:   'Tin học văn phòng',
+      skill_strength: 'Điểm mạnh cốt lõi',
+      skill_edu:      'Học vấn',
+    },
+    en: {
+      profile_role:   'Livestreamer &nbsp;/&nbsp; Livestream Operations',
+      lbl_born:       'Born',
+      lbl_address:    'Location',
+      lbl_phone:      'Phone',
+      lbl_social:     'Social Media',
+      tab_campaign:   'Campaigns',
+      tab_experience: 'Experience',
+      tab_skills:     'Skills',
+      tab_awards:     'Awards',
+      skill_pro:      'Professional Skills',
+      skill_office:   'Office Tools',
+      skill_strength: 'Core Strengths',
+      skill_edu:      'Education',
+    },
+    cn: {
+      profile_role:   '直播员 &nbsp;/&nbsp; 直播运营',
+      lbl_born:       '出生',
+      lbl_address:    '地址',
+      lbl_phone:      '电话',
+      lbl_social:     '社交媒体',
+      tab_campaign:   '活动',
+      tab_experience: '经验',
+      tab_skills:     '技能',
+      tab_awards:     '荣誉',
+      skill_pro:      '专业技能',
+      skill_office:   '办公工具',
+      skill_strength: '核心优势',
+      skill_edu:      '教育背景',
+    }
+  };
+
+  var currentLang = localStorage.getItem('site-lang') || 'vn';
+
+  function setLang(lang) {
+    currentLang = lang;
+    localStorage.setItem('site-lang', lang);
+    // Update all data-i18n elements
+    document.querySelectorAll('[data-i18n]').forEach(function(el) {
+      var key = el.getAttribute('data-i18n');
+      if (i18n[lang] && i18n[lang][key] !== undefined) {
+        el.innerHTML = i18n[lang][key];
+      }
+    });
+    // Update lang button label
+    var labels = { vn: 'VN', en: 'ENG', cn: 'CN' };
+    document.querySelector('.lang-btn').innerHTML = labels[lang] + ' <span class="arrow">&#9660;</span>';
+    // Highlight active lang in dropdown
+    document.querySelectorAll('.lang-drop a[data-lang]').forEach(function(a) {
+      a.style.fontWeight = a.getAttribute('data-lang') === lang ? '700' : '400';
+      a.style.color      = a.getAttribute('data-lang') === lang ? '#111' : '#444';
+    });
+  }
+
+  // Init on page load
+  setLang(currentLang);
+
   // AOS
   AOS.init({ once: true });
 
