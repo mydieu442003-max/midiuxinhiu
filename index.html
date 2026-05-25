@@ -178,7 +178,7 @@
       font-size: 9px;
       transition: transform 0.2s;
     }
-    .lang-wrap:hover .arrow { transform: rotate(180deg); }
+    .lang-wrap.open .arrow { transform: rotate(180deg); }
     #header.is-scrolled .lang-btn { color: #333; }
     .lang-drop {
       display: none;
@@ -189,7 +189,7 @@
       min-width: 72px;
       box-shadow: 0 6px 20px rgba(0,0,0,0.12);
     }
-    .lang-wrap:hover .lang-drop { display: block; }
+    .lang-wrap.open .lang-drop { display: block; }
     .lang-drop a {
       display: block;
       padding: 9px 16px;
@@ -1365,6 +1365,18 @@
   $('#m-close-btn, #m-overlay .m-nav-list a').on('click', function () {
     $('#m-overlay').removeClass('open');
     $('body').css('overflow', '');
+  });
+
+  // ── Language dropdown: click to open ──
+  $('.lang-btn').on('click', function(e) {
+    e.stopPropagation();
+    $('.lang-wrap').toggleClass('open');
+  });
+  $(document).on('click', function() {
+    $('.lang-wrap').removeClass('open');
+  });
+  $('.lang-drop').on('click', function(e) {
+    e.stopPropagation();
   });
 
   // ── Zalo popup ──
