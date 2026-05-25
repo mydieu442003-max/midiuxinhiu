@@ -434,29 +434,29 @@
     /* ===================== TABS ===================== */
     .tab-nav {
       display: flex;
-      border-bottom: 2px solid #111;
-      margin-bottom: 34px;
-      gap: 0;
+      border-bottom: none;
+      margin-bottom: 0;
+      gap: 36px;
+      padding-bottom: 20px;
     }
-    .tab-nav li { margin-bottom: -2px; }
+    .tab-nav li { margin-bottom: 0; }
     .tab-nav li a {
       display: block;
-      padding: 10px 22px;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
+      padding: 0;
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.05em;
       color: #bbb;
-      border: 2px solid transparent;
-      border-bottom: none;
+      border: none;
+      background: none;
       transition: color 0.2s;
     }
     .tab-nav li a:hover { color: #555; }
     .tab-nav li.active a {
+      font-weight: 700;
       color: #111;
-      border-color: #111;
-      border-bottom: 2px solid #fff;
-      background: #fff;
+      border: none;
+      background: none;
     }
 
     /* Tab panes */
@@ -467,6 +467,43 @@
       from { opacity: 0; transform: translateY(12px); }
       to   { opacity: 1; transform: translateY(0); }
     }
+
+    /* ===================== WORK LIST (vertical) ===================== */
+    .work-list { list-style: none; margin: 0; padding: 0; }
+    .work-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 22px;
+      padding: 18px 0;
+      border-bottom: 1px solid #f0f0f0;
+      transition: background 0.15s, padding-left 0.15s;
+      cursor: default;
+    }
+    .work-list li:first-child { border-top: 1px solid #f0f0f0; }
+    .work-list li:hover { background: #fafafa; padding-left: 4px; }
+    .wl-thumb {
+      width: 82px;
+      height: 82px;
+      flex-shrink: 0;
+      background: #efefef;
+      overflow: hidden;
+    }
+    .wl-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .wl-info { flex: 1; padding-top: 4px; }
+    .wl-title {
+      font-size: 14px;
+      color: #111;
+      margin-bottom: 5px;
+      line-height: 1.5;
+    }
+    .wl-title b { font-weight: 700; }
+    .wl-sub {
+      font-size: 12.5px;
+      color: #888;
+      margin-bottom: 6px;
+      line-height: 1.6;
+    }
+    .wl-date { font-size: 12px; color: #bbb; letter-spacing: 0.03em; }
 
     /* ===================== ALBUM / DRAMA / MOVIE GRID ===================== */
     .media-grid {
@@ -997,153 +1034,103 @@
 
         <!-- Tabs nav -->
         <ul class="tab-nav">
-          <li class="active"><a href="#" data-target="album" data-i18n="tab_campaign">Chiến dịch</a></li>
-          <li><a href="#" data-target="drama" data-i18n="tab_experience">Kinh nghiệm</a></li>
-          <li><a href="#" data-target="movie" data-i18n="tab_skills">Kỹ năng</a></li>
-          <li><a href="#" data-target="awards" data-i18n="tab_awards">Thành tích</a></li>
+          <li class="active"><a href="#" data-target="exp" data-i18n="tab_experience">Kinh nghiệm</a></li>
+          <li><a href="#" data-target="photo">Photo</a></li>
+          <li><a href="#" data-target="video">Video</a></li>
+          <li><a href="#" data-target="awards" data-i18n="tab_awards">Awards</a></li>
         </ul>
 
-        <!-- ===== CHIẾN DỊCH ===== -->
-        <div id="tab-album" class="tab-pane active">
-          <div class="media-grid">
-
-            <div class="media-item">
-              <div class="thumb"><img src="https://placehold.co/300x300/e8517c/ffffff?text=MIA+Live" alt="MIA Live 108tr"></div>
-              <div class="info"><h3><b>Live Brand MIA.vn Official</b><br>GMV 200 triệu đồng trong 3 tiếng</h3><p class="date">09/10/2024 · MIA Việt Nam</p></div>
-            </div>
-
-            <div class="media-item">
-              <div class="thumb"><img src="https://placehold.co/300x300/4a9eca/ffffff?text=MIA+Campaign" alt="MIA Campaign Concept"></div>
-              <div class="info"><h3><b>Campaign Concept &amp; Idea</b><br>Đóng góp ý tưởng chiến dịch sản phẩm vali</h3><p class="date">09/2024 – Nay · MIA Việt Nam</p></div>
-            </div>
-
-            <div class="media-item">
-              <div class="thumb"><img src="https://placehold.co/300x300/3fbfac/ffffff?text=MIA+TikTok" alt="MIA TikTok Shopee"></div>
-              <div class="info"><h3><b>Livestream TikTok &amp; Shopee</b><br>Vận hành phòng live Brand MIA.vn</h3><p class="date">09/2024 – Nay · MIA Việt Nam</p></div>
-            </div>
-
-            <div class="media-item">
-              <div class="thumb"><img src="https://placehold.co/300x300/f5834a/ffffff?text=Skintific+Live" alt="Skintific Live 91tr"></div>
-              <div class="info"><h3><b>Live Brand Skintific.vn</b><br>GMV 91 triệu đồng trong 1 tiếng 50 phút</h3><p class="date">10/11/2023 · June Sun Yvan</p></div>
-            </div>
-
-            <div class="media-item">
-              <div class="thumb"><img src="https://placehold.co/300x300/e8517c/ffffff?text=Skintific+Host" alt="Skintific Host Livestream"></div>
-              <div class="info"><h3><b>Host Livestream Skintific.vn</b><br>Điều phối phòng live, vận hành TikTok &amp; Shopee</h3><p class="date">03/2023 – 03/2024 · June Sun Yvan</p></div>
-            </div>
-
-            <div class="media-item">
-              <div class="thumb"><img src="https://placehold.co/300x300/4a9eca/ffffff?text=Content+Strategy" alt="Content Strategy"></div>
-              <div class="info"><h3><b>Phân tích &amp; Chiến lược Nội dung</b><br>Đóng góp concept từ phản hồi khách hàng</h3><p class="date">03/2023 – 03/2024 · June Sun Yvan</p></div>
-            </div>
-
-          </div><!-- /media-grid -->
-        </div>
-
         <!-- ===== KINH NGHIỆM ===== -->
-        <div id="tab-drama" class="tab-pane">
-          <div class="timeline">
+        <div id="tab-exp" class="tab-pane active">
+          <ul class="work-list">
 
-            <!-- Vị trí hiện tại -->
-            <div class="tl-item">
-              <div class="tl-dot"></div>
-              <div class="tl-period">10/2024 – 05/2026 &nbsp;·&nbsp; 1 năm 7 tháng</div>
-              <div class="tl-title">Nhân viên Livestream</div>
-              <div class="tl-company">Công ty TNHH MIA Việt Nam &nbsp;—&nbsp; Brand MIA.vn Official (vali &amp; hành lý)</div>
-              <div style="font-size:13px;font-weight:700;color:#111;margin-bottom:8px;">Vận hành Livestream</div>
-              <div class="tl-desc">
-                <ul>
-                  <li>Seller sản phẩm vali chính hãng MIA.vn — tư vấn, giải đáp thắc mắc của khách hàng trực tiếp trong phiên live.</li>
-                  <li>Host Livestream điều phối toàn bộ phòng live trên nền tảng TikTok Shop và Shopee Live.</li>
-                  <li>Phân tích hiệu suất từng phiên, đóng góp concept và ý tưởng vào các chương trình campaign theo từng giai đoạn.</li>
-                </ul>
+            <li>
+              <div class="wl-thumb"><img src="https://placehold.co/82x82/e8517c/ffffff?text=MIA" alt="MIA"></div>
+              <div class="wl-info">
+                <div class="wl-title"><b>Nhân viên Livestream</b> — Vận hành Livestream</div>
+                <div class="wl-sub">Công ty TNHH MIA Việt Nam &nbsp;·&nbsp; Brand MIA.vn Official (vali &amp; hành lý)<br>
+                  Seller tư vấn sản phẩm · Host điều phối phòng live · Đóng góp concept campaign</div>
+                <div class="wl-date">10/2024 – 05/2026 &nbsp;·&nbsp; 1 năm 7 tháng</div>
               </div>
-            </div>
+            </li>
 
-            <!-- CTV Freelance -->
-            <div class="tl-item">
-              <div class="tl-dot"></div>
-              <div class="tl-period" style="color:#f5834a;">04/2024 – 09/2024 &nbsp;·&nbsp; 6 tháng</div>
-              <div class="tl-title">CTV Livestream (Freelance)</div>
-              <div class="tl-company">Nhiều Brand &nbsp;—&nbsp; Sicoli, Guiaruan &amp; các brand khác</div>
-              <div class="tl-desc">
-                <ul>
-                  <li>Cộng tác viên Livestream cho nhiều brand đa dạng ngành hàng.</li>
-                  <li>Host &amp; Seller trực tiếp trên các nền tảng TikTok Shop và Shopee Live.</li>
-                </ul>
+            <li>
+              <div class="wl-thumb"><img src="https://placehold.co/82x82/f5834a/ffffff?text=CTV" alt="CTV"></div>
+              <div class="wl-info">
+                <div class="wl-title"><b>CTV Livestream</b> — Freelance</div>
+                <div class="wl-sub">Sicoli, Guiaruan &amp; nhiều brand khác<br>
+                  Host &amp; Seller trực tiếp trên TikTok Shop và Shopee Live</div>
+                <div class="wl-date">04/2024 – 09/2024 &nbsp;·&nbsp; 6 tháng</div>
               </div>
-            </div>
+            </li>
 
-            <!-- Vị trí trước -->
-            <div class="tl-item">
-              <div class="tl-dot"></div>
-              <div class="tl-period" style="color:#4a9eca;">03/2023 – 03/2024 &nbsp;·&nbsp; 1 năm</div>
-              <div class="tl-title">Nhân viên Livestream</div>
-              <div class="tl-company">Công ty TNHH June Sun Yvan &nbsp;—&nbsp; Brand Skintific.vn (mỹ phẩm)</div>
-              <div class="tl-desc">
-                <ul>
-                  <li>Seller mỹ phẩm Brand Skintific.vn — tư vấn sản phẩm và giải đáp thắc mắc của khách hàng trong phiên livestream.</li>
-                  <li>Host Livestream điều phối phòng live, nắm vững quy trình vận hành bán hàng trực tuyến trên TikTok và Shopee.</li>
-                  <li>Phân tích phản hồi khách hàng, đóng góp ý tưởng nâng cao hiệu quả truyền thông và campaign của công ty.</li>
-                </ul>
+            <li>
+              <div class="wl-thumb"><img src="https://placehold.co/82x82/4a9eca/ffffff?text=JSY" alt="June Sun Yvan"></div>
+              <div class="wl-info">
+                <div class="wl-title"><b>Nhân viên Livestream</b></div>
+                <div class="wl-sub">Công ty TNHH June Sun Yvan &nbsp;·&nbsp; Brand Skintific.vn (mỹ phẩm)<br>
+                  Seller tư vấn · Host điều phối phòng live · Phân tích phản hồi &amp; đóng góp ý tưởng</div>
+                <div class="wl-date">03/2023 – 03/2024 &nbsp;·&nbsp; 1 năm</div>
               </div>
-            </div>
+            </li>
 
-          </div><!-- /timeline -->
+          </ul>
         </div>
 
-        <!-- ===== KỸ NĂNG ===== -->
-        <div id="tab-movie" class="tab-pane">
-          <p class="skill-section-title" data-i18n="skill_pro">Kỹ năng chuyên môn</p>
-          <div class="skills-grid">
-            <span class="skill-tag sk-pink">Host Livestream</span>
-            <span class="skill-tag sk-pink">Setup phòng live</span>
-            <span class="skill-tag sk-blue">Bán hàng TikTok Shop</span>
-            <span class="skill-tag sk-blue">Bán hàng Shopee Live</span>
-            <span class="skill-tag sk-mint">Điều phối phòng live</span>
-            <span class="skill-tag sk-mint">Tư vấn &amp; chốt đơn</span>
-            <span class="skill-tag sk-orange">Phân tích campaign</span>
-            <span class="skill-tag sk-orange">Đóng góp concept &amp; idea</span>
-          </div>
-
-          <p class="skill-section-title" data-i18n="skill_office">Tin học văn phòng</p>
-          <div class="skills-grid">
-            <span class="skill-tag">Microsoft Word</span>
-            <span class="skill-tag">Microsoft Excel</span>
-            <span class="skill-tag">PowerPoint</span>
-          </div>
-
-          <p class="skill-section-title" data-i18n="skill_strength">Điểm mạnh cốt lõi</p>
-          <div class="skills-grid">
-            <span class="skill-tag">Hoạt bát &amp; Nhiệt tình trước ống kính</span>
-            <span class="skill-tag">Thích ứng nhanh môi trường mới</span>
-            <span class="skill-tag">Tinh thần trách nhiệm cao</span>
-            <span class="skill-tag">Tỉ mỉ &amp; Chú ý đến từng chi tiết</span>
-            <span class="skill-tag">Chịu áp lực &amp; làm việc nhóm tốt</span>
-          </div>
-
-          <p class="skill-section-title" data-i18n="skill_edu">Học vấn</p>
-          <div class="skills-grid">
-            <span class="skill-tag sk-mint">ĐH Sư phạm Kỹ thuật TP.HCM (HCMUTE)</span>
-            <span class="skill-tag">Chuyên ngành: Kế toán &nbsp;·&nbsp; 09/2021 – Nay</span>
-          </div>
+        <!-- ===== PHOTO ===== -->
+        <div id="tab-photo" class="tab-pane">
+          <ul class="work-list">
+            <li>
+              <div class="wl-thumb" style="background:#ddd;display:flex;align-items:center;justify-content:center;">
+                <i class="fa fa-camera" style="font-size:22px;color:#bbb;"></i>
+              </div>
+              <div class="wl-info">
+                <div class="wl-title"><b>Ảnh sẽ được cập nhật sớm</b></div>
+                <div class="wl-sub">Hình ảnh trong quá trình làm việc &amp; sự kiện</div>
+                <div class="wl-date">Coming soon</div>
+              </div>
+            </li>
+          </ul>
         </div>
 
-        <!-- ===== THÀNH TÍCH ===== -->
+        <!-- ===== VIDEO ===== -->
+        <div id="tab-video" class="tab-pane">
+          <ul class="work-list">
+            <li>
+              <div class="wl-thumb" style="background:#ddd;display:flex;align-items:center;justify-content:center;">
+                <i class="fa fa-play-circle" style="font-size:24px;color:#bbb;"></i>
+              </div>
+              <div class="wl-info">
+                <div class="wl-title"><b>Video sẽ được cập nhật sớm</b></div>
+                <div class="wl-sub">Clip livestream &amp; highlight chiến dịch</div>
+                <div class="wl-date">Coming soon</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- ===== AWARDS ===== -->
         <div id="tab-awards" class="tab-pane">
-          <ul class="awards-list">
+          <ul class="work-list">
+
             <li>
-              <span class="a-name">Live Brand MIA.vn Official — GMV <strong style="color:#e8517c;">200 triệu đồng</strong> trong 3 tiếng<br>
-                <small style="color:#aaa;font-weight:300;">Phiên livestream Brand MIA.vn Official xác lập kỷ lục doanh thu cá nhân tại Công ty TNHH MIA Việt Nam, đạt 200 triệu đồng GMV chỉ trong 3 tiếng lên sóng.</small>
-              </span>
-              <span class="a-year">09/10/2024</span>
+              <div class="wl-thumb"><img src="https://placehold.co/82x82/e8517c/ffffff?text=200M" alt="200tr"></div>
+              <div class="wl-info">
+                <div class="wl-title"><b>Live Brand MIA.vn Official</b> — GMV 200 triệu đồng trong 3 tiếng</div>
+                <div class="wl-sub">Xác lập kỷ lục doanh thu cá nhân tại Công ty TNHH MIA Việt Nam</div>
+                <div class="wl-date">09/10/2024</div>
+              </div>
             </li>
+
             <li>
-              <span class="a-name">Live Brand Skintific.vn — GMV <strong style="color:#4a9eca;">91 triệu đồng</strong> trong 1 tiếng 50 phút<br>
-                <small style="color:#aaa;font-weight:300;">Phiên livestream Brand Skintific.vn đạt 91 triệu đồng GMV trong vòng 1 tiếng 50 phút tại Công ty TNHH June Sun Yvan, minh chứng cho năng lực Host và tư vấn sản phẩm hiệu quả.</small>
-              </span>
-              <span class="a-year">10/11/2023</span>
+              <div class="wl-thumb"><img src="https://placehold.co/82x82/4a9eca/ffffff?text=91M" alt="91tr"></div>
+              <div class="wl-info">
+                <div class="wl-title"><b>Live Brand Skintific.vn</b> — GMV 91 triệu đồng trong 1 tiếng 50 phút</div>
+                <div class="wl-sub">Phiên live đạt doanh thu xuất sắc tại Công ty TNHH June Sun Yvan</div>
+                <div class="wl-date">10/11/2023</div>
+              </div>
             </li>
+
           </ul>
         </div>
 
