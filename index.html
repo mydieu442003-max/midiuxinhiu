@@ -502,9 +502,10 @@
       background: none;
     }
 
-    /* Tab panes */
-    .tab-pane { display: none; }
-    .tab-pane.active { display: block; animation: fadeInUp 0.35s ease; }
+    /* Tab panes — show all */
+    .tab-nav { display: none; }
+    .tab-pane { display: block; }
+    .tab-pane + .tab-pane { margin-top: 48px; padding-top: 40px; border-top: 1px solid #f0f0f0; }
 
     @keyframes fadeInUp {
       from { opacity: 0; transform: translateY(12px); }
