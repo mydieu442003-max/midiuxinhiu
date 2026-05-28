@@ -976,16 +976,19 @@
     }
     #lightbox-close {
       position: absolute;
-      top: 22px;
-      right: 28px;
+      top: 14px;
+      right: 20px;
       color: #fff;
-      font-size: 36px;
+      font-size: 40px;
       line-height: 1;
       cursor: pointer;
-      opacity: 0.65;
+      opacity: 0.75;
       transition: opacity 0.2s;
       font-weight: 200;
       user-select: none;
+      z-index: 10001;
+      padding: 10px 14px;
+      pointer-events: auto;
     }
     #lightbox-close:hover { opacity: 1; }
 
@@ -1447,6 +1450,10 @@
   });
 
   // ── Lightbox ──
+  function closeLightbox() {
+    $('#lightbox').removeClass('open');
+    $('body').css('overflow', '');
+  }
   $(document).on('click', '.gal-item', function (e) {
     e.preventDefault();
     var src = $(this).data('src');
@@ -1454,9 +1461,15 @@
     $('#lightbox').addClass('open');
     $('body').css('overflow', 'hidden');
   });
-  $('#lightbox, #lightbox-close').on('click', function () {
-    $('#lightbox').removeClass('open');
-    $('body').css('overflow', '');
+  $(document).on('click', '#lightbox-close', function (e) {
+    e.stopPropagation();
+    closeLightbox();
+  });
+  $(document).on('click', '#lightbox', function (e) {
+    if (e.target === this) closeLightbox();
+  });
+  $(document).on('keydown', function (e) {
+    if (e.key === 'Escape') closeLightbox();
   });
 
   // ── More / Less toggle for album ──
