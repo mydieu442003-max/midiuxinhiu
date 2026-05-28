@@ -297,6 +297,9 @@
     }
     .m-sns a:hover { color: #fff; }
 
+    /* Offset for fixed header when scrolling to anchors */
+    section[id] { scroll-margin-top: 90px; }
+
     /* ===================== SUB VISUAL ===================== */
     #sub-inner-wrap { padding-top: 0; }
 
@@ -1035,7 +1038,7 @@
 
       <div style="display:flex; align-items:center;">
         <ul class="gnb-pc">
-          <li><a href="#sub-inner-wrap">Profile</a></li>
+          <li><a href="#section-profile">Profile</a></li>
           <li><a href="#section-work">Work</a></li>
           <li><a href="#section-award">Award</a></li>
           <li><a href="#section-photo">Photo</a></li>
@@ -1083,7 +1086,7 @@
   </div>
 
   <ul class="m-nav-list">
-    <li><a href="#sub-inner-wrap">Profile</a></li>
+    <li><a href="#section-profile">Profile</a></li>
     <li><a href="#section-work">Work</a></li>
     <li><a href="#section-award">Award</a></li>
     <li><a href="#section-photo">Photo</a></li>
@@ -1113,7 +1116,7 @@
   </div>
 
   <!-- ===== PROFILE SECTION ===== -->
-  <section class="works" data-aos="fade-up" data-aos-duration="1200">
+  <section id="section-profile" class="works" data-aos="fade-up" data-aos-duration="1200">
     <div class="container clearfix">
 
       <div class="col-left">
