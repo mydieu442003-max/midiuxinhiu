@@ -1553,9 +1553,17 @@
 </script>
 
 <!-- Lightbox -->
-<div id="lightbox">
-  <span id="lightbox-close">&times;</span>
+<div id="lightbox" onclick="if(event.target===this){document.getElementById('lightbox').classList.remove('open');document.body.style.overflow=''}">
+  <span id="lightbox-close" onclick="document.getElementById('lightbox').classList.remove('open');document.body.style.overflow=''">&times;</span>
   <img id="lightbox-img" src="" alt="">
 </div>
+<script>
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      document.getElementById('lightbox').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  });
+</script>
 </body>
 </html>
