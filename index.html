@@ -919,6 +919,23 @@
       .awards-list .a-name { font-size: 12.5px; }
     }
 
+    /* ===================== VIDEO GRID ===================== */
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 20px;
+    }
+    .video-grid video {
+      width: 100%;
+      border-radius: 4px;
+      background: #000;
+      display: block;
+    }
+    @media (max-width: 767px) {
+      .video-grid { grid-template-columns: 1fr; }
+    }
+
     /* ===================== PHOTO / AWARD GALLERY ===================== */
     .photo-gallery {
       display: grid;
@@ -1151,152 +1168,142 @@
   </section>
 
   <!-- ===== WORKS SECTION ===== -->
+  <!-- ===== KINH NGHIỆM ===== -->
   <section class="works" data-aos="fade-up" data-aos-duration="1200">
     <div class="container clearfix">
-
-      <div class="col-left">
-        <h2 class="sec-title">Works</h2>
-      </div>
-
+      <div class="col-left"><h2 class="sec-title">Works</h2></div>
       <div class="col-right">
-
-        <!-- Tabs nav -->
-        <ul class="tab-nav">
-          <li class="active"><a href="#" data-target="exp" data-i18n="tab_experience">Kinh nghiệm</a></li>
-          <li><a href="#" data-target="video">Video</a></li>
-          <li><a href="#" data-target="photo">Photo</a></li>
-          <li><a href="#" data-target="awards" data-i18n="tab_awards">Awards</a></li>
+        <ul class="work-list">
+          <li>
+            <div class="wl-thumb"><img src="https://placehold.co/82x82/e8517c/ffffff?text=MIA" alt="MIA"></div>
+            <div class="wl-info">
+              <div class="wl-title"><b>Nhân viên Livestream</b> — Vận hành Livestream</div>
+              <div class="wl-sub">Công ty TNHH MIA Việt Nam &nbsp;·&nbsp; Brand MIA.vn Official (vali &amp; hành lý)<br>
+                Seller tư vấn sản phẩm · Host điều phối phòng live · Đóng góp concept campaign</div>
+              <div class="wl-date">10/2024 – 05/2026 &nbsp;·&nbsp; 1 năm 7 tháng</div>
+            </div>
+          </li>
+          <li>
+            <div class="wl-thumb"><img src="https://placehold.co/82x82/f5834a/ffffff?text=CTV" alt="CTV"></div>
+            <div class="wl-info">
+              <div class="wl-title"><b>CTV Livestream</b> — Freelance</div>
+              <div class="wl-sub">Sicoli, Guiaruan &amp; nhiều brand khác<br>
+                Host &amp; Seller trực tiếp trên TikTok Shop và Shopee Live</div>
+              <div class="wl-date">04/2024 – 09/2024 &nbsp;·&nbsp; 6 tháng</div>
+            </div>
+          </li>
+          <li>
+            <div class="wl-thumb"><img src="https://placehold.co/82x82/4a9eca/ffffff?text=JSY" alt="June Sun Yvan"></div>
+            <div class="wl-info">
+              <div class="wl-title"><b>Nhân viên Livestream</b></div>
+              <div class="wl-sub">Công ty TNHH June Sun Yvan &nbsp;·&nbsp; Brand Skintific.vn (mỹ phẩm)<br>
+                Seller tư vấn · Host điều phối phòng live · Phân tích phản hồi &amp; đóng góp ý tưởng</div>
+              <div class="wl-date">03/2023 – 03/2024 &nbsp;·&nbsp; 1 năm</div>
+            </div>
+          </li>
         </ul>
+      </div>
+    </div>
+  </section>
 
-        <!-- ===== KINH NGHIỆM ===== -->
-        <div id="tab-exp" class="tab-pane active">
-          <ul class="work-list">
-
-            <li>
-              <div class="wl-thumb"><img src="https://placehold.co/82x82/e8517c/ffffff?text=MIA" alt="MIA"></div>
-              <div class="wl-info">
-                <div class="wl-title"><b>Nhân viên Livestream</b> — Vận hành Livestream</div>
-                <div class="wl-sub">Công ty TNHH MIA Việt Nam &nbsp;·&nbsp; Brand MIA.vn Official (vali &amp; hành lý)<br>
-                  Seller tư vấn sản phẩm · Host điều phối phòng live · Đóng góp concept campaign</div>
-                <div class="wl-date">10/2024 – 05/2026 &nbsp;·&nbsp; 1 năm 7 tháng</div>
-              </div>
-            </li>
-
-            <li>
-              <div class="wl-thumb"><img src="https://placehold.co/82x82/f5834a/ffffff?text=CTV" alt="CTV"></div>
-              <div class="wl-info">
-                <div class="wl-title"><b>CTV Livestream</b> — Freelance</div>
-                <div class="wl-sub">Sicoli, Guiaruan &amp; nhiều brand khác<br>
-                  Host &amp; Seller trực tiếp trên TikTok Shop và Shopee Live</div>
-                <div class="wl-date">04/2024 – 09/2024 &nbsp;·&nbsp; 6 tháng</div>
-              </div>
-            </li>
-
-            <li>
-              <div class="wl-thumb"><img src="https://placehold.co/82x82/4a9eca/ffffff?text=JSY" alt="June Sun Yvan"></div>
-              <div class="wl-info">
-                <div class="wl-title"><b>Nhân viên Livestream</b></div>
-                <div class="wl-sub">Công ty TNHH June Sun Yvan &nbsp;·&nbsp; Brand Skintific.vn (mỹ phẩm)<br>
-                  Seller tư vấn · Host điều phối phòng live · Phân tích phản hồi &amp; đóng góp ý tưởng</div>
-                <div class="wl-date">03/2023 – 03/2024 &nbsp;·&nbsp; 1 năm</div>
-              </div>
-            </li>
-
-          </ul>
+  <!-- ===== VIDEO ===== -->
+  <section class="works" data-aos="fade-up" data-aos-duration="1200">
+    <div class="container clearfix">
+      <div class="col-left"><h2 class="sec-title">Video</h2></div>
+      <div class="col-right">
+        <div class="video-grid">
+          <video controls preload="metadata">
+            <source src="video/096e9eb5-4df3-4343-848e-7d8ba3178a30.mp4" type="video/mp4">
+          </video>
+          <video controls preload="metadata">
+            <source src="video/62d00a0f-7314-46dc-bb45-1e355776a097.mp4" type="video/mp4">
+          </video>
+          <video controls preload="metadata">
+            <source src="video/c9bea248-1633-4404-aae7-8f7e4e91e63e.mp4" type="video/mp4">
+          </video>
         </div>
+      </div>
+    </div>
+  </section>
 
-        <!-- ===== PHOTO ===== -->
-        <div id="tab-photo" class="tab-pane">
-          <div class="photo-gallery">
-            <a class="gal-item" data-src="images/photo/502921831_2217927605333028_6923909194345131921_n.jpg">
-              <img src="images/photo/502921831_2217927605333028_6923909194345131921_n.jpg" alt="Photo" loading="lazy">
-            </a>
-            <a class="gal-item" data-src="images/photo/503102084_2217925825333206_1542008029086343562_n.jpg">
-              <img src="images/photo/503102084_2217925825333206_1542008029086343562_n.jpg" alt="Photo" loading="lazy">
-            </a>
-            <a class="gal-item" data-src="images/photo/503249540_2217927618666360_6573219753030840519_n.jpg">
-              <img src="images/photo/503249540_2217927618666360_6573219753030840519_n.jpg" alt="Photo" loading="lazy">
-            </a>
-            <a class="gal-item" data-src="images/photo/503252279_2217927751999680_2236440742273430961_n.jpg">
-              <img src="images/photo/503252279_2217927751999680_2236440742273430961_n.jpg" alt="Photo" loading="lazy">
-            </a>
-          </div>
+  <!-- ===== PHOTO ===== -->
+  <section class="works" data-aos="fade-up" data-aos-duration="1200">
+    <div class="container clearfix">
+      <div class="col-left"><h2 class="sec-title">Photo</h2></div>
+      <div class="col-right">
+        <div class="photo-gallery">
+          <a class="gal-item" data-src="images/photo/502921831_2217927605333028_6923909194345131921_n.jpg">
+            <img src="images/photo/502921831_2217927605333028_6923909194345131921_n.jpg" alt="Photo" loading="lazy">
+          </a>
+          <a class="gal-item" data-src="images/photo/503102084_2217925825333206_1542008029086343562_n.jpg">
+            <img src="images/photo/503102084_2217925825333206_1542008029086343562_n.jpg" alt="Photo" loading="lazy">
+          </a>
+          <a class="gal-item" data-src="images/photo/503249540_2217927618666360_6573219753030840519_n.jpg">
+            <img src="images/photo/503249540_2217927618666360_6573219753030840519_n.jpg" alt="Photo" loading="lazy">
+          </a>
+          <a class="gal-item" data-src="images/photo/503252279_2217927751999680_2236440742273430961_n.jpg">
+            <img src="images/photo/503252279_2217927751999680_2236440742273430961_n.jpg" alt="Photo" loading="lazy">
+          </a>
         </div>
+      </div>
+    </div>
+  </section>
 
-        <!-- ===== VIDEO ===== -->
-        <div id="tab-video" class="tab-pane">
-          <ul class="work-list">
-            <li>
-              <div class="wl-thumb" style="background:#ddd;display:flex;align-items:center;justify-content:center;">
-                <i class="fa fa-play-circle" style="font-size:24px;color:#bbb;"></i>
-              </div>
-              <div class="wl-info">
-                <div class="wl-title"><b>Video sẽ được cập nhật sớm</b></div>
-                <div class="wl-sub">Clip livestream &amp; highlight chiến dịch</div>
-                <div class="wl-date">Coming soon</div>
-              </div>
-            </li>
-          </ul>
+  <!-- ===== AWARDS ===== -->
+  <section class="works" data-aos="fade-up" data-aos-duration="1200">
+    <div class="container clearfix">
+      <div class="col-left"><h2 class="sec-title">Awards</h2></div>
+      <div class="col-right">
+        <ul class="work-list">
+          <li>
+            <div class="wl-thumb"><img src="https://placehold.co/82x82/e8517c/ffffff?text=200M" alt="200tr"></div>
+            <div class="wl-info">
+              <div class="wl-title"><b>Live Brand MIA.vn Official</b> — GMV 200 triệu đồng trong 3 tiếng</div>
+              <div class="wl-sub">Xác lập kỷ lục doanh thu cá nhân tại Công ty TNHH MIA Việt Nam</div>
+              <div class="wl-date">09/10/2024</div>
+            </div>
+          </li>
+          <li>
+            <div class="wl-thumb"><img src="https://placehold.co/82x82/4a9eca/ffffff?text=91M" alt="91tr"></div>
+            <div class="wl-info">
+              <div class="wl-title"><b>Live Brand Skintific.vn</b> — GMV 91 triệu đồng trong 1 tiếng 50 phút</div>
+              <div class="wl-sub">Phiên live đạt doanh thu xuất sắc tại Công ty TNHH June Sun Yvan</div>
+              <div class="wl-date">10/11/2023</div>
+            </div>
+          </li>
+        </ul>
+        <div class="gal-section-label">Gallery</div>
+        <div class="award-gallery">
+          <a class="gal-item" data-src="images/award/631352437_2436279576831162_8366921677159252185_n.jpg">
+            <img src="images/award/631352437_2436279576831162_8366921677159252185_n.jpg" alt="Award" loading="lazy">
+          </a>
+          <a class="gal-item" data-src="images/award/631580102_2436293360163117_79697568492159050_n.jpg">
+            <img src="images/award/631580102_2436293360163117_79697568492159050_n.jpg" alt="Award" loading="lazy">
+          </a>
+          <a class="gal-item" data-src="images/award/631789228_2436293426829777_458553714891598834_n.jpg">
+            <img src="images/award/631789228_2436293426829777_458553714891598834_n.jpg" alt="Award" loading="lazy">
+          </a>
+          <a class="gal-item" data-src="images/award/632329636_2436293293496457_6206036198287223446_n.jpg">
+            <img src="images/award/632329636_2436293293496457_6206036198287223446_n.jpg" alt="Award" loading="lazy">
+          </a>
+          <a class="gal-item" data-src="images/award/633123186_2436293326829787_7905675155955613988_n.jpg">
+            <img src="images/award/633123186_2436293326829787_7905675155955613988_n.jpg" alt="Award" loading="lazy">
+          </a>
+          <a class="gal-item" data-src="images/award/633159117_2436293353496451_3704647611853874384_n.jpg">
+            <img src="images/award/633159117_2436293353496451_3704647611853874384_n.jpg" alt="Award" loading="lazy">
+          </a>
+          <a class="gal-item" data-src="images/award/633185696_2436293180163135_8596955500573532876_n.jpg">
+            <img src="images/award/633185696_2436293180163135_8596955500573532876_n.jpg" alt="Award" loading="lazy">
+          </a>
+          <a class="gal-item" data-src="images/award/633790814_2436281316830988_7329674540135208801_n.jpg">
+            <img src="images/award/633790814_2436281316830988_7329674540135208801_n.jpg" alt="Award" loading="lazy">
+          </a>
+          <a class="gal-item" data-src="images/award/954edc3a-4c25-4c1a-a855-5e24bea5f1a3.jpg">
+            <img src="images/award/954edc3a-4c25-4c1a-a855-5e24bea5f1a3.jpg" alt="Award" loading="lazy">
+          </a>
         </div>
-
-        <!-- ===== AWARDS ===== -->
-        <div id="tab-awards" class="tab-pane">
-          <ul class="work-list">
-
-            <li>
-              <div class="wl-thumb"><img src="https://placehold.co/82x82/e8517c/ffffff?text=200M" alt="200tr"></div>
-              <div class="wl-info">
-                <div class="wl-title"><b>Live Brand MIA.vn Official</b> — GMV 200 triệu đồng trong 3 tiếng</div>
-                <div class="wl-sub">Xác lập kỷ lục doanh thu cá nhân tại Công ty TNHH MIA Việt Nam</div>
-                <div class="wl-date">09/10/2024</div>
-              </div>
-            </li>
-
-            <li>
-              <div class="wl-thumb"><img src="https://placehold.co/82x82/4a9eca/ffffff?text=91M" alt="91tr"></div>
-              <div class="wl-info">
-                <div class="wl-title"><b>Live Brand Skintific.vn</b> — GMV 91 triệu đồng trong 1 tiếng 50 phút</div>
-                <div class="wl-sub">Phiên live đạt doanh thu xuất sắc tại Công ty TNHH June Sun Yvan</div>
-                <div class="wl-date">10/11/2023</div>
-              </div>
-            </li>
-
-          </ul>
-
-          <div class="gal-section-label">Gallery</div>
-          <div class="award-gallery">
-            <a class="gal-item" data-src="images/award/631352437_2436279576831162_8366921677159252185_n.jpg">
-              <img src="images/award/631352437_2436279576831162_8366921677159252185_n.jpg" alt="Award" loading="lazy">
-            </a>
-            <a class="gal-item" data-src="images/award/631580102_2436293360163117_79697568492159050_n.jpg">
-              <img src="images/award/631580102_2436293360163117_79697568492159050_n.jpg" alt="Award" loading="lazy">
-            </a>
-            <a class="gal-item" data-src="images/award/631789228_2436293426829777_458553714891598834_n.jpg">
-              <img src="images/award/631789228_2436293426829777_458553714891598834_n.jpg" alt="Award" loading="lazy">
-            </a>
-            <a class="gal-item" data-src="images/award/632329636_2436293293496457_6206036198287223446_n.jpg">
-              <img src="images/award/632329636_2436293293496457_6206036198287223446_n.jpg" alt="Award" loading="lazy">
-            </a>
-            <a class="gal-item" data-src="images/award/633123186_2436293326829787_7905675155955613988_n.jpg">
-              <img src="images/award/633123186_2436293326829787_7905675155955613988_n.jpg" alt="Award" loading="lazy">
-            </a>
-            <a class="gal-item" data-src="images/award/633159117_2436293353496451_3704647611853874384_n.jpg">
-              <img src="images/award/633159117_2436293353496451_3704647611853874384_n.jpg" alt="Award" loading="lazy">
-            </a>
-            <a class="gal-item" data-src="images/award/633185696_2436293180163135_8596955500573532876_n.jpg">
-              <img src="images/award/633185696_2436293180163135_8596955500573532876_n.jpg" alt="Award" loading="lazy">
-            </a>
-            <a class="gal-item" data-src="images/award/633790814_2436281316830988_7329674540135208801_n.jpg">
-              <img src="images/award/633790814_2436281316830988_7329674540135208801_n.jpg" alt="Award" loading="lazy">
-            </a>
-            <a class="gal-item" data-src="images/award/954edc3a-4c25-4c1a-a855-5e24bea5f1a3.jpg">
-              <img src="images/award/954edc3a-4c25-4c1a-a855-5e24bea5f1a3.jpg" alt="Award" loading="lazy">
-            </a>
-          </div>
-        </div>
-
-      </div><!-- /col-right -->
-    </div><!-- /container -->
+      </div>
+    </div>
   </section>
 
 </div><!-- /sub0301_view -->
