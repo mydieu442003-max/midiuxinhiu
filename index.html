@@ -863,21 +863,24 @@
 
     /* Go to top */
     .goTop {
-      position: absolute;
-      right: 30px;
-      bottom: 30px;
+      position: fixed;
+      right: 28px;
+      bottom: 28px;
       width: 44px; height: 44px;
-      border: 1px solid rgba(255,255,255,0.2);
+      background: rgba(30,30,30,0.75);
+      border: 1px solid rgba(255,255,255,0.18);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: rgba(255,255,255,0.6);
+      color: rgba(255,255,255,0.8);
       transition: all 0.2s;
       cursor: pointer;
+      z-index: 5000;
+      backdrop-filter: blur(6px);
     }
     .goTop:hover {
-      background: rgba(255,255,255,0.1);
+      background: rgba(0,0,0,0.9);
       color: #fff;
       border-color: rgba(255,255,255,0.5);
     }
@@ -1348,10 +1351,11 @@
     </div>
   </div>
 
-  <a href="#" class="goTop">
-    <i class="material-icons">arrow_upward</i>
-  </a>
 </footer>
+
+<a href="#" class="goTop">
+  <i class="material-icons">arrow_upward</i>
+</a>
 
 <!-- ==================== SCRIPTS ==================== -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
