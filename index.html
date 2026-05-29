@@ -1115,9 +1115,23 @@
       font-size: 13px;
       letter-spacing: 0.1em;
     }
+    #lightbox-caption {
+      position: absolute;
+      bottom: 38px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255,255,255,0.92);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 17px;
+      font-style: italic;
+      letter-spacing: 0.06em;
+      white-space: nowrap;
+      pointer-events: none;
+      text-shadow: 0 1px 6px rgba(0,0,0,0.6);
+    }
     #lightbox-zoom-btns {
       position: absolute;
-      bottom: 50px;
+      bottom: 68px;
       left: 50%;
       transform: translateX(-50%);
       display: flex;
@@ -1387,23 +1401,22 @@
       <div class="col-left"><h2 class="sec-title">Photo</h2></div>
       <div class="col-right">
         <div class="photo-gallery">
-          <a class="gal-item" data-src="images/albulm4/livestream/1.jpg"><img src="images/albulm4/livestream/1.jpg" alt="Photo" loading="lazy"></a>
-          <a class="gal-item" data-src="images/albulm4/livestream/2.jpg"><img src="images/albulm4/livestream/2.jpg" alt="Photo" loading="lazy"></a>
-          <a class="gal-item" data-src="images/albulm4/livestream/3.jpg"><img src="images/albulm4/livestream/3.jpg" alt="Photo" loading="lazy"></a>
-          <a class="gal-item" data-src="images/albulm4/livestream/4.jpg"><img src="images/albulm4/livestream/4.jpg" alt="Photo" loading="lazy"></a>
-          <a class="gal-item" data-src="images/albulm4/livestream/30.jpg"><img src="images/albulm4/livestream/30.jpg" alt="Photo" loading="lazy"></a>
-          <a class="gal-item" data-src="images/albulm4/livestream/40.jpg"><img src="images/albulm4/livestream/40.jpg" alt="Photo" loading="lazy"></a>
-          <a class="gal-item" data-src="images/albulm4/livestream/50.jpg"><img src="images/albulm4/livestream/50.jpg" alt="Photo" loading="lazy"></a>
-          <a class="gal-item" data-src="images/albulm4/livestream/51.jpg"><img src="images/albulm4/livestream/51.jpg" alt="Photo" loading="lazy"></a>
-          <a class="gal-item" data-src="images/albulm4/Noel/1.jpg"><img src="images/albulm4/Noel/1.jpg" alt="Photo" loading="lazy"></a>
-          <a class="gal-item" data-src="images/albulm4/Noel/2.jpg"><img src="images/albulm4/Noel/2.jpg" alt="Photo" loading="lazy"></a>
-          <a class="gal-item" data-src="images/albulm4/Noel/3.jpg"><img src="images/albulm4/Noel/3.jpg" alt="Photo" loading="lazy"></a>
-          <a class="gal-item" data-src="images/albulm4/Noel/4.jpg"><img src="images/albulm4/Noel/4.jpg" alt="Photo" loading="lazy"></a>
-          <a class="gal-item" data-src="images/albulm4/Noel/5.jpg"><img src="images/albulm4/Noel/5.jpg" alt="Photo" loading="lazy"></a>
-          <a class="gal-item" data-src="images/albulm4/Sicoli/10.jpg"><img src="images/albulm4/Sicoli/10.jpg" alt="Photo" loading="lazy"></a>
-          <a class="gal-item" data-src="images/albulm4/Sicoli/11.jpg"><img src="images/albulm4/Sicoli/11.jpg" alt="Photo" loading="lazy"></a>
-          <a class="gal-item" data-src="images/albulm4/Sicoli/12.jpg"><img src="images/albulm4/Sicoli/12.jpg" alt="Photo" loading="lazy"></a>
-          <a class="gal-item" data-src="images/albulm4/T%E1%BA%BFt/20.jpg"><img src="images/albulm4/T%E1%BA%BFt/20.jpg" alt="Photo" loading="lazy"></a>
+          <!-- Concept -->
+          <a class="gal-item" data-src="images/albulm4/Concept/Collab%20Tony%20Vi%E1%BB%87t.jpg" data-caption="Collab Tony Việt"><img src="images/albulm4/Concept/Collab%20Tony%20Vi%E1%BB%87t.jpg" alt="Collab Tony Việt" loading="lazy"></a>
+          <a class="gal-item" data-src="images/albulm4/Concept/C%E1%BB%ABu.jpg" data-caption="Cừu"><img src="images/albulm4/Concept/C%E1%BB%ABu.jpg" alt="Cừu" loading="lazy"></a>
+          <a class="gal-item" data-src="images/albulm4/Concept/H%E1%BB%8Dc%20sinh.jpg" data-caption="Học sinh"><img src="images/albulm4/Concept/H%E1%BB%8Dc%20sinh.jpg" alt="Học sinh" loading="lazy"></a>
+          <a class="gal-item" data-src="images/albulm4/Concept/Phim%20%C4%90%E1%BA%A1i%20chi%E1%BA%BFn%20tr%C3%AAn%20kh%C3%B4ng.jpg" data-caption="Phim Đại chiến trên không"><img src="images/albulm4/Concept/Phim%20%C4%90%E1%BA%A1i%20chi%E1%BA%BFn%20tr%C3%AAn%20kh%C3%B4ng.jpg" alt="Phim Đại chiến trên không" loading="lazy"></a>
+          <a class="gal-item" data-src="images/albulm4/Concept/Ti%E1%BA%BFp%20vi%C3%AAn.jpg" data-caption="Tiếp viên"><img src="images/albulm4/Concept/Ti%E1%BA%BFp%20vi%C3%AAn.jpg" alt="Tiếp viên" loading="lazy"></a>
+          <a class="gal-item" data-src="images/albulm4/Concept/X%C4%83ng%20T%C4%83ng.jpg" data-caption="Xăng Tăng"><img src="images/albulm4/Concept/X%C4%83ng%20T%C4%83ng.jpg" alt="Xăng Tăng" loading="lazy"></a>
+          <!-- Noel -->
+          <a class="gal-item" data-src="images/albulm4/Noel/2.jpg" data-caption="Noel"><img src="images/albulm4/Noel/2.jpg" alt="Noel" loading="lazy"></a>
+          <a class="gal-item" data-src="images/albulm4/Noel/3.jpg" data-caption="Noel"><img src="images/albulm4/Noel/3.jpg" alt="Noel" loading="lazy"></a>
+          <!-- Sicoli -->
+          <a class="gal-item" data-src="images/albulm4/Sicoli/10.jpg" data-caption="Sicoli"><img src="images/albulm4/Sicoli/10.jpg" alt="Sicoli" loading="lazy"></a>
+          <a class="gal-item" data-src="images/albulm4/Sicoli/11.jpg" data-caption="Sicoli"><img src="images/albulm4/Sicoli/11.jpg" alt="Sicoli" loading="lazy"></a>
+          <a class="gal-item" data-src="images/albulm4/Sicoli/12.jpg" data-caption="Sicoli"><img src="images/albulm4/Sicoli/12.jpg" alt="Sicoli" loading="lazy"></a>
+          <!-- Tết -->
+          <a class="gal-item" data-src="images/albulm4/T%E1%BA%BFt/622391565_1544501626803606_6729391446520479505_n.jpg" data-caption="Tết"><img src="images/albulm4/T%E1%BA%BFt/622391565_1544501626803606_6729391446520479505_n.jpg" alt="Tết" loading="lazy"></a>
         </div>
       </div>
     </div>
@@ -1589,8 +1602,10 @@
   $(document).on('click', '.gal-item', function (e) {
     e.preventDefault();
     _galItems = [];
+    _galCaptions = [];
     $(this).closest('.photo-gallery, .award-gallery').find('.gal-item').each(function() {
       _galItems.push($(this).data('src'));
+      _galCaptions.push($(this).data('caption') || '');
     });
     var src = $(this).data('src');
     var idx = _galItems.indexOf(src);
@@ -1692,6 +1707,7 @@
     <img id="lightbox-img" src="" alt="">
   </div>
   <span id="lightbox-next">&#8250;</span>
+  <div id="lightbox-caption"></div>
   <div id="lightbox-counter"></div>
   <div id="lightbox-zoom-btns">
     <button id="lb-zoom-in" title="Phóng to">&#128269;+</button>
@@ -1701,6 +1717,7 @@
 </div>
 <script>
   var _galItems = [];
+  var _galCaptions = [];
   var _galIndex = 0;
   var _zoom = 1;
 
@@ -1712,6 +1729,7 @@
     _galIndex = index;
     _setZoom(1);
     document.getElementById('lightbox-img').src = _galItems[index];
+    document.getElementById('lightbox-caption').textContent = _galCaptions[index] || '';
     document.getElementById('lightbox-counter').textContent = (index + 1) + ' / ' + _galItems.length;
     document.getElementById('lightbox').classList.add('open');
     document.body.style.overflow = 'hidden';
