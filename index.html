@@ -1054,12 +1054,22 @@
       cursor: zoom-out;
     }
     #lightbox.open { display: flex; }
+    #lightbox-img-wrap {
+      overflow: auto;
+      max-width: 92vw;
+      max-height: 84vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
     #lightbox-img {
       max-width: 92vw;
-      max-height: 88vh;
+      max-height: 84vh;
       object-fit: contain;
       border-radius: 3px;
       box-shadow: 0 24px 80px rgba(0,0,0,0.5);
+      transform-origin: center;
+      transition: transform 0.2s;
     }
     #lightbox-close {
       position: absolute;
@@ -1104,6 +1114,30 @@
       color: rgba(255,255,255,0.6);
       font-size: 13px;
       letter-spacing: 0.1em;
+    }
+    #lightbox-zoom-btns {
+      position: absolute;
+      bottom: 50px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 8px;
+      z-index: 10001;
+    }
+    #lightbox-zoom-btns button {
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.35);
+      color: #fff;
+      padding: 6px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 18px;
+      line-height: 1;
+      backdrop-filter: blur(4px);
+      transition: background 0.2s;
+    }
+    #lightbox-zoom-btns button:hover {
+      background: rgba(255,255,255,0.32);
     }
 
     @media (max-width: 767px) {
@@ -1654,16 +1688,29 @@
 <div id="lightbox" onclick="if(event.target===this){document.getElementById('lightbox').classList.remove('open');document.body.style.overflow=''}">
   <span id="lightbox-close" onclick="document.getElementById('lightbox').classList.remove('open');document.body.style.overflow=''">&times;</span>
   <span id="lightbox-prev">&#8249;</span>
-  <img id="lightbox-img" src="" alt="">
+  <div id="lightbox-img-wrap">
+    <img id="lightbox-img" src="" alt="">
+  </div>
   <span id="lightbox-next">&#8250;</span>
   <div id="lightbox-counter"></div>
+  <div id="lightbox-zoom-btns">
+    <button id="lb-zoom-in" title="Phóng to">&#128269;+</button>
+    <button id="lb-zoom-out" title="Thu nhỏ">&#128269;−</button>
+    <button id="lb-zoom-reset" title="Về mặc định">&#8635;</button>
+  </div>
 </div>
 <script>
   var _galItems = [];
   var _galIndex = 0;
+  var _zoom = 1;
 
+  function _setZoom(z) {
+    _zoom = Math.min(4, Math.max(1, z));
+    document.getElementById('lightbox-img').style.transform = 'scale(' + _zoom + ')';
+  }
   function _openLightbox(index) {
     _galIndex = index;
+    _setZoom(1);
     document.getElementById('lightbox-img').src = _galItems[index];
     document.getElementById('lightbox-counter').textContent = (index + 1) + ' / ' + _galItems.length;
     document.getElementById('lightbox').classList.add('open');
@@ -1674,6 +1721,9 @@
 
   document.getElementById('lightbox-prev').onclick = function(e) { e.stopPropagation(); _prevImg(); };
   document.getElementById('lightbox-next').onclick = function(e) { e.stopPropagation(); _nextImg(); };
+  document.getElementById('lb-zoom-in').onclick  = function(e) { e.stopPropagation(); _setZoom(_zoom + 0.5); };
+  document.getElementById('lb-zoom-out').onclick = function(e) { e.stopPropagation(); _setZoom(_zoom - 0.5); };
+  document.getElementById('lb-zoom-reset').onclick = function(e) { e.stopPropagation(); _setZoom(1); };
 
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
@@ -1682,6 +1732,8 @@
     }
     if (e.key === 'ArrowLeft') _prevImg();
     if (e.key === 'ArrowRight') _nextImg();
+    if (e.key === '+' || e.key === '=') _setZoom(_zoom + 0.5);
+    if (e.key === '-') _setZoom(_zoom - 0.5);
   });
 </script>
 </body>
