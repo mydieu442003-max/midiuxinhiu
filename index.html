@@ -954,6 +954,42 @@
     }
 
     /* ===================== PHOTO / AWARD GALLERY ===================== */
+
+    /* Facebook-style album layout */
+    .fb-albums { display: flex; flex-direction: column; gap: 44px; margin-top: 8px; }
+    .fb-post-label {
+      font-size: 10.5px; font-weight: 700; letter-spacing: 0.16em;
+      text-transform: uppercase; color: #bbb; margin: 0 0 8px;
+    }
+    .fb-g { display: grid; gap: 3px; }
+    .fb-g .gal-item { display: block; overflow: hidden; background: #f2f2f2; cursor: pointer; aspect-ratio: unset; }
+    .fb-g .gal-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s; }
+    .fb-g .gal-item:hover img { transform: scale(1.05); }
+
+    /* 1 photo */
+    .fb-g1 { grid-template-columns: 1fr; }
+    .fb-g1 .gal-item { height: 340px; }
+
+    /* 3 photos: 1 full-width + 2 equal below */
+    .fb-g3 { grid-template-columns: 1fr 1fr; }
+    .fb-g3 .gal-item:nth-child(1) { grid-column: span 2; height: 260px; }
+    .fb-g3 .gal-item:nth-child(2),
+    .fb-g3 .gal-item:nth-child(3) { height: 175px; }
+
+    /* 5 photos: 2 lớn trên + 3 nhỏ dưới */
+    .fb-g5 { grid-template-columns: repeat(3, 1fr); }
+    .fb-g5 .gal-item:nth-child(1) { grid-column: span 2; height: 260px; }
+    .fb-g5 .gal-item:nth-child(2) { height: 260px; }
+    .fb-g5 .gal-item:nth-child(3),
+    .fb-g5 .gal-item:nth-child(4),
+    .fb-g5 .gal-item:nth-child(5) { height: 160px; }
+
+    /* 8 photos: 1 hero (2col) + small right + 2 rows of 3 */
+    .fb-g8 { grid-template-columns: repeat(3, 1fr); }
+    .fb-g8 .gal-item { height: 160px; }
+    .fb-g8 .gal-item:nth-child(1) { grid-column: span 2; height: 240px; }
+    .fb-g8 .gal-item:nth-child(2) { height: 240px; }
+
     .photo-gallery {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -1273,19 +1309,53 @@
     <div class="container clearfix">
       <div class="col-left"><h2 class="sec-title">Photo</h2></div>
       <div class="col-right">
-        <div class="photo-gallery">
-          <a class="gal-item" data-src="images/albulm4/1.jpg"><img src="images/albulm4/1.jpg" alt="Photo" loading="lazy"></a>
-          <a class="gal-item" data-src="images/albulm4/2.jpg"><img src="images/albulm4/2.jpg" alt="Photo" loading="lazy"></a>
-          <a class="gal-item" data-src="images/albulm4/3.jpg"><img src="images/albulm4/3.jpg" alt="Photo" loading="lazy"></a>
-          <a class="gal-item" data-src="images/albulm4/4.jpg"><img src="images/albulm4/4.jpg" alt="Photo" loading="lazy"></a>
-          <a class="gal-item" data-src="images/albulm4/5.jpg"><img src="images/albulm4/5.jpg" alt="Photo" loading="lazy"></a>
-          <a class="gal-item" data-src="images/albulm4/10.jpg"><img src="images/albulm4/10.jpg" alt="Photo" loading="lazy"></a>
-          <a class="gal-item" data-src="images/albulm4/11.jpg"><img src="images/albulm4/11.jpg" alt="Photo" loading="lazy"></a>
-          <a class="gal-item" data-src="images/albulm4/12.jpg"><img src="images/albulm4/12.jpg" alt="Photo" loading="lazy"></a>
-          <a class="gal-item" data-src="images/albulm4/20.jpg"><img src="images/albulm4/20.jpg" alt="Photo" loading="lazy"></a>
-          <a class="gal-item" data-src="images/albulm4/30.jpg"><img src="images/albulm4/30.jpg" alt="Photo" loading="lazy"></a>
-          <a class="gal-item" data-src="images/albulm4/40.jpg"><img src="images/albulm4/40.jpg" alt="Photo" loading="lazy"></a>
-          <a class="gal-item" data-src="images/albulm4/50.jpg"><img src="images/albulm4/50.jpg" alt="Photo" loading="lazy"></a>
+        <div class="fb-albums">
+
+          <!-- Livestream: 8 ảnh -->
+          <div class="fb-post">
+            <p class="fb-post-label">Livestream</p>
+            <div class="fb-g fb-g8">
+              <a class="gal-item" data-src="images/albulm4/livestream/1.jpg"><img src="images/albulm4/livestream/1.jpg" alt="Livestream" loading="lazy"></a>
+              <a class="gal-item" data-src="images/albulm4/livestream/2.jpg"><img src="images/albulm4/livestream/2.jpg" alt="Livestream" loading="lazy"></a>
+              <a class="gal-item" data-src="images/albulm4/livestream/3.jpg"><img src="images/albulm4/livestream/3.jpg" alt="Livestream" loading="lazy"></a>
+              <a class="gal-item" data-src="images/albulm4/livestream/4.jpg"><img src="images/albulm4/livestream/4.jpg" alt="Livestream" loading="lazy"></a>
+              <a class="gal-item" data-src="images/albulm4/livestream/30.jpg"><img src="images/albulm4/livestream/30.jpg" alt="Livestream" loading="lazy"></a>
+              <a class="gal-item" data-src="images/albulm4/livestream/40.jpg"><img src="images/albulm4/livestream/40.jpg" alt="Livestream" loading="lazy"></a>
+              <a class="gal-item" data-src="images/albulm4/livestream/50.jpg"><img src="images/albulm4/livestream/50.jpg" alt="Livestream" loading="lazy"></a>
+              <a class="gal-item" data-src="images/albulm4/livestream/51.jpg"><img src="images/albulm4/livestream/51.jpg" alt="Livestream" loading="lazy"></a>
+            </div>
+          </div>
+
+          <!-- Noel: 5 ảnh -->
+          <div class="fb-post">
+            <p class="fb-post-label">Noel</p>
+            <div class="fb-g fb-g5">
+              <a class="gal-item" data-src="images/albulm4/Noel/1.jpg"><img src="images/albulm4/Noel/1.jpg" alt="Noel" loading="lazy"></a>
+              <a class="gal-item" data-src="images/albulm4/Noel/2.jpg"><img src="images/albulm4/Noel/2.jpg" alt="Noel" loading="lazy"></a>
+              <a class="gal-item" data-src="images/albulm4/Noel/3.jpg"><img src="images/albulm4/Noel/3.jpg" alt="Noel" loading="lazy"></a>
+              <a class="gal-item" data-src="images/albulm4/Noel/4.jpg"><img src="images/albulm4/Noel/4.jpg" alt="Noel" loading="lazy"></a>
+              <a class="gal-item" data-src="images/albulm4/Noel/5.jpg"><img src="images/albulm4/Noel/5.jpg" alt="Noel" loading="lazy"></a>
+            </div>
+          </div>
+
+          <!-- Sicoli: 3 ảnh -->
+          <div class="fb-post">
+            <p class="fb-post-label">Sicoli</p>
+            <div class="fb-g fb-g3">
+              <a class="gal-item" data-src="images/albulm4/Sicoli/10.jpg"><img src="images/albulm4/Sicoli/10.jpg" alt="Sicoli" loading="lazy"></a>
+              <a class="gal-item" data-src="images/albulm4/Sicoli/11.jpg"><img src="images/albulm4/Sicoli/11.jpg" alt="Sicoli" loading="lazy"></a>
+              <a class="gal-item" data-src="images/albulm4/Sicoli/12.jpg"><img src="images/albulm4/Sicoli/12.jpg" alt="Sicoli" loading="lazy"></a>
+            </div>
+          </div>
+
+          <!-- Tết: 1 ảnh -->
+          <div class="fb-post">
+            <p class="fb-post-label">Tết</p>
+            <div class="fb-g fb-g1">
+              <a class="gal-item" data-src="images/albulm4/T%E1%BA%BFt/20.jpg"><img src="images/albulm4/T%E1%BA%BFt/20.jpg" alt="Tết" loading="lazy"></a>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
