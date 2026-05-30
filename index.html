@@ -562,6 +562,36 @@
       line-height: 1.6;
     }
     .wl-date { font-size: 12px; color: #bbb; letter-spacing: 0.03em; }
+    .wl-duties {
+      list-style: none;
+      margin: 7px 0 0;
+      padding: 0;
+    }
+    .wl-duties li {
+      font-size: 12px;
+      color: #999;
+      line-height: 1.65;
+      padding: 2px 0;
+      border: none;
+      cursor: default;
+    }
+    .wl-duties li:hover { background: none; padding-left: 0; }
+    .wl-duties li::before { content: '·'; margin-right: 5px; color: #ccc; }
+    .wl-duties li b { color: #777; font-weight: 600; }
+    .cv-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      margin-top: 22px;
+      padding: 10px 22px;
+      background: #111;
+      color: #fff;
+      font-size: 13px;
+      border-radius: 4px;
+      letter-spacing: 0.04em;
+      transition: background 0.2s;
+    }
+    .cv-download:hover { background: #e8517c; color: #fff; }
 
     /* ===================== ALBUM / DRAMA / MOVIE GRID ===================== */
     .media-grid {
@@ -1307,10 +1337,17 @@
           <li>
             <div class="wl-thumb"><img src="https://placehold.co/82x82/e8517c/ffffff?text=MIA" alt="MIA"></div>
             <div class="wl-info">
-              <div class="wl-title"><b>Nhân viên Livestream</b> — Vận hành Livestream</div>
-              <div class="wl-sub">Công ty TNHH MIA Việt Nam &nbsp;·&nbsp; Brand MIA.vn Official (vali &amp; hành lý)<br>
-                Seller tư vấn sản phẩm · Host điều phối phòng live · Đóng góp concept campaign</div>
-              <div class="wl-date">10/2024 – 05/2026 &nbsp;·&nbsp; 1 năm 7 tháng</div>
+              <div class="wl-title"><b>Livestream Performance &amp; TikTok Ecommerce</b> — Công ty TNHH MIA Việt Nam</div>
+              <div class="wl-sub">
+                Brand MIA.vn Official (vali &amp; hành lý du lịch)
+                <ul class="wl-duties">
+                  <li><b>Vận hành chiến dịch:</b> Phối hợp AM TikTokShop kích hoạt Voucher, Flash Sale; quản lý tồn kho thời gian thực; vận hành GMVMax Product &amp; GMVMax Live.</li>
+                  <li><b>Host Livestream:</b> Dẫn dắt phiên live năng lượng cao; biên soạn kịch bản &amp; Minigame giữ chân mắt xem; lên ý tưởng concept studio &amp; trang phục host.</li>
+                  <li><b>Digital Marketing:</b> Thiết lập &amp; tối ưu TikTok Ads, Spark Ads, Facebook Ads; theo dõi ROAS; booking KOC/KOL; SEO gian hàng TikTok Shop.</li>
+                  <li><b>Quản lý nhân sự:</b> Tuyển dụng, training host mới; sắp xếp lịch ca live; theo dõi hiệu suất &amp; tính lương team livestream.</li>
+                </ul>
+              </div>
+              <div class="wl-date">10/2024 – nay &nbsp;·&nbsp; ~1 năm 7 tháng</div>
             </div>
           </li>
           <li>
@@ -1332,6 +1369,9 @@
             </div>
           </li>
         </ul>
+        <a class="cv-download" href="cv/CV_Nguyen_Thi_My_Dieu_Livestream_Performance_V4.pdf" download target="_blank">
+          <i class="fa fa-download"></i> Tải CV
+        </a>
       </div>
     </div>
   </section>
