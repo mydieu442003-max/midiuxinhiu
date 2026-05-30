@@ -1036,19 +1036,19 @@
     .fb-g8 .gal-item:nth-child(2) { height: 240px; }
 
     .photo-gallery {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 8px;
+      columns: 2;
+      column-gap: 8px;
       margin-top: 20px;
     }
     .award-gallery {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 8px;
+      columns: 3;
+      column-gap: 8px;
       margin-top: 20px;
     }
     .gal-item {
       display: block;
+      break-inside: avoid;
+      margin-bottom: 8px;
       overflow: hidden;
       background: #f2f2f2;
       cursor: pointer;
@@ -1183,8 +1183,8 @@
     }
 
     @media (max-width: 767px) {
-      .award-gallery { grid-template-columns: repeat(3, 1fr); gap: 5px; }
-      .photo-gallery { gap: 6px; }
+      .award-gallery { columns: 2; column-gap: 5px; }
+      .photo-gallery { columns: 2; column-gap: 6px; }
     }
   </style>
 </head>
