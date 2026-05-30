@@ -564,20 +564,35 @@
     .wl-date { font-size: 12px; color: #bbb; letter-spacing: 0.03em; }
     .wl-duties {
       list-style: none;
-      margin: 7px 0 0;
+      margin: 10px 0 0;
       padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
     }
     .wl-duties li {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
       font-size: 12px;
-      color: #999;
-      line-height: 1.65;
-      padding: 2px 0;
+      color: #888;
+      line-height: 1.55;
       border: none;
       cursor: default;
     }
     .wl-duties li:hover { background: none; padding-left: 0; }
-    .wl-duties li::before { content: '·'; margin-right: 5px; color: #ccc; }
-    .wl-duties li b { color: #777; font-weight: 600; }
+    .duty-tag {
+      flex-shrink: 0;
+      font-size: 11px;
+      font-weight: 600;
+      color: #e8517c;
+      background: rgba(232,81,124,0.08);
+      padding: 2px 9px;
+      border-radius: 3px;
+      width: 86px;
+      text-align: center;
+      letter-spacing: 0.01em;
+    }
     .cv-download {
       display: inline-flex;
       align-items: center;
@@ -1339,12 +1354,12 @@
             <div class="wl-info">
               <div class="wl-title"><b>Livestream Performance &amp; TikTok Ecommerce</b> — Công ty TNHH MIA Việt Nam</div>
               <div class="wl-sub">
-                Brand MIA.vn Official (vali &amp; hành lý du lịch)
+                Brand MIA.vn Official · Vali &amp; hành lý du lịch
                 <ul class="wl-duties">
-                  <li><b>Vận hành chiến dịch:</b> Phối hợp AM TikTokShop kích hoạt Voucher, Flash Sale; quản lý tồn kho thời gian thực; vận hành GMVMax Product &amp; GMVMax Live.</li>
-                  <li><b>Host Livestream:</b> Dẫn dắt phiên live năng lượng cao; biên soạn kịch bản &amp; Minigame giữ chân mắt xem; lên ý tưởng concept studio &amp; trang phục host.</li>
-                  <li><b>Digital Marketing:</b> Thiết lập &amp; tối ưu TikTok Ads, Spark Ads, Facebook Ads; theo dõi ROAS; booking KOC/KOL; SEO gian hàng TikTok Shop.</li>
-                  <li><b>Quản lý nhân sự:</b> Tuyển dụng, training host mới; sắp xếp lịch ca live; theo dõi hiệu suất &amp; tính lương team livestream.</li>
+                  <li><span class="duty-tag">Vận hành</span><span>Voucher, Flash Sale, GMVMax Product &amp; Live; quản lý tồn kho với AM TikTokShop</span></li>
+                  <li><span class="duty-tag">Host Live</span><span>Kịch bản, Minigame giữ Retention Rate; concept studio &amp; trang phục host</span></li>
+                  <li><span class="duty-tag">Marketing</span><span>TikTok Ads, Spark Ads, Facebook Ads; ROAS; KOC/KOL booking; SEO gian hàng</span></li>
+                  <li><span class="duty-tag">Nhân sự</span><span>Tuyển dụng, training host mới; quản lý ca live &amp; tính lương team</span></li>
                 </ul>
               </div>
               <div class="wl-date">10/2024 – nay &nbsp;·&nbsp; ~1 năm 7 tháng</div>
