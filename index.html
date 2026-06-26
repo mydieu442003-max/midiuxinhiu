@@ -118,13 +118,13 @@
 
                         <!-- Nav menu — không đụng vào -->
                         <div style="display:flex; flex-wrap:wrap; gap:0.5rem; justify-content:space-between; align-items:center; padding-bottom:1.25rem; border-bottom:1px solid rgba(179,26,36,0.12); margin-bottom:0;">
-                            <button onclick="goToSlide(2)" style="background:none;border:none;cursor:pointer;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.18em;color:#B31A24;font-family:'Plus Jakarta Sans',sans-serif;">About</button>
-                            <button onclick="goToSlide(3)" style="background:none;border:none;cursor:pointer;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.18em;color:rgba(30,30,30,0.4);font-family:'Plus Jakarta Sans',sans-serif;">Journey</button>
-                            <button onclick="goToSlide(4)" style="background:none;border:none;cursor:pointer;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.18em;color:rgba(30,30,30,0.4);font-family:'Plus Jakarta Sans',sans-serif;">Work Experience</button>
-                            <button onclick="goToSlide(6)" style="background:none;border:none;cursor:pointer;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.18em;color:rgba(30,30,30,0.4);font-family:'Plus Jakarta Sans',sans-serif;">Achievements</button>
-                            <button onclick="goToSlide(7)" style="background:none;border:none;cursor:pointer;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.18em;color:rgba(30,30,30,0.4);font-family:'Plus Jakarta Sans',sans-serif;">Skills</button>
-                            <button onclick="goToSlide(8)" style="background:none;border:none;cursor:pointer;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.18em;color:rgba(30,30,30,0.4);font-family:'Plus Jakarta Sans',sans-serif;">Career Vision</button>
-                            <button onclick="goToSlide(9)" style="background:none;border:none;cursor:pointer;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.18em;color:rgba(30,30,30,0.4);font-family:'Plus Jakarta Sans',sans-serif;">Contact</button>
+                            <button onclick="goToSlide(1)" style="background:none;border:none;cursor:pointer;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.18em;color:#B31A24;font-family:'Plus Jakarta Sans',sans-serif;">About</button>
+                            <button onclick="goToSlide(2)" style="background:none;border:none;cursor:pointer;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.18em;color:rgba(30,30,30,0.4);font-family:'Plus Jakarta Sans',sans-serif;">Journey</button>
+                            <button onclick="goToSlide(3)" style="background:none;border:none;cursor:pointer;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.18em;color:rgba(30,30,30,0.4);font-family:'Plus Jakarta Sans',sans-serif;">Work Experience</button>
+                            <button onclick="goToSlide(5)" style="background:none;border:none;cursor:pointer;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.18em;color:rgba(30,30,30,0.4);font-family:'Plus Jakarta Sans',sans-serif;">Achievements</button>
+                            <button onclick="goToSlide(6)" style="background:none;border:none;cursor:pointer;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.18em;color:rgba(30,30,30,0.4);font-family:'Plus Jakarta Sans',sans-serif;">Skills</button>
+                            <button onclick="goToSlide(7)" style="background:none;border:none;cursor:pointer;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.18em;color:rgba(30,30,30,0.4);font-family:'Plus Jakarta Sans',sans-serif;">Career Vision</button>
+                            <button onclick="goToSlide(8)" style="background:none;border:none;cursor:pointer;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.18em;color:rgba(30,30,30,0.4);font-family:'Plus Jakarta Sans',sans-serif;">Contact</button>
                         </div>
 
                         <!-- Main content -->
@@ -160,91 +160,7 @@
                     </div>
                 </section>
 
-                <!-- ==================== SLIDE 2: MỤC LỤC ==================== -->
-                <section id="slide-1" class="slide-item min-h-[75vh] md:min-h-[85vh] bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-brandRed/10 flex flex-col justify-between relative transition-all duration-300">
-                    <div>
-                        <div class="flex items-center gap-3 mb-6">
-                            <span class="text-xs font-black px-2 py-1 bg-brandRed text-white rounded">01</span>
-                            <span class="text-xs font-bold text-brandRed tracking-widest uppercase">Mục lục định hướng</span>
-                        </div>
-                        <h2 class="text-4xl md:text-5xl font-extrabold text-brandRed tracking-tight font-heading uppercase">MỤC LỤC</h2>
-                    </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 my-auto py-6">
-                        <div class="space-y-4">
-                            <div onclick="goToSlide(2)" class="flex items-center justify-between p-4 bg-brandCream rounded-2xl border border-transparent hover:border-brandRed/30 hover:bg-white transition-all cursor-pointer group">
-                                <div class="flex items-center gap-4">
-                                    <span class="w-10 h-10 rounded-xl bg-brandRed text-white flex items-center justify-center font-bold">01</span>
-                                    <div>
-                                        <h4 class="font-bold text-brandDark uppercase group-hover:text-brandRed">GIỚI THIỆU BẢN THÂN</h4>
-                                        <p class="text-xs text-gray-500">Quan điểm làm nghề & Giá trị cốt lõi</p>
-                                    </div>
-                                </div>
-                                <i class="fa-solid fa-arrow-right text-brandRed opacity-0 group-hover:opacity-100 transition-opacity"></i>
-                            </div>
-                            <div onclick="goToSlide(3)" class="flex items-center justify-between p-4 bg-brandCream rounded-2xl border border-transparent hover:border-brandRed/30 hover:bg-white transition-all cursor-pointer group">
-                                <div class="flex items-center gap-4">
-                                    <span class="w-10 h-10 rounded-xl bg-brandRed text-white flex items-center justify-center font-bold">02</span>
-                                    <div>
-                                        <h4 class="font-bold text-brandDark uppercase group-hover:text-brandRed">HÀNH TRÌNH SỰ NGHIỆP</h4>
-                                        <p class="text-xs text-gray-500">Mốc thời gian & Kinh nghiệm thực chiến</p>
-                                    </div>
-                                </div>
-                                <i class="fa-solid fa-arrow-right text-brandRed opacity-0 group-hover:opacity-100 transition-opacity"></i>
-                            </div>
-                            <div onclick="goToSlide(4)" class="flex items-center justify-between p-4 bg-brandCream rounded-2xl border border-transparent hover:border-brandRed/30 hover:bg-white transition-all cursor-pointer group">
-                                <div class="flex items-center gap-4">
-                                    <span class="w-10 h-10 rounded-xl bg-brandRed text-white flex items-center justify-center font-bold">03</span>
-                                    <div>
-                                        <h4 class="font-bold text-brandDark uppercase group-hover:text-brandRed">CHIẾN DỊCH BRAND A</h4>
-                                        <p class="text-xs text-gray-500">Tối ưu tương tác cho F&B, Nightlife</p>
-                                    </div>
-                                </div>
-                                <i class="fa-solid fa-arrow-right text-brandRed opacity-0 group-hover:opacity-100 transition-opacity"></i>
-                            </div>
-                        </div>
-
-                        <div class="space-y-4">
-                            <div onclick="goToSlide(5)" class="flex items-center justify-between p-4 bg-brandCream rounded-2xl border border-transparent hover:border-brandRed/30 hover:bg-white transition-all cursor-pointer group">
-                                <div class="flex items-center gap-4">
-                                    <span class="w-10 h-10 rounded-xl bg-brandRed text-white flex items-center justify-center font-bold">04</span>
-                                    <div>
-                                        <h4 class="font-bold text-brandDark uppercase group-hover:text-brandRed">DỰ ÁN PERFORMANCE BRAND B</h4>
-                                        <p class="text-xs text-gray-500">Tạo nội dung bán hàng Ads ra đơn</p>
-                                    </div>
-                                </div>
-                                <i class="fa-solid fa-arrow-right text-brandRed opacity-0 group-hover:opacity-100 transition-opacity"></i>
-                            </div>
-                            <div onclick="goToSlide(6)" class="flex items-center justify-between p-4 bg-brandCream rounded-2xl border border-transparent hover:border-brandRed/30 hover:bg-white transition-all cursor-pointer group">
-                                <div class="flex items-center gap-4">
-                                    <span class="w-10 h-10 rounded-xl bg-brandRed text-white flex items-center justify-center font-bold">05</span>
-                                    <div>
-                                        <h4 class="font-bold text-brandDark uppercase group-hover:text-brandRed">THƯ VIỆN KỸ NĂNG NỔI BẬT</h4>
-                                        <p class="text-xs text-gray-500">Content, Scripts, Design, Video Edit</p>
-                                    </div>
-                                </div>
-                                <i class="fa-solid fa-arrow-right text-brandRed opacity-0 group-hover:opacity-100 transition-opacity"></i>
-                            </div>
-                            <div onclick="goToSlide(9)" class="flex items-center justify-between p-4 bg-brandCream rounded-2xl border border-transparent hover:border-brandRed/30 hover:bg-white transition-all cursor-pointer group">
-                                <div class="flex items-center gap-4">
-                                    <span class="w-10 h-10 rounded-xl bg-brandRed text-white flex items-center justify-center font-bold">06</span>
-                                    <div>
-                                        <h4 class="font-bold text-brandDark uppercase group-hover:text-brandRed">KẾT NỐI & LIÊN HỆ</h4>
-                                        <p class="text-xs text-gray-500">Thông tin liên lạc trực tiếp</p>
-                                    </div>
-                                </div>
-                                <i class="fa-solid fa-arrow-right text-brandRed opacity-0 group-hover:opacity-100 transition-opacity"></i>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="flex justify-between items-center text-xs text-gray-500 pt-4 border-t border-brandRed/10">
-                        <span>DANH MỤC TRÌNH BÀY</span>
-                        <span>02 / 10</span>
-                    </div>
-                </section>
-
-                <!-- ==================== SLIDE 3: GIỚI THIỆU BẢN THÂN ==================== -->
+                <!-- ==================== SLIDE 2: GIỚI THIỆU BẢN THÂN ==================== -->
                 <section id="slide-2" class="slide-item min-h-[75vh] md:min-h-[85vh] bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-brandRed/10 flex flex-col justify-between relative transition-all duration-300">
                     <div>
                         <div class="flex items-center gap-3 mb-4">
@@ -865,7 +781,7 @@
 
     <script>
         let currentSlide = 0;
-        const totalSlides = 10;
+        const totalSlides = 9;
         let viewMode = 'slide';
         let editMode = false;
         let isAiOpen = false;
@@ -916,7 +832,7 @@
             if (viewMode === 'slide') {
                 document.querySelectorAll('.slide-item').forEach((slide, i) => { slide.style.display = i === idx ? 'flex' : 'none'; });
             } else {
-                document.getElementById(`slide-${idx}`).scrollIntoView({ behavior: 'smooth', block: 'center' });
+                document.querySelectorAll('.slide-item')[idx].scrollIntoView({ behavior: 'smooth', block: 'center' });
             }
             updateControls();
         }
