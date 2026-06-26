@@ -102,81 +102,72 @@
             <div id="slidesWrapper" class="slide-container flex flex-col gap-16 md:gap-24">
 
                 <!-- ==================== SLIDE 1: TRANG BÌA ==================== -->
-                <section id="slide-0" class="slide-item min-h-[75vh] md:min-h-[85vh] bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-brandRed/10 flex flex-col justify-between relative overflow-hidden transition-all duration-300">
-                    <div class="absolute -top-16 -right-16 w-48 h-48 bg-brandRed/5 rounded-full blur-2xl"></div>
+                <section id="slide-0" class="slide-item min-h-[75vh] md:min-h-[85vh] bg-brandDark rounded-3xl shadow-2xl flex flex-col justify-between relative overflow-hidden transition-all duration-300" style="min-height:85vh;">
 
-                    <div class="flex flex-wrap justify-between items-center pb-6 border-b border-brandRed/10 text-xs font-bold uppercase tracking-wider text-brandRed/60">
-                        <span class="text-brandRed">About</span>
-                        <span>Journey</span>
-                        <span>Work Experience</span>
-                        <span>Achievements</span>
-                        <span>Skills</span>
-                        <span>Career Vision</span>
-                        <span>Contact</span>
+                    <!-- Photo — absolute right, full height -->
+                    <div class="absolute right-0 top-0 h-full w-[45%] md:w-[42%] pointer-events-none select-none">
+                        <img src="image/9d171256-5d53-4482-8b5c-a38731db6858.jpg"
+                             alt="Nguyễn Thị Mỹ Diệu"
+                             class="h-full w-full object-cover object-top">
+                        <!-- gradient blend left edge -->
+                        <div class="absolute inset-0" style="background: linear-gradient(to right, #1E1E1E 0%, #1E1E1E 8%, transparent 55%);"></div>
+                        <!-- gradient fade bottom -->
+                        <div class="absolute inset-0" style="background: linear-gradient(to top, #1E1E1E 0%, transparent 40%);"></div>
                     </div>
 
-                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center my-auto py-8">
-                        <div class="lg:col-span-7 flex flex-col justify-center">
-                            <h1 class="super-title text-[5.5rem] md:text-[9rem] text-brandRed font-black select-all" style="line-height: 0.85;">
+                    <!-- Content -->
+                    <div class="relative z-10 flex flex-col h-full p-8 md:p-12" style="min-height:inherit;">
+
+                        <!-- Top nav -->
+                        <div class="flex flex-wrap justify-between items-center pb-5 border-b border-white/10 text-[11px] font-bold uppercase tracking-widest text-white/40">
+                            <span class="text-brandRed">About</span>
+                            <span>Journey</span>
+                            <span>Work Experience</span>
+                            <span>Achievements</span>
+                            <span>Skills</span>
+                            <span>Career Vision</span>
+                            <span>Contact</span>
+                        </div>
+
+                        <!-- Main content -->
+                        <div class="flex flex-col justify-center flex-1 py-8 max-w-[60%]">
+                            <!-- Subtitle -->
+                            <p class="text-[11px] font-black uppercase tracking-[0.25em] text-white/50 mb-4 editable" contenteditable="false">
+                                LIVE HOST &nbsp;·&nbsp; LIVESTREAM PERFORMANCE
+                            </p>
+
+                            <!-- PORTFOLIO big text -->
+                            <h1 class="super-title text-brandRed select-none" style="font-size: clamp(5rem, 13vw, 10rem); line-height: 0.88; letter-spacing: -0.03em;">
                                 PORT<br>FOLIO
                             </h1>
-                            <div class="mt-8 flex items-start gap-4">
-                                <svg class="w-8 h-8 text-brandRed mt-1 flex-shrink-0 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+
+                            <!-- Name row -->
+                            <div class="mt-8 flex items-center gap-3">
+                                <svg class="w-6 h-6 text-brandRed flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
                                 </svg>
                                 <div>
-                                    <h2 class="text-2xl md:text-3xl font-extrabold text-brandDark uppercase tracking-tight editable" contenteditable="false">
+                                    <h2 class="text-xl md:text-2xl font-black text-white uppercase tracking-tight editable" contenteditable="false">
                                         NGUYỄN THỊ MỸ DIỆU
                                     </h2>
-                                    <p class="text-sm md:text-base text-brandRed font-bold uppercase tracking-widest mt-1 editable" contenteditable="false">
+                                    <p class="text-xs text-brandRed font-bold uppercase tracking-widest mt-0.5 editable" contenteditable="false">
                                         Livestream
                                     </p>
-                                    <p class="text-gray-600 mt-4 max-w-md italic leading-relaxed text-sm editable" contenteditable="false">
-                                        "A brand storyteller who strives to create real human value — touching customers' emotions and breaking through revenue conversion for businesses."
-                                    </p>
                                 </div>
                             </div>
+
+                            <!-- Quote -->
+                            <p class="text-white/50 mt-5 italic leading-relaxed text-xs max-w-sm editable" contenteditable="false">
+                                "A brand storyteller who strives to create real human value — touching customers' emotions and breaking through revenue conversion for businesses."
+                            </p>
                         </div>
 
-                        <div class="lg:col-span-5 flex justify-center relative">
-                            <div class="relative w-72 h-72 md:w-80 md:h-80 group">
-                                <div class="absolute inset-0 bg-brandRed rounded-full transform rotate-6 scale-95 opacity-10 transition-transform group-hover:rotate-12"></div>
-                                <div class="absolute inset-0 border-4 border-dashed border-brandRed rounded-full transform -rotate-3 scale-100 opacity-30"></div>
-                                <div class="absolute inset-0 flex flex-col items-center justify-center bg-brandCreamDark rounded-full border-4 border-brandRed overflow-hidden shadow-2xl relative">
-                                    <svg class="w-56 h-56 mt-4" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <circle cx="100" cy="100" r="80" fill="#E67E22" opacity="0.1"/>
-                                        <path d="M50 110C40 70 60 40 100 40C140 40 160 70 150 110" fill="#B31A24"/>
-                                        <circle cx="100" cy="95" r="35" fill="#FAD7A0"/>
-                                        <rect x="75" y="85" width="20" height="15" rx="5" fill="none" stroke="#2C3E50" stroke-width="3"/>
-                                        <rect x="105" y="85" width="20" height="15" rx="5" fill="none" stroke="#2C3E50" stroke-width="3"/>
-                                        <line x1="95" y1="92" x2="105" y2="92" stroke="#2C3E50" stroke-width="3"/>
-                                        <circle cx="85" cy="92" r="3" fill="#2C3E50"/>
-                                        <circle cx="115" cy="92" r="3" fill="#2C3E50"/>
-                                        <path d="M90 108C95 113 105 113 110 108" stroke="#2C3E50" stroke-width="3" stroke-linecap="round"/>
-                                        <circle cx="76" cy="100" r="5" fill="#E74C3C" opacity="0.5"/>
-                                        <circle cx="124" cy="100" r="5" fill="#E74C3C" opacity="0.5"/>
-                                        <path d="M65 80C75 60 125 60 135 80C140 95 145 110 145 125C140 125 130 115 130 115C125 125 115 120 115 120C100 110 100 75 100 75C100 75 95 100 80 115" fill="#B31A24"/>
-                                        <path d="M110 120C90 120 80 135 80 155C80 165 120 165 120 155C120 140 130 125 110 120Z" fill="#FFFFFF" stroke="#2C3E50" stroke-width="3"/>
-                                        <polygon points="85,125 80,110 95,123" fill="#FFFFFF" stroke="#2C3E50" stroke-width="2"/>
-                                        <polygon points="115,125 120,110 105,123" fill="#FFFFFF" stroke="#2C3E50" stroke-width="2"/>
-                                        <circle cx="95" cy="138" r="2" fill="#2C3E50"/>
-                                        <circle cx="108" cy="138" r="2" fill="#2C3E50"/>
-                                        <path d="M99 142C101 144 103 144 105 142" stroke="#2C3E50" stroke-width="2" stroke-linecap="round"/>
-                                        <polygon points="84,122 81,114 91,121" fill="#FFADAD"/>
-                                        <path d="M60 130C70 140 90 145 100 145" stroke="#B31A24" stroke-width="10" stroke-linecap="round"/>
-                                        <path d="M140 130C130 140 110 145 100 145" stroke="#B31A24" stroke-width="10" stroke-linecap="round"/>
-                                    </svg>
-                                    <div class="absolute bottom-4 bg-brandRed text-white text-xs px-4 py-1.5 rounded-full font-bold shadow-md tracking-wider">
-                                        MỸ DIỆU & PET
-                                    </div>
-                                </div>
-                            </div>
+                        <!-- Footer -->
+                        <div class="flex justify-between items-center text-[11px] text-white/30 pt-4 border-t border-white/10">
+                            <span>© 2026 NGUYỄN THỊ MỸ DIỆU</span>
+                            <span class="font-bold text-brandRed tracking-widest">TAP OR CLICK NEXT SLIDE</span>
                         </div>
-                    </div>
 
-                    <div class="flex justify-between items-center text-xs text-gray-500 pt-4 border-t border-brandRed/10">
-                        <span>© 2026 NGUYỄN THỊ MỸ DIỆU</span>
-                        <span class="font-bold text-brandRed">TAP OR CLICK NEXT SLIDE</span>
                     </div>
                 </section>
 
