@@ -67,13 +67,18 @@
 <body class="grid-bg min-h-screen text-brandDark relative antialiased transition-colors duration-300">
 
     <!-- TOP CONTROL NAVIGATION -->
-    <header class="fixed top-0 left-0 w-full bg-white/85 backdrop-blur-md border-b border-brandRed/10 z-50 px-4 py-3 shadow-sm">
-        <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-3">
-            <div class="flex items-center gap-3">
-                <span class="font-bold text-brandRed font-heading tracking-wide">MỸ DIỆU PORTFOLIO</span>
-            </div>
-
-            <div></div>
+    <header class="fixed top-0 left-0 w-full bg-white/90 backdrop-blur-md border-b border-brandRed/10 z-50 px-6 py-3 shadow-sm">
+        <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-4">
+            <span class="font-bold text-brandRed font-heading tracking-wide text-sm">MỸ DIỆU PORTFOLIO</span>
+            <nav style="display:flex; flex-wrap:wrap; gap:1.5rem; align-items:center;">
+                <button onclick="goToSlide(1)" style="background:none;border:none;cursor:pointer;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.15em;color:#B31A24;font-family:'Plus Jakarta Sans',sans-serif;">About</button>
+                <button onclick="goToSlide(2)" style="background:none;border:none;cursor:pointer;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.15em;color:rgba(30,30,30,0.5);font-family:'Plus Jakarta Sans',sans-serif;">Journey</button>
+                <button onclick="goToSlide(3)" style="background:none;border:none;cursor:pointer;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.15em;color:rgba(30,30,30,0.5);font-family:'Plus Jakarta Sans',sans-serif;">Work Experience</button>
+                <button onclick="goToSlide(5)" style="background:none;border:none;cursor:pointer;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.15em;color:rgba(30,30,30,0.5);font-family:'Plus Jakarta Sans',sans-serif;">Achievements</button>
+                <button onclick="goToSlide(6)" style="background:none;border:none;cursor:pointer;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.15em;color:rgba(30,30,30,0.5);font-family:'Plus Jakarta Sans',sans-serif;">Skills</button>
+                <button onclick="goToSlide(7)" style="background:none;border:none;cursor:pointer;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.15em;color:rgba(30,30,30,0.5);font-family:'Plus Jakarta Sans',sans-serif;">Career Vision</button>
+                <button onclick="goToSlide(8)" style="background:none;border:none;cursor:pointer;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.15em;color:rgba(30,30,30,0.5);font-family:'Plus Jakarta Sans',sans-serif;">Contact</button>
+            </nav>
         </div>
     </header>
 
@@ -102,17 +107,6 @@
 
                     <!-- All content -->
                     <div style="position:relative; z-index:10; display:flex; flex-direction:column; flex:1; padding:2.5rem 3rem;">
-
-                        <!-- Nav menu — không đụng vào -->
-                        <div style="display:flex; flex-wrap:wrap; gap:0.5rem; justify-content:space-between; align-items:center; padding-bottom:1.25rem; border-bottom:1px solid rgba(179,26,36,0.12); margin-bottom:0;">
-                            <button onclick="goToSlide(1)" style="background:none;border:none;cursor:pointer;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.18em;color:#B31A24;font-family:'Plus Jakarta Sans',sans-serif;">About</button>
-                            <button onclick="goToSlide(2)" style="background:none;border:none;cursor:pointer;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.18em;color:rgba(30,30,30,0.4);font-family:'Plus Jakarta Sans',sans-serif;">Journey</button>
-                            <button onclick="goToSlide(3)" style="background:none;border:none;cursor:pointer;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.18em;color:rgba(30,30,30,0.4);font-family:'Plus Jakarta Sans',sans-serif;">Work Experience</button>
-                            <button onclick="goToSlide(5)" style="background:none;border:none;cursor:pointer;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.18em;color:rgba(30,30,30,0.4);font-family:'Plus Jakarta Sans',sans-serif;">Achievements</button>
-                            <button onclick="goToSlide(6)" style="background:none;border:none;cursor:pointer;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.18em;color:rgba(30,30,30,0.4);font-family:'Plus Jakarta Sans',sans-serif;">Skills</button>
-                            <button onclick="goToSlide(7)" style="background:none;border:none;cursor:pointer;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.18em;color:rgba(30,30,30,0.4);font-family:'Plus Jakarta Sans',sans-serif;">Career Vision</button>
-                            <button onclick="goToSlide(8)" style="background:none;border:none;cursor:pointer;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.18em;color:rgba(30,30,30,0.4);font-family:'Plus Jakarta Sans',sans-serif;">Contact</button>
-                        </div>
 
                         <!-- Main content -->
                         <div style="flex:1; display:flex; flex-direction:column; justify-content:center; padding:2rem 0; max-width:55%;">
