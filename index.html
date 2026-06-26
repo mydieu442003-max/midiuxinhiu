@@ -1,1796 +1,1048 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>NTMD Portfolio</title>
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nguyễn Thị Mỹ Diệu | Content Writer & Creator Portfolio</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  <!-- Bootstrap 3 -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <!-- Fonts -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Noto+Sans+KR:wght@300;400;500;700&family=Nunito:wght@400;900&family=Cinzel:wght@400;600&display=swap">
-  <!-- Font Awesome 4 -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <!-- Font Awesome 6 Brands (for TikTok) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/brands.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/fontawesome.min.css">
-  <!-- Material Icons -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <!-- AOS -->
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandRed: '#B31A24',
+                        brandRedHover: '#91121A',
+                        brandCream: '#F4F1EA',
+                        brandCreamDark: '#ECE8DF',
+                        brandDark: '#1E1E1E',
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #F4F1EA;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+        }
 
-  <style>
-    /* ===================== RESET & BASE ===================== */
-    *, *::before, *::after { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Noto Sans KR', 'Helvetica Neue', Arial, sans-serif;
-      color: #333;
-      background: #fff;
-      overflow-x: hidden;
-    }
-    a { text-decoration: none; color: inherit; }
-    ul { list-style: none; margin: 0; padding: 0; }
-    img { max-width: 100%; display: block; }
-    .clearfix::after { content: ''; display: table; clear: both; }
+        .grid-bg {
+            background-size: 30px 30px;
+            background-image:
+                linear-gradient(to right, rgba(179, 26, 36, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(179, 26, 36, 0.05) 1px, transparent 1px);
+        }
 
-    /* ===================== TRANSITIONS ===================== */
-    .animate02 { transition: all 0.2s ease; }
-    .animate03 { transition: all 0.3s ease; }
+        .super-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -0.04em;
+            line-height: 0.95;
+        }
 
-    /* ===================== HEADER ===================== */
-    #header {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 1000;
-      transition: background 0.35s ease, box-shadow 0.35s ease;
-    }
-    #header.is-scrolled {
-      background: transparent;
-      box-shadow: none;
-    }
-    /* On scroll: hide nav + lang, keep only logo */
-    .gnb-pc, .lang-wrap {
-      transition: opacity 0.3s ease, visibility 0.3s ease;
-    }
-    #header.is-scrolled .gnb-pc,
-    #header.is-scrolled .lang-wrap {
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-    }
+        .slide-container {
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
-    /* Desktop nav container */
-    #header .hd-inner {
-      padding: 0 36px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 84px;
-    }
-
-    /* ── NTMD Logo ── */
-    .ntmd-logo {
-      display: inline-flex;
-      flex-direction: column;
-      align-items: center;
-      text-decoration: none;
-      line-height: 1;
-      gap: 3px;
-    }
-    .ntmd-logo .nl-letters {
-      display: flex;
-      align-items: baseline;
-      gap: 0px;
-    }
-    .ntmd-logo .nl-letters span {
-      font-family: 'Nunito', sans-serif;
-      font-weight: 900;
-      font-size: 30px;
-      line-height: 1;
-      letter-spacing: -0.01em;
-    }
-    .ntmd-logo .nl-letters .nl-n { color: #e8517c; }
-    .ntmd-logo .nl-letters .nl-t { color: #4a9eca; }
-    .ntmd-logo .nl-letters .nl-m { color: #3fbfac; }
-    .ntmd-logo .nl-letters .nl-d { color: #f5834a; }
-    .ntmd-logo .nl-tag {
-      font-family: 'Nunito', sans-serif;
-      font-weight: 400;
-      font-size: 8.5px;
-      letter-spacing: 0.32em;
-      text-transform: uppercase;
-      color: rgba(180,180,180,0.9);
-    }
-    #header.is-scrolled .ntmd-logo .nl-tag { color: #aaa; }
-
-    /* Mobile logo size */
-    .ntmd-logo.sm .nl-letters span { font-size: 22px; }
-    .ntmd-logo.sm .nl-tag          { font-size: 7px; letter-spacing: 0.28em; }
-
-    /* Footer logo */
-    .ntmd-logo.footer .nl-letters span { font-size: 32px; }
-    .ntmd-logo.footer .nl-tag          { font-size: 9px; letter-spacing: 0.35em; color: rgba(255,255,255,0.35); }
-
-    /* Nav list */
-    .gnb-pc {
-      display: flex;
-      align-items: center;
-      gap: 38px;
-    }
-    .gnb-pc > li { position: relative; }
-    .gnb-pc > li > a {
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      color: rgba(255,255,255,0.92);
-      padding: 6px 0;
-      display: block;
-      position: relative;
-      transition: color 0.2s;
-    }
-    .gnb-pc > li > a::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0;
-      width: 0; height: 1px;
-      background: currentColor;
-      transition: width 0.25s ease;
-    }
-    .gnb-pc > li > a:hover::after,
-    .gnb-pc > li.active > a::after { width: 100%; }
-    .gnb-pc > li > a:hover { color: #fff; }
-    #header.is-scrolled .gnb-pc > li > a { color: #222; }
-    #header.is-scrolled .gnb-pc > li > a:hover { color: #111; }
-    #header.is-scrolled .ntmd-logo .nl-tag { color: rgba(100,100,100,0.8); }
-
-    /* Dropdown overlay bg */
-    .menu-over-bg {
-      display: none;
-      position: fixed;
-      top: 84px; left: 0; right: 0;
-      height: 0;
-      background: #fff;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
-      z-index: 998;
-      transition: height 0.2s;
-    }
-
-    /* Language switcher */
-    .lang-wrap {
-      position: relative;
-      margin-left: 32px;
-    }
-    .lang-btn {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      color: rgba(255,255,255,0.85);
-      cursor: pointer;
-      transition: color 0.2s;
-    }
-    .lang-btn .arrow {
-      font-size: 9px;
-      transition: transform 0.2s;
-    }
-    .lang-wrap.open .arrow { transform: rotate(180deg); }
-    #header.is-scrolled .lang-btn { color: #333; }
-    .lang-drop {
-      display: none;
-      position: absolute;
-      top: calc(100% + 12px);
-      right: 0;
-      background: #fff;
-      min-width: 72px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.12);
-    }
-    .lang-wrap.open .lang-drop { display: block; }
-    .lang-drop a {
-      display: block;
-      padding: 9px 16px;
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      color: #444;
-      transition: background 0.15s;
-    }
-    .lang-drop a:hover { background: #f5f5f5; color: #111; }
-
-    /* ===================== MOBILE NAV ===================== */
-    .gnb-mobile-bar {
-      display: none;
-      align-items: center;
-      justify-content: space-between;
-      height: 62px;
-      padding: 0 18px;
-    }
-    .gnb-mobile-bar .ntmd-logo { gap: 2px; }
-    .hamburger {
-      width: 28px;
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      padding: 4px 0;
-    }
-    .hamburger span {
-      display: block;
-      height: 1.5px;
-      background: #fff;
-      transition: background 0.3s;
-    }
-    #header.is-scrolled .hamburger span { background: #111; }
-
-    /* Full-screen mobile nav overlay */
-    #m-overlay {
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: #0f0f0f;
-      z-index: 5000;
-      display: flex;
-      flex-direction: column;
-      padding: 30px 30px 40px;
-      transform: translateX(100%);
-      transition: transform 0.4s cubic-bezier(0.76, 0, 0.24, 1);
-    }
-    #m-overlay.open { transform: translateX(0); }
-    .m-overlay-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 50px;
-    }
-    .m-overlay-logo { /* replaced by .ntmd-logo.sm */ }
-    .m-close {
-      width: 32px; height: 32px;
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 0;
-    }
-    .m-close::before,
-    .m-close::after {
-      content: '';
-      display: block;
-      width: 24px;
-      height: 1.5px;
-      background: #fff;
-    }
-    .m-close::before { transform: rotate(45deg) translateY(0.75px); }
-    .m-close::after  { transform: rotate(-45deg) translateY(-0.75px); }
-
-    .m-nav-list li {
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-    .m-nav-list li a {
-      display: block;
-      padding: 20px 0;
-      font-size: 20px;
-      font-weight: 500;
-      letter-spacing: 0.06em;
-      color: rgba(255,255,255,0.85);
-      transition: color 0.2s, padding-left 0.2s;
-    }
-    .m-nav-list li a:hover { color: #fff; padding-left: 6px; }
-    .m-extra {
-      margin-top: auto;
-      padding-top: 30px;
-      border-top: 1px solid rgba(255,255,255,0.08);
-    }
-    .m-extra p {
-      font-size: 13px;
-      color: rgba(255,255,255,0.4);
-      margin-bottom: 16px;
-    }
-    .m-sns { display: flex; gap: 14px; }
-    .m-sns a {
-      color: rgba(255,255,255,0.5);
-      font-size: 16px;
-      transition: color 0.2s;
-    }
-    .m-sns a:hover { color: #fff; }
-
-    /* Offset for fixed header when scrolling to anchors */
-    section[id] { scroll-margin-top: 90px; }
-
-    /* ===================== SUB VISUAL ===================== */
-    #sub-inner-wrap { padding-top: 0; }
-
-    .subVisual {
-      position: relative;
-      background: #e9e9e9;
-      overflow: hidden;
-    }
-    .subVisual-img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-    .subVisual-text {
-      position: absolute;
-      left: 55%;
-      top: 50%;
-      transform: translateY(-50%);
-      text-align: left;
-      pointer-events: none;
-      white-space: normal;
-      max-width: 38%;
-    }
-    .sv-quote {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(12px, 1.4vw, 22px);
-      font-weight: 400;
-      font-style: italic;
-      color: #ffffff;
-      line-height: 1.75;
-      margin: 0 0 16px;
-      text-shadow: 0 1px 8px rgba(0,0,0,0.35);
-      letter-spacing: 0.01em;
-    }
-    .sv-signature {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(11px, 1.1vw, 17px);
-      font-weight: 300;
-      font-style: italic;
-      color: rgba(255,255,255,0.75);
-      text-align: right;
-      margin: 0;
-      letter-spacing: 0.08em;
-    }
-
-    /* ===================== CONTENT SECTIONS ===================== */
-    .sub0301_view { }
-
-    .works {
-      padding: 80px 0;
-      border-bottom: 1px solid #ebebeb;
-    }
-    .works:last-child { border-bottom: none; }
-
-    .works > .container {
-      max-width: 1310px;
-    }
-
-    /* Two-column layout inside each section */
-    .works .col-left {
-      float: left;
-      width: 240px;
-      padding-right: 30px;
-    }
-    .works .col-left .sec-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 56px;
-      font-weight: 700;
-      color: #111;
-      line-height: 1;
-      letter-spacing: -0.01em;
-    }
-    .works .col-right {
-      margin-left: 240px;
-    }
-
-    /* ===================== PROFILE ===================== */
-    .profile-name {
-      display: flex;
-      align-items: baseline;
-      gap: 0;
-      margin-bottom: 18px;
-    }
-    .profile-name h2 {
-      font-size: 22px;
-      font-weight: 700;
-      color: #111;
-      margin: 0;
-    }
-    .profile-name span {
-      font-size: 14px;
-      font-weight: 300;
-      color: #999;
-      padding-left: 16px;
-    }
-    .profile-row {
-      display: flex;
-      align-items: center;
-      gap: 0;
-      font-size: 14px;
-      color: #111;
-      margin-bottom: 12px;
-    }
-    .profile-row .lbl {
-      color: #aaa;
-      font-weight: 300;
-      min-width: 75px;
-      font-size: 13px;
-    }
-    .sns-row {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      margin-bottom: 0;
-    }
-    .sns-row .lbl {
-      color: #aaa;
-      font-weight: 300;
-      min-width: 75px;
-      font-size: 13px;
-    }
-    .sns-icons {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-    .sns-icons a {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 30px; height: 30px;
-      border: 1px solid #ccc;
-      border-radius: 50%;
-      font-size: 12px;
-      color: #666;
-      transition: all 0.2s;
-    }
-    .sns-icons a:hover {
-      background: #111;
-      border-color: #111;
-      color: #fff;
-    }
-    .sns-icons { position: relative; }
-    #zalo-popup {
-      display: none;
-      position: absolute;
-      bottom: calc(100% + 10px);
-      left: 0;
-      background: #fff;
-      border: 1px solid #e8e8e8;
-      border-radius: 8px;
-      padding: 12px 18px;
-      box-shadow: 0 6px 24px rgba(0,0,0,0.12);
-      z-index: 200;
-      white-space: nowrap;
-    }
-    #zalo-popup::after {
-      content: '';
-      position: absolute;
-      top: 100%;
-      left: 20px;
-      border: 7px solid transparent;
-      border-top-color: #fff;
-    }
-    #zalo-popup::before {
-      content: '';
-      position: absolute;
-      top: 100%;
-      left: 19px;
-      border: 8px solid transparent;
-      border-top-color: #e8e8e8;
-    }
-    #zalo-popup.show { display: block; }
-    #zalo-popup .zp-label {
-      font-size: 10px;
-      color: #aaa;
-      font-weight: 400;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-bottom: 4px;
-    }
-    #zalo-popup .zp-phone {
-      font-size: 15px;
-      font-weight: 700;
-      color: #111;
-      letter-spacing: 0.05em;
-    }
-
-    /* ===================== TABS ===================== */
-    .tab-nav {
-      display: flex;
-      border-bottom: none;
-      margin-bottom: 0;
-      gap: 36px;
-      padding-bottom: 20px;
-    }
-    .tab-nav li { margin-bottom: 0; }
-    .tab-nav li a {
-      display: block;
-      padding: 0;
-      font-size: 13px;
-      font-weight: 400;
-      letter-spacing: 0.05em;
-      color: #bbb;
-      border: none;
-      background: none;
-      transition: color 0.2s;
-    }
-    .tab-nav li a:hover { color: #555; }
-    .tab-nav li.active a {
-      font-weight: 700;
-      color: #111;
-      border: none;
-      background: none;
-    }
-
-    /* Tab panes — show all */
-    .tab-nav { display: none; }
-    .tab-pane { display: block; }
-    .tab-pane + .tab-pane { margin-top: 48px; padding-top: 40px; border-top: 1px solid #f0f0f0; }
-
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(12px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    /* ===================== WORK LIST (vertical) ===================== */
-    .work-list { list-style: none; margin: 0; padding: 0; }
-    .work-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 22px;
-      padding: 18px 0;
-      border-bottom: 1px solid #f0f0f0;
-      transition: background 0.15s, padding-left 0.15s;
-      cursor: default;
-    }
-    .work-list li:first-child { border-top: 1px solid #f0f0f0; }
-    .work-list li:hover { background: #fafafa; padding-left: 4px; }
-    .wl-thumb {
-      width: 82px;
-      height: 82px;
-      flex-shrink: 0;
-      background: #efefef;
-      overflow: hidden;
-    }
-    .wl-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .wl-info { flex: 1; padding-top: 4px; }
-    .wl-title {
-      font-size: 14px;
-      color: #111;
-      margin-bottom: 5px;
-      line-height: 1.5;
-    }
-    .wl-title b { font-weight: 700; }
-    .wl-sub {
-      font-size: 12.5px;
-      color: #888;
-      margin-bottom: 6px;
-      line-height: 1.6;
-    }
-    .wl-date { font-size: 12px; color: #bbb; letter-spacing: 0.03em; }
-    .wl-duties {
-      list-style: none;
-      margin: 10px 0 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
-    }
-    .wl-duties li {
-      display: flex;
-      align-items: baseline;
-      gap: 10px;
-      font-size: 12px;
-      color: #888;
-      line-height: 1.55;
-      border: none;
-      cursor: default;
-    }
-    .wl-duties li:hover { background: none; padding-left: 0; }
-    .duty-tag {
-      flex-shrink: 0;
-      font-size: 11px;
-      font-weight: 600;
-      color: #e8517c;
-      background: rgba(232,81,124,0.08);
-      padding: 2px 9px;
-      border-radius: 3px;
-      width: 86px;
-      text-align: center;
-      letter-spacing: 0.01em;
-    }
-    .cv-download {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      margin-top: 22px;
-      padding: 10px 22px;
-      background: #111;
-      color: #fff;
-      font-size: 13px;
-      border-radius: 4px;
-      letter-spacing: 0.04em;
-      transition: background 0.2s;
-    }
-    .cv-download:hover { background: #e8517c; color: #fff; }
-
-    /* ===================== ALBUM / DRAMA / MOVIE GRID ===================== */
-    .media-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-      gap: 28px 18px;
-    }
-    .media-item .thumb {
-      aspect-ratio: 1 / 1;
-      overflow: hidden;
-      background: #f0f0f0;
-      margin-bottom: 12px;
-    }
-    .media-item .thumb img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    }
-    .media-item:hover .thumb img { transform: scale(1.07); }
-    .media-item .info h3 {
-      font-size: 12.5px;
-      font-weight: 400;
-      color: #111;
-      line-height: 1.5;
-      margin-bottom: 5px;
-    }
-    .media-item .info h3 b { font-weight: 700; }
-    .media-item .info .date {
-      font-size: 12px;
-      color: #aaa;
-    }
-
-    /* Hidden "more" items */
-    .media-item.more { display: none; }
-
-    /* MORE VIEW button */
-    .btn-more-wrap { margin-top: 36px; }
-    #btn-more {
-      display: inline-block;
-      padding: 11px 36px;
-      border: 1.5px solid #111;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.15em;
-      color: #111;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: all 0.22s;
-    }
-    #btn-more:hover,
-    #btn-more.active {
-      background: #111;
-      color: #fff;
-    }
-
-    /* ===================== SKILLS ===================== */
-    .skills-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px 12px;
-      padding: 8px 0 20px;
-    }
-    .skill-tag {
-      display: inline-block;
-      padding: 9px 20px;
-      border: 1.5px solid #ddd;
-      font-size: 12.5px;
-      font-weight: 500;
-      color: #333;
-      letter-spacing: 0.04em;
-      transition: all 0.2s;
-      cursor: default;
-    }
-    .skill-tag:hover { border-color: #111; background: #111; color: #fff; }
-    .skill-tag.sk-pink  { border-color: #e8517c; color: #e8517c; }
-    .skill-tag.sk-blue  { border-color: #4a9eca; color: #4a9eca; }
-    .skill-tag.sk-mint  { border-color: #3fbfac; color: #3fbfac; }
-    .skill-tag.sk-orange{ border-color: #f5834a; color: #f5834a; }
-    .skill-tag.sk-pink:hover  { background:#e8517c; color:#fff; border-color:#e8517c; }
-    .skill-tag.sk-blue:hover  { background:#4a9eca; color:#fff; border-color:#4a9eca; }
-    .skill-tag.sk-mint:hover  { background:#3fbfac; color:#fff; border-color:#3fbfac; }
-    .skill-tag.sk-orange:hover{ background:#f5834a; color:#fff; border-color:#f5834a; }
-
-    .skill-section-title {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: #bbb;
-      margin: 24px 0 12px;
-    }
-    .skill-section-title:first-child { margin-top: 0; }
-
-    /* ===================== EXPERIENCE LIST ===================== */
-    .exp-list li {
-      padding: 20px 0;
-      border-bottom: 1px solid #f0f0f0;
-      transition: padding-left 0.15s;
-    }
-    .exp-list li:first-child { border-top: 1px solid #f0f0f0; }
-    .exp-list li:hover { padding-left: 6px; }
-    .exp-title {
-      font-size: 14px;
-      font-weight: 600;
-      color: #111;
-      margin-bottom: 5px;
-    }
-    .exp-company {
-      font-size: 12px;
-      color: #e8517c;
-      font-weight: 500;
-      margin-bottom: 6px;
-      letter-spacing: 0.03em;
-    }
-    .exp-desc {
-      font-size: 12.5px;
-      color: #777;
-      line-height: 1.7;
-    }
-
-    /* ===================== TIMELINE ===================== */
-    .timeline {
-      position: relative;
-      padding-left: 28px;
-    }
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 7px;
-      top: 8px;
-      bottom: 8px;
-      width: 1.5px;
-      background: linear-gradient(to bottom, #e8517c 0%, #4a9eca 60%, #ddd 100%);
-    }
-    .tl-item {
-      position: relative;
-      padding: 0 0 32px 0;
-    }
-    .tl-item:last-child { padding-bottom: 0; }
-    .tl-dot {
-      position: absolute;
-      left: -28px;
-      top: 5px;
-      width: 15px;
-      height: 15px;
-      border-radius: 50%;
-      border: 2px solid #e8517c;
-      background: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .tl-dot.current {
-      background: #e8517c;
-      box-shadow: 0 0 0 4px rgba(232, 81, 124, 0.15);
-    }
-    .tl-dot.current::after {
-      content: '';
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      background: #fff;
-    }
-    .tl-item:last-child .tl-dot {
-      border-color: #4a9eca;
-    }
-    .tl-period {
-      display: inline-block;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      color: #e8517c;
-      text-transform: uppercase;
-      margin-bottom: 6px;
-    }
-    .tl-item:last-child .tl-period { color: #4a9eca; }
-    .tl-title {
-      font-size: 14px;
-      font-weight: 600;
-      color: #111;
-      margin-bottom: 4px;
-    }
-    .tl-company {
-      font-size: 12.5px;
-      color: #555;
-      font-weight: 500;
-      margin-bottom: 10px;
-    }
-    .tl-desc {
-      font-size: 12.5px;
-      color: #777;
-      line-height: 1.75;
-    }
-    .tl-desc ul {
-      padding-left: 16px;
-      list-style: disc;
-    }
-    .tl-desc ul li {
-      padding: 2px 0;
-    }
-    .tl-gap {
-      position: relative;
-      padding: 0 0 32px 0;
-    }
-    .tl-gap-dot {
-      position: absolute;
-      left: -28px;
-      top: 4px;
-      width: 15px;
-      height: 15px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 3px;
-    }
-    .tl-gap-dot span {
-      display: block;
-      width: 3px;
-      height: 3px;
-      border-radius: 50%;
-      background: #ccc;
-    }
-    .tl-gap-label {
-      font-size: 11px;
-      color: #bbb;
-      font-style: italic;
-      letter-spacing: 0.06em;
-    }
-
-    /* ===================== AWARDS LIST ===================== */
-    .awards-list li {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      padding: 15px 0;
-      border-bottom: 1px solid #f0f0f0;
-      transition: background 0.15s;
-    }
-    .awards-list li:first-child { border-top: 1px solid #f0f0f0; }
-    .awards-list li:hover { background: #fafafa; padding-left: 6px; }
-    .awards-list .a-name {
-      font-size: 13.5px;
-      font-weight: 400;
-      color: #222;
-      line-height: 1.4;
-    }
-    .awards-list .a-year {
-      font-size: 12px;
-      color: #bbb;
-      font-weight: 300;
-      white-space: nowrap;
-    }
-
-    /* ===================== FOOTER ===================== */
-    #footerWrap {
-      background: #121212;
-      padding: 65px 0 55px;
-      position: relative;
-    }
-    #footerWrap > .container {
-      max-width: 1310px;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-    }
-    .foot-left .ntmd-logo.footer { gap: 4px; }
-    .foot-right { text-align: right; }
-    .foot-sns {
-      display: flex;
-      justify-content: flex-end;
-      gap: 10px;
-      margin-bottom: 18px;
-    }
-    .foot-sns a {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 34px; height: 34px;
-      border: 1px solid rgba(255,255,255,0.2);
-      border-radius: 50%;
-      color: rgba(255,255,255,0.6);
-      font-size: 13px;
-      transition: all 0.2s;
-    }
-    .foot-sns a:hover {
-      background: rgba(255,255,255,0.12);
-      color: #fff;
-      border-color: rgba(255,255,255,0.4);
-    }
-    .foot-copy {
-      font-size: 12px;
-      color: rgba(255,255,255,0.35);
-      margin-bottom: 10px;
-    }
-    .foot-addr {
-      font-style: normal;
-      line-height: 1.8;
-    }
-    .foot-addr p {
-      display: inline;
-      font-size: 12px;
-      color: rgba(255,255,255,0.45);
-    }
-    .foot-addr p + p::before {
-      content: ' · ';
-      color: rgba(255,255,255,0.2);
-    }
-
-    /* Go to top */
-    .goTop {
-      position: fixed;
-      right: 28px;
-      bottom: 28px;
-      width: 44px; height: 44px;
-      background: rgba(30,30,30,0.75);
-      border: 1px solid rgba(255,255,255,0.18);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: rgba(255,255,255,0.8);
-      transition: all 0.2s;
-      cursor: pointer;
-      z-index: 5000;
-      backdrop-filter: blur(6px);
-    }
-    .goTop:hover {
-      background: rgba(0,0,0,0.9);
-      color: #fff;
-      border-color: rgba(255,255,255,0.5);
-    }
-    .goTop .material-icons { font-size: 20px; }
-
-    /* ===================== RESPONSIVE ===================== */
-    @media (max-width: 991px) {
-      /* Hide desktop nav */
-      .hd-desktop { display: none !important; }
-      .gnb-mobile-bar { display: flex !important; }
-
-      #sub-inner-wrap { padding-top: 62px; }
-      .subVisual-text { left: 55%; top: 50%; transform: translateY(-50%); }
-
-      .works { padding: 50px 0; }
-      .works .col-left {
-        float: none; width: 100%;
-        padding-right: 0;
-        margin-bottom: 24px;
-      }
-      .works .col-left .sec-title { font-size: 38px; }
-      .works .col-right { margin-left: 0; }
-
-      .media-grid {
-        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-        gap: 20px 14px;
-      }
-
-      #footerWrap > .container {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 28px;
-      }
-      .foot-right { text-align: left; }
-      .foot-sns { justify-content: flex-start; }
-    }
-
-    @media (max-width: 575px) {
-      .subVisual-text { right: 4%; }
-      .media-grid { grid-template-columns: repeat(2, 1fr); gap: 16px 12px; }
-      .tab-nav li a { padding: 8px 12px; font-size: 11px; }
-      .awards-list .a-name { font-size: 12.5px; }
-    }
-
-    /* ===================== VIDEO GRID ===================== */
-    .video-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin-top: 20px;
-    }
-    .video-grid video {
-      width: 100%;
-      border-radius: 4px;
-      background: #000;
-      display: block;
-    }
-    @media (max-width: 767px) {
-      .video-grid { grid-template-columns: 1fr; }
-    }
-
-    /* ===================== PHOTO / AWARD GALLERY ===================== */
-
-    /* Facebook-style album layout */
-    .fb-albums { display: flex; flex-direction: column; gap: 44px; margin-top: 8px; }
-    .fb-post-label {
-      font-size: 10.5px; font-weight: 700; letter-spacing: 0.16em;
-      text-transform: uppercase; color: #bbb; margin: 0 0 8px;
-    }
-    .fb-g { display: grid; gap: 3px; }
-    .fb-g .gal-item { display: block; overflow: hidden; background: #f2f2f2; cursor: pointer; aspect-ratio: unset; }
-    .fb-g .gal-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s; }
-    .fb-g .gal-item:hover img { transform: scale(1.05); }
-
-    /* 1 photo */
-    .fb-g1 { grid-template-columns: 1fr; }
-    .fb-g1 .gal-item { height: 340px; }
-
-    /* 3 photos: 1 full-width + 2 equal below */
-    .fb-g3 { grid-template-columns: 1fr 1fr; }
-    .fb-g3 .gal-item:nth-child(1) { grid-column: span 2; height: 260px; }
-    .fb-g3 .gal-item:nth-child(2),
-    .fb-g3 .gal-item:nth-child(3) { height: 175px; }
-
-    /* 5 photos: 2 lớn trên + 3 nhỏ dưới */
-    .fb-g5 { grid-template-columns: repeat(3, 1fr); }
-    .fb-g5 .gal-item:nth-child(1) { grid-column: span 2; height: 260px; }
-    .fb-g5 .gal-item:nth-child(2) { height: 260px; }
-    .fb-g5 .gal-item:nth-child(3),
-    .fb-g5 .gal-item:nth-child(4),
-    .fb-g5 .gal-item:nth-child(5) { height: 160px; }
-
-    /* 8 photos: 1 hero (2col) + small right + 2 rows of 3 */
-    .fb-g8 { grid-template-columns: repeat(3, 1fr); }
-    .fb-g8 .gal-item { height: 160px; }
-    .fb-g8 .gal-item:nth-child(1) { grid-column: span 2; height: 240px; }
-    .fb-g8 .gal-item:nth-child(2) { height: 240px; }
-
-    .photo-gallery {
-      columns: 2;
-      column-gap: 8px;
-      margin-top: 20px;
-    }
-    .award-gallery {
-      columns: 3;
-      column-gap: 8px;
-      margin-top: 20px;
-    }
-    .gal-item {
-      display: block;
-      break-inside: avoid;
-      margin-bottom: 8px;
-      overflow: hidden;
-      background: #f2f2f2;
-      cursor: pointer;
-      position: relative;
-    }
-    .gal-item img {
-      width: 100%;
-      height: auto;
-      display: block;
-      transition: transform 0.4s ease;
-    }
-    .gal-item:hover img { transform: scale(1.04); }
-    .gal-section-label {
-      font-size: 11px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: #bbb;
-      font-weight: 400;
-      margin: 28px 0 10px;
-    }
-
-    /* Lightbox */
-    #lightbox {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.94);
-      z-index: 9999;
-      align-items: center;
-      justify-content: center;
-      cursor: zoom-out;
-    }
-    #lightbox.open { display: flex; }
-    #lightbox-img-wrap {
-      overflow: auto;
-      max-width: 92vw;
-      max-height: 84vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    #lightbox-img {
-      max-width: 92vw;
-      max-height: 84vh;
-      object-fit: contain;
-      border-radius: 3px;
-      box-shadow: 0 24px 80px rgba(0,0,0,0.5);
-      transform-origin: center;
-      transition: transform 0.2s;
-    }
-    #lightbox-close {
-      position: absolute;
-      top: 14px;
-      right: 20px;
-      color: #fff;
-      font-size: 40px;
-      line-height: 1;
-      cursor: pointer;
-      opacity: 0.75;
-      transition: opacity 0.2s;
-      font-weight: 200;
-      user-select: none;
-      z-index: 10001;
-      padding: 10px 14px;
-      pointer-events: auto;
-    }
-    #lightbox-close:hover { opacity: 1; }
-    #lightbox-prev, #lightbox-next {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      color: #fff;
-      font-size: 56px;
-      font-weight: 200;
-      cursor: pointer;
-      opacity: 0.7;
-      transition: opacity 0.2s;
-      padding: 10px 20px;
-      user-select: none;
-      z-index: 10001;
-      line-height: 1;
-    }
-    #lightbox-prev { left: 16px; }
-    #lightbox-next { right: 16px; }
-    #lightbox-prev:hover, #lightbox-next:hover { opacity: 1; }
-    #lightbox-counter {
-      position: absolute;
-      bottom: 18px;
-      left: 50%;
-      transform: translateX(-50%);
-      color: rgba(255,255,255,0.6);
-      font-size: 13px;
-      letter-spacing: 0.1em;
-    }
-    #lightbox-caption {
-      position: absolute;
-      bottom: 38px;
-      left: 50%;
-      transform: translateX(-50%);
-      color: rgba(255,255,255,0.92);
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 17px;
-      font-style: italic;
-      letter-spacing: 0.06em;
-      white-space: nowrap;
-      pointer-events: none;
-      text-shadow: 0 1px 6px rgba(0,0,0,0.6);
-    }
-    #lightbox-zoom-btns {
-      position: absolute;
-      bottom: 68px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 8px;
-      z-index: 10001;
-    }
-    #lightbox-zoom-btns button {
-      background: rgba(255,255,255,0.15);
-      border: 1px solid rgba(255,255,255,0.35);
-      color: #fff;
-      padding: 6px 16px;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 18px;
-      line-height: 1;
-      backdrop-filter: blur(4px);
-      transition: background 0.2s;
-    }
-    #lightbox-zoom-btns button:hover {
-      background: rgba(255,255,255,0.32);
-    }
-
-    @media (max-width: 767px) {
-      .award-gallery { columns: 2; column-gap: 5px; }
-      .photo-gallery { columns: 2; column-gap: 6px; }
-    }
-  </style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #ECE8DF; }
+        ::-webkit-scrollbar-thumb { background: #B31A24; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #91121A; }
+    </style>
 </head>
-<body>
+<body class="grid-bg min-h-screen text-brandDark relative antialiased transition-colors duration-300">
 
-<!-- ==================== HEADER ==================== -->
-<div id="header" class="animate03">
-
-  <!-- Desktop -->
-  <div class="hd-desktop">
-    <div class="hd-inner">
-      <div class="logo-wrap">
-        <a href="#" class="ntmd-logo">
-          <div class="nl-letters">
-            <span class="nl-n">N</span><span class="nl-t">T</span><span class="nl-m">M</span><span class="nl-d">D</span>
-          </div>
-          <div class="nl-tag">Portfolio</div>
-        </a>
-      </div>
-
-      <div style="display:flex; align-items:center;">
-        <ul class="gnb-pc">
-          <li><a href="#section-profile">Profile</a></li>
-          <li><a href="#section-work">Work</a></li>
-          <li><a href="#section-award">Award</a></li>
-          <li><a href="#section-photo">Photo</a></li>
-          <li><a href="#section-video">Video</a></li>
-        </ul>
-
-        <div class="lang-wrap">
-          <div class="lang-btn">
-            ENG <span class="arrow">&#9660;</span>
-          </div>
-          <div class="lang-drop">
-            <a href="#" data-lang="vn" onclick="setLang('vn');return false;">VN</a>
-            <a href="#" data-lang="en" onclick="setLang('en');return false;">ENG</a>
-            <a href="#" data-lang="cn" onclick="setLang('cn');return false;">CN</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Mobile bar -->
-  <div class="gnb-mobile-bar" style="display:none;">
-    <a href="#" class="ntmd-logo sm">
-      <div class="nl-letters">
-        <span class="nl-n">N</span><span class="nl-t">T</span><span class="nl-m">M</span><span class="nl-d">D</span>
-      </div>
-      <div class="nl-tag">Portfolio</div>
-    </a>
-    <div class="hamburger" id="ham-btn">
-      <span></span><span></span><span></span>
-    </div>
-  </div>
-</div>
-
-<!-- Mobile full-screen overlay -->
-<div id="m-overlay">
-  <div class="m-overlay-head">
-    <a href="#" class="ntmd-logo sm">
-      <div class="nl-letters">
-        <span class="nl-n">N</span><span class="nl-t">T</span><span class="nl-m">M</span><span class="nl-d">D</span>
-      </div>
-      <div class="nl-tag" style="color:rgba(255,255,255,0.4)">Portfolio</div>
-    </a>
-    <div class="m-close" id="m-close-btn"></div>
-  </div>
-
-  <ul class="m-nav-list">
-    <li><a href="#section-profile">Profile</a></li>
-    <li><a href="#section-work">Work</a></li>
-    <li><a href="#section-award">Award</a></li>
-    <li><a href="#section-photo">Photo</a></li>
-    <li><a href="#section-video">Video</a></li>
-  </ul>
-
-  <div class="m-extra">
-    <p>mydieu442003@gmail.com</p>
-    <div class="m-sns">
-      <a href="https://www.tiktok.com/@midiu453" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
-      <a href="https://www.facebook.com/nguyen.my.dieu.609400" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
-      <a href="https://www.linkedin.com/in/my-dieu-125020222/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
-    </div>
-  </div>
-</div>
-
-<!-- ==================== MAIN ==================== -->
-<div id="sub-inner-wrap">
-<div class="sub0301_view">
-
-  <!-- Sub Visual -->
-  <div class="subVisual">
-    <img class="subVisual-img" src="image/9d171256-5d53-4482-8b5c-a38731db6858.jpg" alt="Mỹ Diệu">
-    <div class="subVisual-text">
-      <p class="sv-quote">&ldquo;A storyteller and aspiring pioneer,<br>creating digital spaces that inspire, connect,<br>and elevate everyday life through creativity<br>and innovation.&rdquo;</p>
-      <p class="sv-signature">— Mỹ Diệu</p>
-    </div>
-  </div>
-
-  <!-- ===== PROFILE SECTION ===== -->
-  <section id="section-profile" class="works" data-aos="fade-up" data-aos-duration="1200">
-    <div class="container clearfix">
-
-      <div class="col-left">
-        <h2 class="sec-title">Profile</h2>
-      </div>
-
-      <div class="col-right">
-        <div class="profile-name" style="flex-direction:column; align-items:flex-start; gap:6px;">
-          <h2>Mỹ Diệu</h2>
-          <div style="font-size:13px;font-weight:400;color:#888;letter-spacing:0.02em;">Nguyễn Thị Mỹ Diệu</div>
-          <div data-i18n="profile_role" style="font-size:12px;font-weight:600;color:#e8517c;letter-spacing:0.08em;text-transform:uppercase;">Livestreamer &nbsp;/&nbsp; Vận hành Livestream</div>
-        </div>
-
-        <div class="profile-row">
-          <span class="lbl" data-i18n="lbl_born">Sinh</span>
-          04/04/2003
-        </div>
-
-        <div class="profile-row">
-          <span class="lbl" data-i18n="lbl_address">Địa chỉ</span>
-          TP. Hồ Chí Minh
-        </div>
-
-        <div class="profile-row">
-          <span class="lbl">Email</span>
-          <a href="mailto:mydieu442003@gmail.com" style="color:#111;">mydieu442003@gmail.com</a>
-        </div>
-
-        <div class="profile-row">
-          <span class="lbl" data-i18n="lbl_phone">Điện thoại</span>
-          0942 964 102
-        </div>
-
-        <div class="sns-row">
-          <span class="lbl" data-i18n="lbl_social">Mạng xã hội</span>
-          <div class="sns-icons">
-            <a href="https://www.tiktok.com/@midiu453" target="_blank" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
-            <a href="https://www.facebook.com/nguyen.my.dieu.609400" target="_blank" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="https://www.linkedin.com/in/my-dieu-125020222/" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-            <a href="#" id="zalo-btn" title="Zalo">
-              <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor" style="display:block;">
-                <path d="M12.49 10.2722v-.4496h1.3467v6.3218h-.7704a.576.576 0 01-.5763-.5729l-.0006.0005a3.273 3.273 0 01-1.9372.6321c-1.8138 0-3.2844-1.4697-3.2844-3.2823 0-1.8125 1.4706-3.2822 3.2844-3.2822a3.273 3.273 0 011.9372.6321l.0006.0005zM6.9188 7.7896v.205c0 .3823-.051.6944-.2995 1.0605l-.03.0343c-.0542.0615-.1815.206-.2421.2843L2.024 14.8h4.8948v.7682a.5764.5764 0 01-.5767.5761H0v-.3622c0-.4436.1102-.6414.2495-.8476L4.8582 9.23H.1922V7.7896h6.7266zm8.5513 8.3548a.4805.4805 0 01-.4803-.4798v-7.875h1.4416v8.3548H15.47zM20.6934 9.6C22.52 9.6 24 11.0807 24 12.9044c0 1.8252-1.4801 3.306-3.3066 3.306-1.8264 0-3.3066-1.4808-3.3066-3.306 0-1.8237 1.4802-3.3044 3.3066-3.3044zm-10.1412 5.253c1.0675 0 1.9324-.8645 1.9324-1.9312 0-1.065-.865-1.9295-1.9324-1.9295s-1.9324.8644-1.9324 1.9295c0 1.0667.865 1.9312 1.9324 1.9312zm10.1412-.0033c1.0737 0 1.945-.8707 1.945-1.9453 0-1.073-.8713-1.9436-1.945-1.9436-1.0753 0-1.945.8706-1.945 1.9436 0 1.0746.8697 1.9453 1.945 1.9453z"/>
-              </svg>
-            </a>
-            <div id="zalo-popup">
-              <div class="zp-label">Zalo</div>
-              <div class="zp-phone">0942 964 102</div>
+    <!-- TOP CONTROL NAVIGATION -->
+    <header class="fixed top-0 left-0 w-full bg-white/85 backdrop-blur-md border-b border-brandRed/10 z-50 px-4 py-3 shadow-sm">
+        <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-3">
+            <div class="flex items-center gap-3">
+                <span class="w-3 h-3 bg-brandRed rounded-full animate-ping"></span>
+                <span class="font-bold text-brandRed font-heading tracking-wide">MỸ DIỆU PORTFOLIO</span>
+                <span class="text-xs bg-brandRed/10 text-brandRed px-2 py-0.5 rounded-full font-semibold hidden sm:inline-block">LIVE PREVIEW</span>
             </div>
-          </div>
-        </div>
-      </div>
 
-    </div>
-  </section>
-
-  <!-- ===== WORKS SECTION ===== -->
-  <!-- ===== KINH NGHIỆM ===== -->
-  <section id="section-work" class="works" data-aos="fade-up" data-aos-duration="1200">
-    <div class="container clearfix">
-      <div class="col-left"><h2 class="sec-title">Works</h2></div>
-      <div class="col-right">
-        <ul class="work-list">
-          <li>
-            <div class="wl-thumb"><img src="https://placehold.co/82x82/e8517c/ffffff?text=MIA" alt="MIA"></div>
-            <div class="wl-info">
-              <div class="wl-title"><b>Livestream Performance &amp; TikTok Ecommerce</b> — Công ty TNHH MIA Việt Nam</div>
-              <div class="wl-sub">
-                Brand MIA.vn Official · Vali &amp; hành lý du lịch
-                <ul class="wl-duties">
-                  <li><span class="duty-tag">Vận hành</span><span>Voucher, Flash Sale, GMVMax Product &amp; Live; quản lý tồn kho với AM TikTokShop</span></li>
-                  <li><span class="duty-tag">Host Live</span><span>Kịch bản, Minigame giữ Retention Rate; concept studio &amp; trang phục host</span></li>
-                  <li><span class="duty-tag">Marketing</span><span>TikTok Ads, Spark Ads, Facebook Ads; ROAS; KOC/KOL booking; SEO gian hàng</span></li>
-                  <li><span class="duty-tag">Nhân sự</span><span>Tuyển dụng, training host mới; quản lý ca live &amp; tính lương team</span></li>
-                </ul>
-              </div>
-              <div class="wl-date">10/2024 – nay &nbsp;·&nbsp; ~1 năm 7 tháng</div>
+            <div class="flex items-center gap-2">
+                <button id="btnSlideMode" onclick="toggleViewMode('slide')" class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-brandRed text-white text-xs font-bold shadow-md transition-all">
+                    <i class="fa-solid fa-desktop"></i> Trình Chiếu (Slides)
+                </button>
+                <button id="btnScrollMode" onclick="toggleViewMode('scroll')" class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white border border-brandRed/30 text-brandRed text-xs font-bold hover:bg-brandCream transition-all">
+                    <i class="fa-solid fa-bars"></i> Cuộn dọc (Website)
+                </button>
+                <div class="h-6 w-[1px] bg-brandRed/20 mx-1"></div>
+                <button id="btnEditMode" onclick="toggleEditMode()" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-600 text-white text-xs font-bold hover:bg-emerald-700 shadow-md transition-all" title="Bấm để sửa nhanh nội dung trực tiếp trên trang web">
+                    <i class="fa-solid fa-pen-to-square"></i> <span id="editBtnText">Chỉnh sửa nhanh</span>
+                </button>
             </div>
-          </li>
-          <li>
-            <div class="wl-thumb"><img src="https://placehold.co/82x82/f5834a/ffffff?text=CTV" alt="CTV"></div>
-            <div class="wl-info">
-              <div class="wl-title"><b>CTV Livestream</b> — Freelance</div>
-              <div class="wl-sub">Sicoli, Guiaruan &amp; nhiều brand khác<br>
-                Host &amp; Seller trực tiếp trên TikTok Shop và Shopee Live</div>
-              <div class="wl-date">04/2024 – 09/2024 &nbsp;·&nbsp; 6 tháng</div>
-            </div>
-          </li>
-          <li>
-            <div class="wl-thumb"><img src="https://placehold.co/82x82/4a9eca/ffffff?text=JSY" alt="June Sun Yvan"></div>
-            <div class="wl-info">
-              <div class="wl-title"><b>Nhân viên Livestream</b></div>
-              <div class="wl-sub">Công ty TNHH June Sun Yvan &nbsp;·&nbsp; Brand Skintific.vn (mỹ phẩm)<br>
-                Seller tư vấn · Host điều phối phòng live · Phân tích phản hồi &amp; đóng góp ý tưởng</div>
-              <div class="wl-date">03/2023 – 03/2024 &nbsp;·&nbsp; 1 năm</div>
-            </div>
-          </li>
-        </ul>
-        <a class="cv-download" href="cv/CV_Nguyen_Thi_My_Dieu_Livestream_Performance_V4.pdf" download target="_blank">
-          <i class="fa fa-download"></i> Tải CV
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== AWARDS ===== -->
-  <section id="section-award" class="works" data-aos="fade-up" data-aos-duration="1200">
-    <div class="container clearfix">
-      <div class="col-left"><h2 class="sec-title">Awards</h2></div>
-      <div class="col-right">
-        <ul class="work-list">
-          <li>
-            <div class="wl-thumb"><img src="https://placehold.co/82x82/e8517c/ffffff?text=200M" alt="200tr"></div>
-            <div class="wl-info">
-              <div class="wl-title"><b>Live Brand MIA.vn Official</b> — GMV 200 triệu đồng trong 3 tiếng</div>
-              <div class="wl-sub">Xác lập kỷ lục doanh thu cá nhân tại Công ty TNHH MIA Việt Nam</div>
-              <div class="wl-date">09/10/2024</div>
-            </div>
-          </li>
-          <li>
-            <div class="wl-thumb"><img src="https://placehold.co/82x82/4a9eca/ffffff?text=91M" alt="91tr"></div>
-            <div class="wl-info">
-              <div class="wl-title"><b>Live Brand Skintific.vn</b> — GMV 91 triệu đồng trong 1 tiếng 50 phút</div>
-              <div class="wl-sub">Phiên live đạt doanh thu xuất sắc tại Công ty TNHH June Sun Yvan</div>
-              <div class="wl-date">10/11/2023</div>
-            </div>
-          </li>
-        </ul>
-        <div class="gal-section-label">Video</div>
-        <video controls preload="metadata" style="width:100%;border-radius:6px;margin-bottom:20px;">
-          <source src="images/award/5b7f6a22-e433-4b78-9702-22b2d07acd30.mp4" type="video/mp4">
-        </video>
-        <div class="gal-section-label">Gallery</div>
-        <div class="award-gallery">
-          <a class="gal-item" data-src="images/award/0.jpg"><img src="images/award/0.jpg" alt="Award" loading="lazy"></a>
-          <a class="gal-item" data-src="images/award/1.jpg"><img src="images/award/1.jpg" alt="Award" loading="lazy"></a>
-          <a class="gal-item" data-src="images/award/2.jpg"><img src="images/award/2.jpg" alt="Award" loading="lazy"></a>
-          <a class="gal-item" data-src="images/award/3.jpg"><img src="images/award/3.jpg" alt="Award" loading="lazy"></a>
-          <a class="gal-item" data-src="images/award/5.jpg"><img src="images/award/5.jpg" alt="Award" loading="lazy"></a>
-          <a class="gal-item" data-src="images/award/20.jpg"><img src="images/award/20.jpg" alt="Award" loading="lazy"></a>
-          <a class="gal-item" data-src="images/award/21.jpg"><img src="images/award/21.jpg" alt="Award" loading="lazy"></a>
-          <a class="gal-item" data-src="images/award/22.jpg"><img src="images/award/22.jpg" alt="Award" loading="lazy"></a>
         </div>
-      </div>
-    </div>
-  </section>
+    </header>
 
-  <!-- ===== PHOTO ===== -->
-  <section id="section-photo" class="works" data-aos="fade-up" data-aos-duration="1200">
-    <div class="container clearfix">
-      <div class="col-left"><h2 class="sec-title">Photo</h2></div>
-      <div class="col-right">
-        <div class="photo-gallery">
-          <!-- Concept -->
-          <a class="gal-item" data-src="images/albulm4/Concept/Collab%20Tony%20Vi%E1%BB%87t.jpg" data-caption="Collab Tony Việt"><img src="images/albulm4/Concept/Collab%20Tony%20Vi%E1%BB%87t.jpg" alt="Collab Tony Việt" loading="lazy"></a>
-          <a class="gal-item" data-src="images/albulm4/Concept/C%E1%BB%ABu.jpg" data-caption="Cừu"><img src="images/albulm4/Concept/C%E1%BB%ABu.jpg" alt="Cừu" loading="lazy"></a>
-          <a class="gal-item" data-src="images/albulm4/Concept/H%E1%BB%8Dc%20sinh.jpg" data-caption="Học sinh"><img src="images/albulm4/Concept/H%E1%BB%8Dc%20sinh.jpg" alt="Học sinh" loading="lazy"></a>
-          <a class="gal-item" data-src="images/albulm4/Concept/Phim%20%C4%90%E1%BA%A1i%20chi%E1%BA%BFn%20tr%C3%AAn%20kh%C3%B4ng.jpg" data-caption="Phim Đại chiến trên không"><img src="images/albulm4/Concept/Phim%20%C4%90%E1%BA%A1i%20chi%E1%BA%BFn%20tr%C3%AAn%20kh%C3%B4ng.jpg" alt="Phim Đại chiến trên không" loading="lazy"></a>
-          <a class="gal-item" data-src="images/albulm4/Concept/Ti%E1%BA%BFp%20vi%C3%AAn.jpg" data-caption="Tiếp viên"><img src="images/albulm4/Concept/Ti%E1%BA%BFp%20vi%C3%AAn.jpg" alt="Tiếp viên" loading="lazy"></a>
-          <a class="gal-item" data-src="images/albulm4/Concept/X%C4%83ng%20T%C4%83ng.jpg" data-caption="Xăng Tăng"><img src="images/albulm4/Concept/X%C4%83ng%20T%C4%83ng.jpg" alt="Xăng Tăng" loading="lazy"></a>
-          <!-- Noel -->
-          <a class="gal-item" data-src="images/albulm4/Noel/2.jpg" data-caption="Noel"><img src="images/albulm4/Noel/2.jpg" alt="Noel" loading="lazy"></a>
-          <a class="gal-item" data-src="images/albulm4/Noel/3.jpg" data-caption="Noel"><img src="images/albulm4/Noel/3.jpg" alt="Noel" loading="lazy"></a>
-          <!-- Sicoli -->
-          <a class="gal-item" data-src="images/albulm4/Sicoli/10.jpg" data-caption="Sicoli"><img src="images/albulm4/Sicoli/10.jpg" alt="Sicoli" loading="lazy"></a>
-          <a class="gal-item" data-src="images/albulm4/Sicoli/11.jpg" data-caption="Sicoli"><img src="images/albulm4/Sicoli/11.jpg" alt="Sicoli" loading="lazy"></a>
-          <a class="gal-item" data-src="images/albulm4/Sicoli/12.jpg" data-caption="Sicoli"><img src="images/albulm4/Sicoli/12.jpg" alt="Sicoli" loading="lazy"></a>
-          <!-- Tết -->
-          <a class="gal-item" data-src="images/albulm4/T%E1%BA%BFt/622391565_1544501626803606_6729391446520479505_n.jpg" data-caption="Tết"><img src="images/albulm4/T%E1%BA%BFt/622391565_1544501626803606_6729391446520479505_n.jpg" alt="Tết" loading="lazy"></a>
+    <!-- FLOATING EDITING NOTIFICATION BAR -->
+    <div id="editNotification" class="fixed top-16 left-1/2 transform -translate-x-1/2 bg-emerald-500 text-white font-semibold text-sm py-2 px-6 rounded-full shadow-lg z-50 opacity-0 pointer-events-none transition-all duration-300 flex items-center gap-2">
+        <i class="fa-solid fa-circle-check"></i> Chế độ chỉnh sửa đã bật! Nhấn trực tiếp vào bất kỳ chữ nào để sửa.
+    </div>
+
+    <!-- MAIN WRAPPER -->
+    <main class="pt-20 pb-24 min-h-screen">
+        <div id="portfolioContainer" class="max-w-6xl mx-auto px-4">
+
+            <div id="slidesWrapper" class="slide-container flex flex-col gap-16 md:gap-24">
+
+                <!-- ==================== SLIDE 1: TRANG BÌA ==================== -->
+                <section id="slide-0" class="slide-item min-h-[75vh] md:min-h-[85vh] bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-brandRed/10 flex flex-col justify-between relative overflow-hidden transition-all duration-300">
+                    <div class="absolute -top-16 -right-16 w-48 h-48 bg-brandRed/5 rounded-full blur-2xl"></div>
+
+                    <div class="flex flex-wrap justify-between items-center pb-6 border-b border-brandRed/10 text-xs font-bold uppercase tracking-wider text-brandRed/60">
+                        <span class="text-brandRed">Giới thiệu</span>
+                        <span>Kinh nghiệm</span>
+                        <span>Kịch bản</span>
+                        <span>Content Text</span>
+                        <span>Design & Edit</span>
+                        <span>Planning</span>
+                        <span>Contact</span>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center my-auto py-8">
+                        <div class="lg:col-span-7 flex flex-col justify-center">
+                            <h1 class="super-title text-[5.5rem] md:text-[9rem] text-brandRed font-black select-all" style="line-height: 0.85;">
+                                PORT<br>FOLIO
+                            </h1>
+                            <div class="mt-8 flex items-start gap-4">
+                                <svg class="w-8 h-8 text-brandRed mt-1 flex-shrink-0 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                                </svg>
+                                <div>
+                                    <h2 class="text-2xl md:text-3xl font-extrabold text-brandDark uppercase tracking-tight editable" contenteditable="false">
+                                        NGUYỄN THỊ MỸ DIỆU
+                                    </h2>
+                                    <p class="text-sm md:text-base text-brandRed font-bold uppercase tracking-widest mt-1 editable" contenteditable="false">
+                                        Live Host & Storyteller
+                                    </p>
+                                    <p class="text-gray-600 mt-4 max-w-md italic leading-relaxed text-sm editable" contenteditable="false">
+                                        "Một người kể chuyện thương hiệu luôn nỗ lực kiến tạo giá trị nhân văn thực tế, chạm cảm xúc khách hàng và bứt phá chuyển đổi doanh thu cho doanh nghiệp."
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="lg:col-span-5 flex justify-center relative">
+                            <div class="relative w-72 h-72 md:w-80 md:h-80 group">
+                                <div class="absolute inset-0 bg-brandRed rounded-full transform rotate-6 scale-95 opacity-10 transition-transform group-hover:rotate-12"></div>
+                                <div class="absolute inset-0 border-4 border-dashed border-brandRed rounded-full transform -rotate-3 scale-100 opacity-30"></div>
+                                <div class="absolute inset-0 flex flex-col items-center justify-center bg-brandCreamDark rounded-full border-4 border-brandRed overflow-hidden shadow-2xl relative">
+                                    <svg class="w-56 h-56 mt-4" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="100" cy="100" r="80" fill="#E67E22" opacity="0.1"/>
+                                        <path d="M50 110C40 70 60 40 100 40C140 40 160 70 150 110" fill="#B31A24"/>
+                                        <circle cx="100" cy="95" r="35" fill="#FAD7A0"/>
+                                        <rect x="75" y="85" width="20" height="15" rx="5" fill="none" stroke="#2C3E50" stroke-width="3"/>
+                                        <rect x="105" y="85" width="20" height="15" rx="5" fill="none" stroke="#2C3E50" stroke-width="3"/>
+                                        <line x1="95" y1="92" x2="105" y2="92" stroke="#2C3E50" stroke-width="3"/>
+                                        <circle cx="85" cy="92" r="3" fill="#2C3E50"/>
+                                        <circle cx="115" cy="92" r="3" fill="#2C3E50"/>
+                                        <path d="M90 108C95 113 105 113 110 108" stroke="#2C3E50" stroke-width="3" stroke-linecap="round"/>
+                                        <circle cx="76" cy="100" r="5" fill="#E74C3C" opacity="0.5"/>
+                                        <circle cx="124" cy="100" r="5" fill="#E74C3C" opacity="0.5"/>
+                                        <path d="M65 80C75 60 125 60 135 80C140 95 145 110 145 125C140 125 130 115 130 115C125 125 115 120 115 120C100 110 100 75 100 75C100 75 95 100 80 115" fill="#B31A24"/>
+                                        <path d="M110 120C90 120 80 135 80 155C80 165 120 165 120 155C120 140 130 125 110 120Z" fill="#FFFFFF" stroke="#2C3E50" stroke-width="3"/>
+                                        <polygon points="85,125 80,110 95,123" fill="#FFFFFF" stroke="#2C3E50" stroke-width="2"/>
+                                        <polygon points="115,125 120,110 105,123" fill="#FFFFFF" stroke="#2C3E50" stroke-width="2"/>
+                                        <circle cx="95" cy="138" r="2" fill="#2C3E50"/>
+                                        <circle cx="108" cy="138" r="2" fill="#2C3E50"/>
+                                        <path d="M99 142C101 144 103 144 105 142" stroke="#2C3E50" stroke-width="2" stroke-linecap="round"/>
+                                        <polygon points="84,122 81,114 91,121" fill="#FFADAD"/>
+                                        <path d="M60 130C70 140 90 145 100 145" stroke="#B31A24" stroke-width="10" stroke-linecap="round"/>
+                                        <path d="M140 130C130 140 110 145 100 145" stroke="#B31A24" stroke-width="10" stroke-linecap="round"/>
+                                    </svg>
+                                    <div class="absolute bottom-4 bg-brandRed text-white text-xs px-4 py-1.5 rounded-full font-bold shadow-md tracking-wider">
+                                        MỸ DIỆU & PET
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-between items-center text-xs text-gray-500 pt-4 border-t border-brandRed/10">
+                        <span>© 2026 NGUYỄN THỊ MỸ DIỆU</span>
+                        <span class="font-bold text-brandRed">TAP OR CLICK NEXT SLIDE</span>
+                    </div>
+                </section>
+
+                <!-- ==================== SLIDE 2: MỤC LỤC ==================== -->
+                <section id="slide-1" class="slide-item min-h-[75vh] md:min-h-[85vh] bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-brandRed/10 flex flex-col justify-between relative transition-all duration-300">
+                    <div>
+                        <div class="flex items-center gap-3 mb-6">
+                            <span class="text-xs font-black px-2 py-1 bg-brandRed text-white rounded">01</span>
+                            <span class="text-xs font-bold text-brandRed tracking-widest uppercase">Mục lục định hướng</span>
+                        </div>
+                        <h2 class="text-4xl md:text-5xl font-extrabold text-brandRed tracking-tight font-heading uppercase">MỤC LỤC</h2>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 my-auto py-6">
+                        <div class="space-y-4">
+                            <div onclick="goToSlide(2)" class="flex items-center justify-between p-4 bg-brandCream rounded-2xl border border-transparent hover:border-brandRed/30 hover:bg-white transition-all cursor-pointer group">
+                                <div class="flex items-center gap-4">
+                                    <span class="w-10 h-10 rounded-xl bg-brandRed text-white flex items-center justify-center font-bold">01</span>
+                                    <div>
+                                        <h4 class="font-bold text-brandDark uppercase group-hover:text-brandRed">GIỚI THIỆU BẢN THÂN</h4>
+                                        <p class="text-xs text-gray-500">Quan điểm làm nghề & Giá trị cốt lõi</p>
+                                    </div>
+                                </div>
+                                <i class="fa-solid fa-arrow-right text-brandRed opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                            </div>
+                            <div onclick="goToSlide(3)" class="flex items-center justify-between p-4 bg-brandCream rounded-2xl border border-transparent hover:border-brandRed/30 hover:bg-white transition-all cursor-pointer group">
+                                <div class="flex items-center gap-4">
+                                    <span class="w-10 h-10 rounded-xl bg-brandRed text-white flex items-center justify-center font-bold">02</span>
+                                    <div>
+                                        <h4 class="font-bold text-brandDark uppercase group-hover:text-brandRed">HÀNH TRÌNH SỰ NGHIỆP</h4>
+                                        <p class="text-xs text-gray-500">Mốc thời gian & Kinh nghiệm thực chiến</p>
+                                    </div>
+                                </div>
+                                <i class="fa-solid fa-arrow-right text-brandRed opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                            </div>
+                            <div onclick="goToSlide(4)" class="flex items-center justify-between p-4 bg-brandCream rounded-2xl border border-transparent hover:border-brandRed/30 hover:bg-white transition-all cursor-pointer group">
+                                <div class="flex items-center gap-4">
+                                    <span class="w-10 h-10 rounded-xl bg-brandRed text-white flex items-center justify-center font-bold">03</span>
+                                    <div>
+                                        <h4 class="font-bold text-brandDark uppercase group-hover:text-brandRed">CHIẾN DỊCH BRAND A</h4>
+                                        <p class="text-xs text-gray-500">Tối ưu tương tác cho F&B, Nightlife</p>
+                                    </div>
+                                </div>
+                                <i class="fa-solid fa-arrow-right text-brandRed opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                            </div>
+                        </div>
+
+                        <div class="space-y-4">
+                            <div onclick="goToSlide(5)" class="flex items-center justify-between p-4 bg-brandCream rounded-2xl border border-transparent hover:border-brandRed/30 hover:bg-white transition-all cursor-pointer group">
+                                <div class="flex items-center gap-4">
+                                    <span class="w-10 h-10 rounded-xl bg-brandRed text-white flex items-center justify-center font-bold">04</span>
+                                    <div>
+                                        <h4 class="font-bold text-brandDark uppercase group-hover:text-brandRed">DỰ ÁN PERFORMANCE BRAND B</h4>
+                                        <p class="text-xs text-gray-500">Tạo nội dung bán hàng Ads ra đơn</p>
+                                    </div>
+                                </div>
+                                <i class="fa-solid fa-arrow-right text-brandRed opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                            </div>
+                            <div onclick="goToSlide(6)" class="flex items-center justify-between p-4 bg-brandCream rounded-2xl border border-transparent hover:border-brandRed/30 hover:bg-white transition-all cursor-pointer group">
+                                <div class="flex items-center gap-4">
+                                    <span class="w-10 h-10 rounded-xl bg-brandRed text-white flex items-center justify-center font-bold">05</span>
+                                    <div>
+                                        <h4 class="font-bold text-brandDark uppercase group-hover:text-brandRed">THƯ VIỆN KỸ NĂNG NỔI BẬT</h4>
+                                        <p class="text-xs text-gray-500">Content, Scripts, Design, Video Edit</p>
+                                    </div>
+                                </div>
+                                <i class="fa-solid fa-arrow-right text-brandRed opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                            </div>
+                            <div onclick="goToSlide(9)" class="flex items-center justify-between p-4 bg-brandCream rounded-2xl border border-transparent hover:border-brandRed/30 hover:bg-white transition-all cursor-pointer group">
+                                <div class="flex items-center gap-4">
+                                    <span class="w-10 h-10 rounded-xl bg-brandRed text-white flex items-center justify-center font-bold">06</span>
+                                    <div>
+                                        <h4 class="font-bold text-brandDark uppercase group-hover:text-brandRed">KẾT NỐI & LIÊN HỆ</h4>
+                                        <p class="text-xs text-gray-500">Thông tin liên lạc trực tiếp</p>
+                                    </div>
+                                </div>
+                                <i class="fa-solid fa-arrow-right text-brandRed opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-between items-center text-xs text-gray-500 pt-4 border-t border-brandRed/10">
+                        <span>DANH MỤC TRÌNH BÀY</span>
+                        <span>02 / 10</span>
+                    </div>
+                </section>
+
+                <!-- ==================== SLIDE 3: GIỚI THIỆU BẢN THÂN ==================== -->
+                <section id="slide-2" class="slide-item min-h-[75vh] md:min-h-[85vh] bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-brandRed/10 flex flex-col justify-between relative transition-all duration-300">
+                    <div>
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="text-xs font-black px-2 py-1 bg-brandRed text-white rounded">02</span>
+                            <span class="text-xs font-bold text-brandRed tracking-widest uppercase">My Profile</span>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center my-auto">
+                        <div class="lg:col-span-5 flex justify-center">
+                            <div class="relative w-64 h-64 md:w-80 md:h-80">
+                                <div class="absolute inset-4 border-4 border-brandRed rounded-3xl transform rotate-3"></div>
+                                <div class="absolute inset-0 bg-brandCream rounded-3xl overflow-hidden shadow-lg border border-brandRed/20 flex items-center justify-center">
+                                    <svg class="w-full h-full p-4" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="60" cy="60" r="50" fill="#ECE8DF"/>
+                                        <path d="M60 40C45 40 40 50 40 60C40 70 50 80 60 80C70 80 80 70 80 60C80 50 75 40 60 40Z" fill="#B31A24"/>
+                                        <circle cx="60" cy="60" r="16" fill="#FAD7A0"/>
+                                        <path d="M42 55C42 45 48 38 60 38C72 38 78 45 78 55C78 60 76 65 72 65C60 65 60 52 60 52" fill="#B31A24"/>
+                                        <circle cx="55" cy="58" r="1.5" fill="#2C3E50"/>
+                                        <circle cx="65" cy="58" r="1.5" fill="#2C3E50"/>
+                                        <path d="M57 65C60 67 62 65 62 65" stroke="#2C3E50" stroke-width="1.5"/>
+                                        <circle cx="54" cy="58" r="4" stroke="#2C3E50" stroke-width="1"/>
+                                        <circle cx="66" cy="58" r="4" stroke="#2C3E50" stroke-width="1"/>
+                                        <rect x="50" y="72" width="20" height="15" rx="2" fill="white" stroke="#2C3E50" stroke-width="1"/>
+                                        <circle cx="48" cy="78" r="2" fill="#FAD7A0"/>
+                                        <circle cx="72" cy="78" r="2" fill="#FAD7A0"/>
+                                    </svg>
+                                    <div class="absolute top-2 right-2">
+                                        <svg class="w-8 h-8 text-brandRed animate-pulse" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M12,2L15.09,8.26L22,9.27L17,14.14L18.18,21.02L12,17.77L5.82,21.02L7,14.14L2,9.27L8.91,8.26L12,2Z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="lg:col-span-7 space-y-4">
+                            <h3 class="super-title text-4xl md:text-5xl text-brandRed font-black leading-tight editable" contenteditable="false">
+                                NGUYỄN THỊ MỸ DIỆU
+                            </h3>
+                            <h4 class="text-lg font-bold text-brandDark uppercase tracking-wider editable" contenteditable="false">
+                                🌟 "Chạm - Đúng - Đủ"
+                            </h4>
+                            <p class="text-sm text-gray-600 leading-relaxed editable" contenteditable="false">
+                                Xin chào, mình là <strong>Nguyễn Thị Mỹ Diệu</strong> — một Live Host & Storyteller tràn ngập năng lượng và sự nhạy bén sáng tạo. Với kinh nghiệm thực chiến trong lĩnh vực TikTok Ecommerce và Content Creation, mình nhận thức sâu sắc rằng sản phẩm nội dung tối ưu cần hội tụ đủ 3 yếu tố nền tảng:
+                            </p>
+
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4">
+                                <div class="bg-brandCream p-4 rounded-xl border-l-4 border-brandRed">
+                                    <h5 class="font-extrabold text-brandRed text-sm uppercase">CHẠM</h5>
+                                    <p class="text-xs text-gray-600 mt-1">Chạm sâu sắc vào đúng mạch cảm xúc khách hàng.</p>
+                                </div>
+                                <div class="bg-brandCream p-4 rounded-xl border-l-4 border-brandRed">
+                                    <h5 class="font-extrabold text-brandRed text-sm uppercase">ĐÚNG</h5>
+                                    <p class="text-xs text-gray-600 mt-1">Đúng câu chuyện, đúng giá trị cốt lõi của Brand.</p>
+                                </div>
+                                <div class="bg-brandCream p-4 rounded-xl border-l-4 border-brandRed">
+                                    <h5 class="font-extrabold text-brandRed text-sm uppercase">ĐỦ</h5>
+                                    <p class="text-xs text-gray-600 mt-1">Đủ lượng thông tin cần thiết kích thích chuyển đổi.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-between items-center text-xs text-gray-500 pt-4 border-t border-brandRed/10">
+                        <span>GIỚI THIỆU BẢN THÂN</span>
+                        <span>03 / 10</span>
+                    </div>
+                </section>
+
+                <!-- ==================== SLIDE 4: KINH NGHIỆM LÀM VIỆC ==================== -->
+                <section id="slide-3" class="slide-item min-h-[75vh] md:min-h-[85vh] bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-brandRed/10 flex flex-col justify-between relative transition-all duration-300">
+                    <div>
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="text-xs font-black px-2 py-1 bg-brandRed text-white rounded">03</span>
+                            <span class="text-xs font-bold text-brandRed tracking-widest uppercase">Work Experience</span>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center my-auto">
+                        <div class="lg:col-span-7 relative border-l-2 border-brandRed/30 pl-6 ml-4 py-2 space-y-6">
+                            <div class="relative group">
+                                <div class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-brandRed border-4 border-white group-hover:scale-125 transition-transform"></div>
+                                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                                    <h4 class="font-bold text-base text-brandRed uppercase editable" contenteditable="false">MIA.VN — THƯƠNG HIỆU HÀNH LÝ</h4>
+                                    <span class="text-xs bg-brandRed/10 text-brandRed font-extrabold px-3 py-1 rounded-full whitespace-nowrap editable" contenteditable="false">10/2024 – Hiện tại</span>
+                                </div>
+                                <p class="text-xs font-semibold text-gray-700 uppercase tracking-wider mt-0.5 editable" contenteditable="false">Livestream Performance & TikTok Ecommerce</p>
+                                <p class="text-xs text-gray-500 mt-1 editable" contenteditable="false">Vận hành chiến dịch GMVMax, Host Livestream, TikTok/Facebook Ads, quản lý & đào tạo team livestream.</p>
+                            </div>
+
+                            <div class="relative group">
+                                <div class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-brandRed border-4 border-white group-hover:scale-125 transition-transform"></div>
+                                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                                    <h4 class="font-bold text-base text-brandRed uppercase editable" contenteditable="false">CTV LIVESTREAM — FREELANCE</h4>
+                                    <span class="text-xs bg-brandRed/10 text-brandRed font-extrabold px-3 py-1 rounded-full whitespace-nowrap editable" contenteditable="false">04/2024 – 09/2024</span>
+                                </div>
+                                <p class="text-xs font-semibold text-gray-700 uppercase tracking-wider mt-0.5 editable" contenteditable="false">Sicoli, Guiaruan & nhiều brand khác</p>
+                                <p class="text-xs text-gray-500 mt-1 editable" contenteditable="false">Host & Seller trực tiếp trên TikTok Shop và Shopee Live.</p>
+                            </div>
+
+                            <div class="relative group">
+                                <div class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-brandRed border-4 border-white group-hover:scale-125 transition-transform"></div>
+                                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                                    <h4 class="font-bold text-base text-brandRed uppercase editable" contenteditable="false">JUNE SUN YVAN — SKINTIFIC.VN</h4>
+                                    <span class="text-xs bg-brandRed/10 text-brandRed font-extrabold px-3 py-1 rounded-full whitespace-nowrap editable" contenteditable="false">03/2023 – 03/2024</span>
+                                </div>
+                                <p class="text-xs font-semibold text-gray-700 uppercase tracking-wider mt-0.5 editable" contenteditable="false">Nhân viên Livestream — Mỹ phẩm</p>
+                                <p class="text-xs text-gray-500 mt-1 editable" contenteditable="false">Seller tư vấn, Host điều phối phòng live, phân tích phản hồi & đóng góp ý tưởng.</p>
+                            </div>
+                        </div>
+
+                        <div class="lg:col-span-5 flex justify-center">
+                            <div class="relative w-64 h-64 md:w-80 md:h-80 group">
+                                <div class="absolute inset-0 border-4 border-brandRed rounded-3xl transform -rotate-3 scale-95 transition-transform group-hover:rotate-0"></div>
+                                <div class="absolute inset-0 bg-brandCream rounded-3xl overflow-hidden shadow-lg border border-brandRed/20 flex items-center justify-center">
+                                    <svg class="w-48 h-48" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect x="10" y="10" width="80" height="80" rx="40" fill="#B31A24" opacity="0.1"/>
+                                        <path d="M50 25C40 25 35 30 35 45C35 60 40 70 50 70C60 70 65 60 65 45C65 30 60 25 50 25Z" fill="#B31A24"/>
+                                        <circle cx="50" cy="45" r="12" fill="#FAD7A0"/>
+                                        <path d="M38 48C38 38 43 32 50 32C57 32 62 38 62 48C62 55 58 60 50 60" fill="#B31A24"/>
+                                        <rect x="42" y="58" width="16" height="20" rx="5" fill="#34495E"/>
+                                        <circle cx="47" cy="45" r="1.5" fill="#2C3E50"/>
+                                        <circle cx="53" cy="45" r="1.5" fill="#2C3E50"/>
+                                        <path d="M48 49C49 51 51 51 52 49" stroke="#2C3E50" stroke-width="1"/>
+                                    </svg>
+                                    <div class="absolute bottom-4 bg-brandRed text-white text-xs px-4 py-1.5 rounded-full font-bold shadow-md">
+                                        MỸ DIỆU LIVESTREAM
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-between items-center text-xs text-gray-500 pt-4 border-t border-brandRed/10">
+                        <span>HÀNH TRÌNH SỰ NGHIỆP</span>
+                        <span>04 / 10</span>
+                    </div>
+                </section>
+
+                <!-- ==================== SLIDE 5: BRAND A ==================== -->
+                <section id="slide-4" class="slide-item min-h-[75vh] md:min-h-[85vh] bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-brandRed/10 flex flex-col justify-between relative overflow-hidden transition-all duration-300">
+                    <div>
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="text-xs font-black px-2 py-1 bg-brandRed text-white rounded">04</span>
+                            <span class="text-xs font-bold text-brandRed tracking-widest uppercase">Featured Project</span>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center my-auto">
+                        <div class="lg:col-span-7 grid grid-cols-3 gap-3">
+                            <div class="bg-brandCream rounded-2xl p-2 border border-brandRed/10 hover:shadow-lg transition-shadow">
+                                <div class="bg-gray-800 rounded-xl aspect-[9/16] overflow-hidden relative flex flex-col justify-between p-2 text-[10px] text-white">
+                                    <div class="flex justify-between items-center opacity-85"><i class="fa-solid fa-wifi"></i><span>MIA CLIP 1</span></div>
+                                    <div class="text-center my-auto flex flex-col items-center">
+                                        <i class="fa-regular fa-circle-play text-2xl text-brandRed animate-pulse"></i>
+                                        <span class="mt-2 text-[8px] opacity-75">Mega Live Campaign</span>
+                                    </div>
+                                    <div class="bg-brandRed text-white text-center py-1 rounded font-bold">Link clip</div>
+                                </div>
+                            </div>
+                            <div class="bg-brandCream rounded-2xl p-2 border border-brandRed/10 hover:shadow-lg transition-shadow">
+                                <div class="bg-gray-800 rounded-xl aspect-[9/16] overflow-hidden relative flex flex-col justify-between p-2 text-[10px] text-white">
+                                    <div class="flex justify-between items-center opacity-85"><i class="fa-solid fa-wifi"></i><span>MIA CLIP 2</span></div>
+                                    <div class="text-center my-auto flex flex-col items-center">
+                                        <i class="fa-regular fa-circle-play text-2xl text-brandRed animate-pulse"></i>
+                                        <span class="mt-2 text-[8px] opacity-75">Flash Sale GMVMax</span>
+                                    </div>
+                                    <div class="bg-brandRed text-white text-center py-1 rounded font-bold">Link clip</div>
+                                </div>
+                            </div>
+                            <div class="bg-brandCream rounded-2xl p-2 border border-brandRed/10 hover:shadow-lg transition-shadow">
+                                <div class="bg-gray-800 rounded-xl aspect-[9/16] overflow-hidden relative flex flex-col justify-between p-2 text-[10px] text-white">
+                                    <div class="flex justify-between items-center opacity-85"><i class="fa-solid fa-wifi"></i><span>MIA CLIP 3</span></div>
+                                    <div class="text-center my-auto flex flex-col items-center">
+                                        <i class="fa-regular fa-circle-play text-2xl text-brandRed animate-pulse"></i>
+                                        <span class="mt-2 text-[8px] opacity-75">KOC Collab Review</span>
+                                    </div>
+                                    <div class="bg-brandRed text-white text-center py-1 rounded font-bold">Link clip</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="lg:col-span-5 space-y-4">
+                            <h3 class="super-title text-4xl md:text-5xl text-brandRed font-black leading-tight">MIA.VN</h3>
+                            <div class="bg-brandCream p-1 px-3 rounded text-xs font-bold text-gray-700 inline-block editable" contenteditable="false">
+                                TikTok Shop — Vali & Hành lý du lịch
+                            </div>
+                            <div>
+                                <h4 class="font-extrabold text-sm text-brandDark uppercase tracking-wider mb-2">Scope of work (10/2024 – Hiện tại)</h4>
+                                <ul class="space-y-1.5 text-xs text-gray-600">
+                                    <li class="flex items-center gap-2"><i class="fa-solid fa-square-check text-brandRed"></i> Vận hành GMVMax Product & GMVMax Live</li>
+                                    <li class="flex items-center gap-2"><i class="fa-solid fa-square-check text-brandRed"></i> Host Livestream — kịch bản, Minigame giữ Retention</li>
+                                    <li class="flex items-center gap-2"><i class="fa-solid fa-square-check text-brandRed"></i> TikTok Ads, Spark Ads, Facebook Ads — tối ưu ROAS</li>
+                                    <li class="flex items-center gap-2"><i class="fa-solid fa-square-check text-brandRed"></i> Booking KOC/KOL mở rộng Affiliate</li>
+                                    <li class="flex items-center gap-2"><i class="fa-solid fa-square-check text-brandRed"></i> Tuyển dụng, training & quản lý team livestream</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-between items-center text-xs text-gray-500 pt-4 border-t border-brandRed/10">
+                        <span>DỰ ÁN TIÊU BIỂU — MIA.VN</span>
+                        <span>05 / 10</span>
+                    </div>
+                </section>
+
+                <!-- ==================== SLIDE 6: BRAND B ==================== -->
+                <section id="slide-5" class="slide-item min-h-[75vh] md:min-h-[85vh] bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-brandRed/10 flex flex-col justify-between relative transition-all duration-300">
+                    <div>
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="text-xs font-black px-2 py-1 bg-brandRed text-white rounded">05</span>
+                            <span class="text-xs font-bold text-brandRed tracking-widest uppercase">Performance Campaign</span>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center my-auto">
+                        <div class="lg:col-span-7 grid grid-cols-3 gap-3">
+                            <div class="bg-brandCream rounded-2xl p-2 border border-brandRed/10 hover:shadow-lg transition-shadow">
+                                <div class="bg-gray-800 rounded-xl aspect-[9/16] overflow-hidden relative flex flex-col justify-between p-2 text-[10px] text-white">
+                                    <div class="flex justify-between items-center opacity-85"><i class="fa-solid fa-wifi"></i><span>CTV CLIP 1</span></div>
+                                    <div class="text-center my-auto flex flex-col items-center">
+                                        <i class="fa-regular fa-circle-play text-2xl text-brandRed animate-pulse"></i>
+                                        <span class="mt-2 text-[8px] opacity-75">Sicoli Live</span>
+                                    </div>
+                                    <div class="bg-brandRed text-white text-center py-1 rounded font-bold">Link clip</div>
+                                </div>
+                            </div>
+                            <div class="bg-brandCream rounded-2xl p-2 border border-brandRed/10 hover:shadow-lg transition-shadow">
+                                <div class="bg-gray-800 rounded-xl aspect-[9/16] overflow-hidden relative flex flex-col justify-between p-2 text-[10px] text-white">
+                                    <div class="flex justify-between items-center opacity-85"><i class="fa-solid fa-wifi"></i><span>CTV CLIP 2</span></div>
+                                    <div class="text-center my-auto flex flex-col items-center">
+                                        <i class="fa-regular fa-circle-play text-2xl text-brandRed animate-pulse"></i>
+                                        <span class="mt-2 text-[8px] opacity-75">Guiaruan Live</span>
+                                    </div>
+                                    <div class="bg-brandRed text-white text-center py-1 rounded font-bold">Link clip</div>
+                                </div>
+                            </div>
+                            <div class="bg-brandCream rounded-2xl p-2 border border-brandRed/10 hover:shadow-lg transition-shadow">
+                                <div class="bg-gray-800 rounded-xl aspect-[9/16] overflow-hidden relative flex flex-col justify-between p-2 text-[10px] text-white">
+                                    <div class="flex justify-between items-center opacity-85"><i class="fa-solid fa-wifi"></i><span>SKINTIFIC CLIP</span></div>
+                                    <div class="text-center my-auto flex flex-col items-center">
+                                        <i class="fa-regular fa-circle-play text-2xl text-brandRed animate-pulse"></i>
+                                        <span class="mt-2 text-[8px] opacity-75">Skintific.vn Live</span>
+                                    </div>
+                                    <div class="bg-brandRed text-white text-center py-1 rounded font-bold">Link clip</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="lg:col-span-5 space-y-4">
+                            <h3 class="super-title text-4xl md:text-5xl text-brandRed font-black leading-tight">CTV & SKINTIFIC</h3>
+                            <div class="bg-brandCream p-1 px-3 rounded text-xs font-bold text-gray-700 inline-block editable" contenteditable="false">
+                                Freelance Host & June Sun Yvan
+                            </div>
+                            <div>
+                                <h4 class="font-extrabold text-sm text-brandDark uppercase tracking-wider mb-2">Scope of work</h4>
+                                <ul class="space-y-1.5 text-xs text-gray-600">
+                                    <li class="flex items-center gap-2"><i class="fa-solid fa-square-check text-brandRed"></i> Host & Seller livestream TikTok Shop / Shopee Live</li>
+                                    <li class="flex items-center gap-2"><i class="fa-solid fa-square-check text-brandRed"></i> Tư vấn sản phẩm trực tiếp, chốt đơn hiệu quả</li>
+                                    <li class="flex items-center gap-2"><i class="fa-solid fa-square-check text-brandRed"></i> Điều phối không khí phòng live</li>
+                                    <li class="flex items-center gap-2"><i class="fa-solid fa-square-check text-brandRed"></i> Phân tích phản hồi & đóng góp ý tưởng cải tiến</li>
+                                    <li class="flex items-center gap-2"><i class="fa-solid fa-square-check text-brandRed"></i> Nhiều ngành hàng: thực phẩm, mỹ phẩm, gia dụng</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-between items-center text-xs text-gray-500 pt-4 border-t border-brandRed/10">
+                        <span>CTV & SKINTIFIC.VN</span>
+                        <span>06 / 10</span>
+                    </div>
+                </section>
+
+                <!-- ==================== SLIDE 7: AWARDS ==================== -->
+                <section id="slide-6" class="slide-item min-h-[75vh] md:min-h-[85vh] bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-brandRed/10 flex flex-col justify-between relative transition-all duration-300">
+                    <div>
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="text-xs font-black px-2 py-1 bg-brandRed text-white rounded">06</span>
+                            <span class="text-xs font-bold text-brandRed tracking-widest uppercase">Awards & Achievements</span>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-auto py-4">
+                        <div class="bg-brandCream p-6 rounded-2xl border border-brandRed/10 flex flex-col justify-between">
+                            <div>
+                                <div class="text-3xl mb-3">🏆</div>
+                                <h4 class="text-lg font-extrabold text-brandDark uppercase editable" contenteditable="false">Lập Kỷ Lục Doanh Thu & Tăng Trưởng 2025</h4>
+                                <p class="text-xs text-brandRed font-bold uppercase mt-1">Team Livestream TikTok — MIA.vn</p>
+                                <p class="text-xs text-gray-600 mt-3 leading-relaxed editable" contenteditable="false">Vinh danh đội ngũ vận hành & livestream xuất sắc nhất trong tối ưu chuyển đổi, bứt phá cột mốc doanh thu và xác lập kỷ lục GMV mới trên TikTok Shop năm 2025.</p>
+                            </div>
+                            <div class="flex flex-wrap gap-2 mt-4 pt-4 border-t border-brandRed/10">
+                                <span class="bg-brandRed/15 text-brandRed font-bold text-[10px] px-3 py-1 rounded-full uppercase">GMV Record</span>
+                                <span class="bg-brandRed/15 text-brandRed font-bold text-[10px] px-3 py-1 rounded-full uppercase">TikTok Shop</span>
+                                <span class="bg-brandRed/15 text-brandRed font-bold text-[10px] px-3 py-1 rounded-full uppercase">2025</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-brandCream p-6 rounded-2xl border border-brandRed/10 flex flex-col justify-between">
+                            <div>
+                                <div class="text-3xl mb-3">🏅</div>
+                                <h4 class="text-lg font-extrabold text-brandDark uppercase editable" contenteditable="false">Chiến Binh Livestream Xuất Sắc 2025</h4>
+                                <p class="text-xs text-brandRed font-bold uppercase mt-1">Cá nhân — MIA.vn</p>
+                                <p class="text-xs text-gray-600 mt-3 leading-relaxed editable" contenteditable="false">Giải thưởng cá nhân danh giá dành cho Host Livestream có hiệu suất vượt trội, Retention Rate bùng nổ với kỷ lục doanh thu cá nhân đạt <strong>6.9 tỷ VND</strong> trong các chiến dịch Mega Live.</p>
+                            </div>
+                            <div class="flex flex-wrap gap-2 mt-4 pt-4 border-t border-brandRed/10">
+                                <span class="bg-brandRed/15 text-brandRed font-bold text-[10px] px-3 py-1 rounded-full uppercase">6.9 tỷ VND</span>
+                                <span class="bg-brandRed/15 text-brandRed font-bold text-[10px] px-3 py-1 rounded-full uppercase">Mega Live</span>
+                                <span class="bg-brandRed/15 text-brandRed font-bold text-[10px] px-3 py-1 rounded-full uppercase">Top Host</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-between items-center text-xs text-gray-500 pt-4 border-t border-brandRed/10">
+                        <span>THÀNH TỰU & GIẢI THƯỞNG</span>
+                        <span>07 / 10</span>
+                    </div>
+                </section>
+
+                <!-- ==================== SLIDE 8: SKILLS ==================== -->
+                <section id="slide-7" class="slide-item min-h-[75vh] md:min-h-[85vh] bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-brandRed/10 flex flex-col justify-between relative transition-all duration-300">
+                    <div>
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="text-xs font-black px-2 py-1 bg-brandRed text-white rounded">07</span>
+                            <span class="text-xs font-bold text-brandRed tracking-widest uppercase">Skills & Expertise</span>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center my-auto py-2">
+                        <div class="lg:col-span-6 space-y-4">
+                            <h4 class="font-heading font-black text-brandRed text-xl uppercase tracking-wide">
+                                <i class="fa-solid fa-bolt"></i> Kỹ năng chuyên môn
+                            </h4>
+                            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                                <div class="bg-brandRed text-white p-3 rounded-2xl flex flex-col items-center justify-center text-center shadow hover:-translate-y-1 transition-transform">
+                                    <i class="fa-solid fa-video text-base mb-1"></i>
+                                    <span class="text-[10px] font-bold uppercase tracking-wider">Livestream TikTok</span>
+                                </div>
+                                <div class="bg-brandRed text-white p-3 rounded-2xl flex flex-col items-center justify-center text-center shadow hover:-translate-y-1 transition-transform">
+                                    <i class="fa-solid fa-chart-line text-base mb-1"></i>
+                                    <span class="text-[10px] font-bold uppercase tracking-wider">GMVMax Ops</span>
+                                </div>
+                                <div class="bg-brandRed text-white p-3 rounded-2xl flex flex-col items-center justify-center text-center shadow hover:-translate-y-1 transition-transform">
+                                    <i class="fa-brands fa-tiktok text-base mb-1"></i>
+                                    <span class="text-[10px] font-bold uppercase tracking-wider">TikTok Ads</span>
+                                </div>
+                                <div class="bg-brandRed text-white p-3 rounded-2xl flex flex-col items-center justify-center text-center shadow hover:-translate-y-1 transition-transform">
+                                    <i class="fa-brands fa-facebook text-base mb-1"></i>
+                                    <span class="text-[10px] font-bold uppercase tracking-wider">Facebook Ads</span>
+                                </div>
+                                <div class="bg-brandRed text-white p-3 rounded-2xl flex flex-col items-center justify-center text-center shadow hover:-translate-y-1 transition-transform">
+                                    <i class="fa-solid fa-users text-base mb-1"></i>
+                                    <span class="text-[10px] font-bold uppercase tracking-wider">KOC/KOL Booking</span>
+                                </div>
+                                <div class="bg-brandRed text-white p-3 rounded-2xl flex flex-col items-center justify-center text-center shadow hover:-translate-y-1 transition-transform">
+                                    <i class="fa-solid fa-user-tie text-base mb-1"></i>
+                                    <span class="text-[10px] font-bold uppercase tracking-wider">Team Training</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="lg:col-span-6 space-y-4">
+                            <h4 class="font-heading font-black text-brandRed text-xl uppercase tracking-wide">
+                                <i class="fa-solid fa-star"></i> Điểm mạnh cốt lõi
+                            </h4>
+                            <div class="space-y-3">
+                                <div class="bg-brandCream p-4 rounded-xl border-l-4 border-brandRed">
+                                    <h5 class="font-extrabold text-sm text-brandDark">✔ Tự tin & Năng lượng</h5>
+                                    <p class="text-xs text-gray-500 mt-1">Giữ vững phong độ, thần thái xuất sắc trước ống kính trong mọi tình huống.</p>
+                                </div>
+                                <div class="bg-brandCream p-4 rounded-xl border-l-4 border-brandRed">
+                                    <h5 class="font-extrabold text-sm text-brandDark">✔ Nắm bắt tâm lý khách hàng</h5>
+                                    <p class="text-xs text-gray-500 mt-1">Đọc vị hành vi người xem để đẩy nhanh tỷ lệ chốt đơn tối ưu.</p>
+                                </div>
+                                <div class="bg-brandCream p-4 rounded-xl border-l-4 border-brandRed">
+                                    <h5 class="font-extrabold text-sm text-brandDark">✔ Chịu áp lực & Chủ động</h5>
+                                    <p class="text-xs text-gray-500 mt-1">Thích nghi vượt trội trong môi trường tốc độ cao, luôn bám sát mục tiêu doanh số.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-between items-center text-xs text-gray-500 pt-4 border-t border-brandRed/10">
+                        <span>KỸ NĂNG & ĐIỂM MẠNH</span>
+                        <span>08 / 10</span>
+                    </div>
+                </section>
+
+                <!-- ==================== SLIDE 9: MỤC TIÊU ==================== -->
+                <section id="slide-8" class="slide-item min-h-[75vh] md:min-h-[85vh] bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-brandRed/10 flex flex-col justify-between relative transition-all duration-300">
+                    <div>
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="text-xs font-black px-2 py-1 bg-brandRed text-white rounded">08</span>
+                            <span class="text-xs font-bold text-brandRed tracking-widest uppercase">Career Vision</span>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center my-auto">
+                        <div class="lg:col-span-5 space-y-4">
+                            <h3 class="super-title text-4xl md:text-5xl text-brandRed font-black leading-tight">MỤC TIÊU</h3>
+                            <h4 class="text-base font-bold text-brandDark uppercase tracking-wider">Định hướng phát triển nghề nghiệp</h4>
+                            <blockquote class="border-l-4 border-brandRed pl-3 italic text-xs text-brandRed font-semibold editable" contenteditable="false">
+                                "A storyteller and aspiring pioneer, creating digital spaces that inspire, connect, and elevate everyday life through creativity and innovation."
+                            </blockquote>
+                            <p class="text-xs text-gray-500 italic">— Mỹ Diệu</p>
+                        </div>
+
+                        <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="bg-brandCream p-5 rounded-2xl border border-brandRed/10">
+                                <div class="w-10 h-10 rounded-full bg-brandRed/10 flex items-center justify-center text-brandRed mb-3">
+                                    <i class="fa-solid fa-bullseye text-base"></i>
+                                </div>
+                                <h5 class="font-extrabold text-sm text-brandDark uppercase">Ngắn hạn</h5>
+                                <p class="text-xs text-gray-500 mt-2 leading-relaxed editable" contenteditable="false">
+                                    Nâng cao năng lực vận hành kỹ thuật, tối ưu kịch bản giữ chân người xem và phân bổ ngân sách quảng cáo đạt ROAS cam kết.
+                                </p>
+                            </div>
+                            <div class="bg-brandCream p-5 rounded-2xl border border-brandRed/10">
+                                <div class="w-10 h-10 rounded-full bg-brandRed/10 flex items-center justify-center text-brandRed mb-3">
+                                    <i class="fa-solid fa-rocket text-base"></i>
+                                </div>
+                                <h5 class="font-extrabold text-sm text-brandDark uppercase">Dài hạn</h5>
+                                <p class="text-xs text-gray-500 mt-2 leading-relaxed editable" contenteditable="false">
+                                    Phát triển trở thành Livestream Performance Team Leader hoặc TikTok Shop Manager, xây dựng chiến lược Ecommerce toàn diện.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-between items-center text-xs text-gray-500 pt-4 border-t border-brandRed/10">
+                        <span>MỤC TIÊU & ĐỊNH HƯỚNG</span>
+                        <span>09 / 10</span>
+                    </div>
+                </section>
+
+                <!-- ==================== SLIDE 10: LIÊN HỆ ==================== -->
+                <section id="slide-9" class="slide-item min-h-[75vh] md:min-h-[85vh] bg-brandRed rounded-3xl p-8 md:p-12 shadow-2xl border border-brandRedHover flex flex-col justify-between relative overflow-hidden text-brandCream transition-all duration-300">
+                    <div class="absolute -bottom-24 -left-24 w-72 h-72 bg-white/5 rounded-full blur-3xl"></div>
+                    <div class="absolute -top-24 -right-24 w-72 h-72 bg-white/5 rounded-full blur-3xl"></div>
+
+                    <div class="flex justify-between items-center pb-4 border-b border-white/10 text-xs font-bold uppercase tracking-wider text-white/60">
+                        <span>Liên Hệ Trực Tiếp</span>
+                        <span>Thư Cảm Ơn</span>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center my-auto py-4">
+                        <div class="lg:col-span-7 space-y-6">
+                            <h2 class="super-title text-5xl md:text-7xl text-white font-black leading-none">CONTACT<br>ME!</h2>
+                            <div class="space-y-4 pt-4">
+                                <div class="flex items-center gap-4 bg-white/10 p-4 rounded-2xl hover:bg-white/15 transition-all">
+                                    <i class="fa-solid fa-phone text-xl text-white"></i>
+                                    <div>
+                                        <p class="text-[10px] text-white/60 uppercase font-black tracking-wider">Phone Number</p>
+                                        <p class="text-base font-extrabold text-white editable" contenteditable="false">0942 964 102</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-4 bg-white/10 p-4 rounded-2xl hover:bg-white/15 transition-all">
+                                    <i class="fa-solid fa-envelope text-xl text-white"></i>
+                                    <div>
+                                        <p class="text-[10px] text-white/60 uppercase font-black tracking-wider">Email Address</p>
+                                        <p class="text-base font-extrabold text-white editable" contenteditable="false">mydieu442003@gmail.com</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-4 bg-white/10 p-4 rounded-2xl hover:bg-white/15 transition-all">
+                                    <i class="fa-solid fa-file-pdf text-xl text-white"></i>
+                                    <div>
+                                        <p class="text-[10px] text-white/60 uppercase font-black tracking-wider">CV Download</p>
+                                        <a href="cv/CV_Nguyen_Thi_My_Dieu_Livestream_Performance_V4.pdf" download class="text-base font-extrabold text-white hover:underline">CV_Nguyễn_Thị_Mỹ_Diệu_V4.pdf</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="lg:col-span-5 text-center lg:text-left space-y-4 bg-white/10 p-6 rounded-3xl border border-white/10">
+                            <h4 class="font-heading font-black text-white text-2xl uppercase tracking-tight">THANK YOU!</h4>
+                            <p class="text-xs text-white/80 leading-relaxed editable" contenteditable="false">
+                                Cảm ơn quý anh/chị đã dành thời gian xem Portfolio của Mỹ Diệu. Rất hy vọng sẽ có cơ hội đồng hành, bứt phá những cột mốc GMV lớn cùng nhau!
+                            </p>
+                            <div class="flex justify-center pt-2">
+                                <svg class="w-24 h-24 text-white" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="50" cy="50" r="45" fill="white" fill-opacity="0.2"/>
+                                    <path d="M50 75C35 75 30 65 30 50C30 35 40 30 50 30C60 30 70 35 70 50C70 65 65 75 50 75Z" fill="white"/>
+                                    <polygon points="35,40 30,20 45,35" fill="white" stroke="#B31A24" stroke-width="2"/>
+                                    <polygon points="65,40 70,20 55,35" fill="white" stroke="#B31A24" stroke-width="2"/>
+                                    <circle cx="43" cy="48" r="3" fill="#B31A24"/>
+                                    <circle cx="57" cy="48" r="3" fill="#B31A24"/>
+                                    <path d="M48 54C50 56 50 56 52 54" stroke="#B31A24" stroke-width="2"/>
+                                    <circle cx="38" cy="52" r="2" fill="#FFAAAA"/>
+                                    <circle cx="62" cy="52" r="2" fill="#FFAAAA"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-between items-center text-xs text-white/50 pt-4 border-t border-white/10">
+                        <span>© 2026 NGUYỄN THỊ MỸ DIỆU</span>
+                        <span>10 / 10</span>
+                    </div>
+                </section>
+
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </main>
 
-  <!-- ===== VIDEO ===== -->
-  <section id="section-video" class="works" data-aos="fade-up" data-aos-duration="1200">
-    <div class="container clearfix">
-      <div class="col-left"><h2 class="sec-title">Video</h2></div>
-      <div class="col-right">
-        <div class="video-grid">
-          <video controls preload="metadata">
-            <source src="video/096e9eb5-4df3-4343-848e-7d8ba3178a30.mp4" type="video/mp4">
-          </video>
-          <video controls preload="metadata">
-            <source src="video/62d00a0f-7314-46dc-bb45-1e355776a097.mp4" type="video/mp4">
-          </video>
-          <video controls preload="metadata">
-            <source src="video/c9bea248-1633-4404-aae7-8f7e4e91e63e.mp4" type="video/mp4">
-          </video>
+    <!-- FLOATING SLIDE NAVIGATION FOOTER -->
+    <nav id="slideControls" class="fixed bottom-0 left-0 w-full bg-white border-t border-brandRed/10 p-4 z-40 transition-transform duration-300">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <button onclick="prevSlide()" class="px-4 py-2 bg-brandCream border border-brandRed/30 text-brandRed text-sm font-bold rounded-xl hover:bg-brandCreamDark active:scale-95 transition-all">
+                <i class="fa-solid fa-chevron-left mr-2"></i> Slide trước
+            </button>
+            <div id="slideCounter" class="text-xs font-bold text-gray-500 uppercase tracking-widest">
+                Slide 1 / 10
+            </div>
+            <button onclick="nextSlide()" class="px-4 py-2 bg-brandRed text-white text-sm font-bold rounded-xl hover:bg-brandRedHover active:scale-95 transition-all">
+                Slide tiếp theo <i class="fa-solid fa-chevron-right ml-2"></i>
+            </button>
         </div>
-      </div>
+    </nav>
+
+    <!-- AI COPILOT FLOATING BUTTON -->
+    <div class="fixed bottom-20 right-6 z-50">
+        <button id="aiCopilotBtn" onclick="toggleAICopilot()" class="w-14 h-14 bg-gradient-to-tr from-brandRed to-brandRedHover text-white rounded-full shadow-2xl hover:scale-110 active:scale-95 flex items-center justify-center transition-all animate-bounce" title="Trò chuyện với AI Copilot">
+            <i class="fa-solid fa-wand-magic-sparkles text-xl"></i>
+        </button>
     </div>
-  </section>
 
-</div><!-- /sub0301_view -->
-</div><!-- /sub-inner-wrap -->
-
-<!-- ==================== FOOTER ==================== -->
-<footer id="footerWrap">
-  <div class="container">
-    <div class="foot-left">
-      <a href="#" class="ntmd-logo footer">
-        <div class="nl-letters">
-          <span class="nl-n">N</span><span class="nl-t">T</span><span class="nl-m">M</span><span class="nl-d">D</span>
+    <!-- AI Sidebar panel -->
+    <div id="aiSidebar" class="fixed top-0 right-0 h-full w-full sm:w-[420px] bg-white border-l border-brandRed/10 shadow-2xl z-50 translate-x-full transition-transform duration-300 flex flex-col">
+        <div class="p-4 bg-brandRed text-brandCream flex justify-between items-center border-b border-brandRedHover">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center"><i class="fa-solid fa-robot"></i></div>
+                <div>
+                    <h3 class="font-bold text-sm tracking-wide">Mỹ Diệu — AI Co-Pilot</h3>
+                    <p class="text-[10px] text-brandCream/70 font-medium">Hỏi về Mỹ Diệu hoặc tạo Hook sáng tạo</p>
+                </div>
+            </div>
+            <button onclick="toggleAICopilot()" class="w-8 h-8 rounded-full hover:bg-white/10 flex items-center justify-center transition-all">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
         </div>
-        <div class="nl-tag">Portfolio</div>
-      </a>
+
+        <div class="flex border-b border-gray-200 text-xs bg-brandCream">
+            <button onclick="switchAITab('qa')" id="tabBtnQa" class="flex-1 py-3 text-center font-bold text-brandRed border-b-2 border-brandRed transition-all">
+                <i class="fa-regular fa-comments mr-1.5"></i>HỎI VỀ MỸ DIỆU
+            </button>
+            <button onclick="switchAITab('demo')" id="tabBtnDemo" class="flex-1 py-3 text-center font-bold text-gray-500 hover:text-brandRed transition-all">
+                <i class="fa-solid fa-clapperboard mr-1.5"></i>TẠO HOOK SÁNG TẠO
+            </button>
+        </div>
+
+        <div class="flex-1 overflow-y-auto p-4 bg-brandCream/30">
+            <div id="panelQa" class="flex flex-col h-full">
+                <div id="aiChatMessages" class="flex-1 overflow-y-auto space-y-3 mb-4 text-xs pr-1">
+                    <div class="flex gap-2.5 items-start">
+                        <div class="w-6 h-6 rounded-full bg-brandRed text-white flex-shrink-0 flex items-center justify-center font-bold text-[9px]">MD</div>
+                        <div class="bg-white p-3 rounded-2xl border border-brandRed/10 shadow-sm max-w-[85%] leading-relaxed">
+                            Chào bạn! Mình là <strong>Trợ lý AI đại diện cho Mỹ Diệu</strong>. Hỏi mình về kinh nghiệm Livestream, TikTok Ecommerce, hay thành tích tại MIA.vn nhé!
+                        </div>
+                    </div>
+                </div>
+                <div class="relative mt-auto">
+                    <input id="aiChatInput" type="text" placeholder="Hỏi về Mỹ Diệu (vd: Tại sao nên tuyển Mỹ Diệu?)..." class="w-full pl-4 pr-12 py-3 bg-white border border-brandRed/20 rounded-2xl text-xs focus:ring-1 focus:ring-brandRed focus:border-brandRed focus:outline-none transition-all" onkeypress="handleChatKeyPress(event)">
+                    <button onclick="sendChatMessage()" class="absolute right-2 top-1.5 w-8 h-8 bg-brandRed text-white rounded-full flex items-center justify-center hover:bg-brandRedHover active:scale-95 transition-all">
+                        <i class="fa-solid fa-paper-plane text-[10px]"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div id="panelDemo" class="hidden space-y-4">
+                <div class="bg-white p-4 rounded-2xl border border-brandRed/10 shadow-sm space-y-3.5">
+                    <div class="text-xs">
+                        <label class="block font-bold text-brandDark uppercase tracking-wider mb-1.5">1. Chọn Ngành Hàng</label>
+                        <select id="hookIndustry" class="w-full p-2.5 bg-brandCream border border-brandRed/10 rounded-xl font-medium focus:outline-none focus:ring-1 focus:ring-brandRed">
+                            <option value="TikTok Shop & Ecommerce">TikTok Shop & Ecommerce</option>
+                            <option value="Fashion & Lifestyle">Thời trang & Phong cách sống</option>
+                            <option value="Beauty & Cosmetics">Làm đẹp & Mỹ phẩm</option>
+                            <option value="F&B Nightlife">Ẩm thực & Giải trí về đêm</option>
+                        </select>
+                    </div>
+                    <div class="text-xs">
+                        <label class="block font-bold text-brandDark uppercase tracking-wider mb-1.5">2. Tên Sản phẩm</label>
+                        <input id="hookProductName" type="text" placeholder="Ví dụ: Vali kéo 24 inch, Son môi..." class="w-full p-2.5 bg-brandCream border border-brandRed/10 rounded-xl font-medium focus:outline-none focus:ring-1 focus:ring-brandRed">
+                    </div>
+                    <button onclick="generateHooks()" class="w-full py-3 bg-gradient-to-r from-brandRed to-brandRedHover text-white text-xs font-bold rounded-xl shadow transition-all hover:shadow-lg flex items-center justify-center gap-1.5">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i> AI TẠO HOOK SÁNG TẠO
+                    </button>
+                </div>
+                <div id="hookResultContainer" class="hidden bg-white p-4 rounded-2xl border border-emerald-400/20 shadow-sm space-y-3">
+                    <div class="flex items-center gap-2 pb-2 border-b border-gray-100">
+                        <span class="flex h-2 w-2 relative">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                        </span>
+                        <h4 class="text-[11px] font-bold text-emerald-600 uppercase tracking-widest">Kịch bản Storytelling đề xuất</h4>
+                    </div>
+                    <div id="hookResultText" class="text-xs text-gray-700 leading-relaxed whitespace-pre-wrap"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="px-4 py-2 bg-brandCream border-t border-brandRed/10 flex justify-between items-center text-[10px] text-gray-500">
+            <span>Powered by Gemini AI</span>
+            <button onclick="toggleApiKeyInput()" class="hover:underline hover:text-brandRed flex items-center gap-1"><i class="fa-solid fa-key"></i> API Key</button>
+        </div>
+
+        <div id="apiKeyModal" class="hidden absolute inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
+            <div class="bg-white p-4 rounded-2xl shadow-xl w-full max-w-xs space-y-3 border border-brandRed/10">
+                <h4 class="text-xs font-bold text-brandDark uppercase tracking-wider">Cài đặt Gemini API Key</h4>
+                <p class="text-[10px] text-gray-500">Nhập API Key Gemini của bạn để kích hoạt tính năng AI.</p>
+                <input id="geminiUserApiKey" type="password" placeholder="AIza..." class="w-full p-2 border border-gray-300 rounded-lg text-xs">
+                <div class="flex gap-2">
+                    <button onclick="saveApiKey()" class="flex-1 py-1.5 bg-brandRed text-white text-xs rounded-lg font-bold">Lưu</button>
+                    <button onclick="toggleApiKeyInput()" class="flex-1 py-1.5 bg-gray-200 text-gray-700 text-xs rounded-lg font-bold">Đóng</button>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div class="foot-right">
-      <div class="foot-sns">
-        <a href="https://www.tiktok.com/@midiu453" target="_blank" title="TikTok">
-          <i class="fa-brands fa-tiktok"></i>
-        </a>
-        <a href="https://www.facebook.com/nguyen.my.dieu.609400" target="_blank" title="Facebook">
-          <i class="fa-brands fa-facebook-f"></i>
-        </a>
-        <a href="https://www.linkedin.com/in/my-dieu-125020222/" target="_blank" title="LinkedIn">
-          <i class="fa-brands fa-linkedin-in"></i>
-        </a>
-      </div>
-      <div class="foot-copy">&copy; 2025 NTMD Portfolio. All rights reserved.</div>
-      <address class="foot-addr">
-        <p>Nguyễn Thị Mỹ Diệu</p>
-        <p>TP. Hồ Chí Minh, Việt Nam</p>
-        <p>mydieu442003@gmail.com</p>
-        <p>0942 964 102</p>
-      </address>
-    </div>
-  </div>
+    <script>
+        let currentSlide = 0;
+        const totalSlides = 10;
+        let viewMode = 'slide';
+        let editMode = false;
+        let isAiOpen = false;
+        let customApiKey = '';
 
-</footer>
+        window.onload = function() {
+            setMode('slide');
+            updateControls();
+            document.addEventListener('keydown', function(e) {
+                if (viewMode === 'slide' && !editMode) {
+                    if (e.key === 'ArrowRight') nextSlide();
+                    else if (e.key === 'ArrowLeft') prevSlide();
+                }
+            });
+        };
 
-<a href="#" class="goTop">
-  <i class="material-icons">arrow_upward</i>
-</a>
+        function toggleViewMode(mode) { setMode(mode); }
 
-<!-- ==================== SCRIPTS ==================== -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        function setMode(mode) {
+            viewMode = mode;
+            const wrapper = document.getElementById('slidesWrapper');
+            const slideControls = document.getElementById('slideControls');
+            const btnSlide = document.getElementById('btnSlideMode');
+            const btnScroll = document.getElementById('btnScrollMode');
+            const slides = document.querySelectorAll('.slide-item');
 
-<script>
-  // ── i18n Language System ──
-  var i18n = {
-    vn: {
-      profile_role:   'Livestreamer &nbsp;/&nbsp; Vận hành Livestream',
-      lbl_born:       'Sinh',
-      lbl_address:    'Địa chỉ',
-      lbl_phone:      'Điện thoại',
-      lbl_social:     'Mạng xã hội',
-      tab_campaign:   'Chiến dịch',
-      tab_experience: 'Kinh nghiệm',
-      tab_skills:     'Kỹ năng',
-      tab_awards:     'Thành tích',
-      skill_pro:      'Kỹ năng chuyên môn',
-      skill_office:   'Tin học văn phòng',
-      skill_strength: 'Điểm mạnh cốt lõi',
-      skill_edu:      'Học vấn',
-    },
-    en: {
-      profile_role:   'Livestreamer &nbsp;/&nbsp; Livestream Operations',
-      lbl_born:       'Born',
-      lbl_address:    'Location',
-      lbl_phone:      'Phone',
-      lbl_social:     'Social Media',
-      tab_campaign:   'Campaigns',
-      tab_experience: 'Experience',
-      tab_skills:     'Skills',
-      tab_awards:     'Awards',
-      skill_pro:      'Professional Skills',
-      skill_office:   'Office Tools',
-      skill_strength: 'Core Strengths',
-      skill_edu:      'Education',
-    },
-    cn: {
-      profile_role:   '直播员 &nbsp;/&nbsp; 直播运营',
-      lbl_born:       '出生',
-      lbl_address:    '地址',
-      lbl_phone:      '电话',
-      lbl_social:     '社交媒体',
-      tab_campaign:   '活动',
-      tab_experience: '经验',
-      tab_skills:     '技能',
-      tab_awards:     '荣誉',
-      skill_pro:      '专业技能',
-      skill_office:   '办公工具',
-      skill_strength: '核心优势',
-      skill_edu:      '教育背景',
-    }
-  };
+            if (mode === 'slide') {
+                wrapper.className = "slide-container flex flex-col gap-0";
+                slides.forEach((slide, idx) => { slide.style.display = idx === currentSlide ? 'flex' : 'none'; });
+                slideControls.style.transform = 'translateY(0)';
+                btnSlide.className = "flex items-center gap-2 px-3 py-1.5 rounded-lg bg-brandRed text-white text-xs font-bold shadow-md transition-all";
+                btnScroll.className = "flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white border border-brandRed/30 text-brandRed text-xs font-bold hover:bg-brandCream transition-all";
+            } else {
+                slides.forEach(slide => { slide.style.display = 'flex'; slide.style.marginBottom = '2.5rem'; });
+                wrapper.className = "slide-container flex flex-col gap-8";
+                slideControls.style.transform = 'translateY(100%)';
+                btnSlide.className = "flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white border border-brandRed/30 text-brandRed text-xs font-bold hover:bg-brandCream transition-all";
+                btnScroll.className = "flex items-center gap-2 px-3 py-1.5 rounded-lg bg-brandRed text-white text-xs font-bold shadow-md transition-all";
+            }
+            updateControls();
+        }
 
-  var currentLang = localStorage.getItem('site-lang') || 'vn';
+        function nextSlide() { if (currentSlide < totalSlides - 1) goToSlide(currentSlide + 1); }
+        function prevSlide() { if (currentSlide > 0) goToSlide(currentSlide - 1); }
 
-  function setLang(lang) {
-    currentLang = lang;
-    localStorage.setItem('site-lang', lang);
-    // Update all data-i18n elements
-    document.querySelectorAll('[data-i18n]').forEach(function(el) {
-      var key = el.getAttribute('data-i18n');
-      if (i18n[lang] && i18n[lang][key] !== undefined) {
-        el.innerHTML = i18n[lang][key];
-      }
-    });
-    // Update lang button label
-    var labels = { vn: 'VN', en: 'ENG', cn: 'CN' };
-    document.querySelector('.lang-btn').innerHTML = labels[lang] + ' <span class="arrow">&#9660;</span>';
-    // Highlight active lang in dropdown
-    document.querySelectorAll('.lang-drop a[data-lang]').forEach(function(a) {
-      a.style.fontWeight = a.getAttribute('data-lang') === lang ? '700' : '400';
-      a.style.color      = a.getAttribute('data-lang') === lang ? '#111' : '#444';
-    });
-  }
+        function goToSlide(idx) {
+            currentSlide = idx;
+            if (viewMode === 'slide') {
+                document.querySelectorAll('.slide-item').forEach((slide, i) => { slide.style.display = i === idx ? 'flex' : 'none'; });
+            } else {
+                document.getElementById(`slide-${idx}`).scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+            updateControls();
+        }
 
-  // Init on page load
-  setLang(currentLang);
+        function updateControls() {
+            const counter = document.getElementById('slideCounter');
+            if (counter) counter.innerText = `Slide ${currentSlide + 1} / ${totalSlides}`;
+        }
 
-  // AOS
-  AOS.init({ once: true });
+        function toggleEditMode() {
+            editMode = !editMode;
+            const editables = document.querySelectorAll('.editable');
+            const notification = document.getElementById('editNotification');
+            const editBtn = document.getElementById('btnEditMode');
+            const editBtnText = document.getElementById('editBtnText');
+            if (editMode) {
+                editables.forEach(el => { el.setAttribute('contenteditable', 'true'); el.classList.add('bg-emerald-50', 'border-b-2', 'border-emerald-400', 'p-1', 'rounded'); });
+                notification.classList.remove('opacity-0', 'pointer-events-none');
+                notification.classList.add('opacity-100');
+                editBtn.className = "flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-700 text-white text-xs font-bold hover:bg-emerald-800 shadow-md transition-all";
+                editBtnText.innerText = "Khóa nội dung";
+            } else {
+                editables.forEach(el => { el.setAttribute('contenteditable', 'false'); el.classList.remove('bg-emerald-50', 'border-b-2', 'border-emerald-400', 'p-1', 'rounded'); });
+                notification.classList.remove('opacity-100');
+                notification.classList.add('opacity-0', 'pointer-events-none');
+                editBtn.className = "flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-600 text-white text-xs font-bold hover:bg-emerald-700 shadow-md transition-all";
+                editBtnText.innerText = "Chỉnh sửa nhanh";
+            }
+        }
 
-  // ── Header: transparent → white on scroll ──
-  var $header = $('#header');
-  $(window).on('scroll', function () {
-    if ($(this).scrollTop() > 60) {
-      $header.addClass('is-scrolled');
-    } else {
-      $header.removeClass('is-scrolled');
-    }
-  });
+        function toggleAICopilot() {
+            const sidebar = document.getElementById('aiSidebar');
+            isAiOpen = !isAiOpen;
+            sidebar.classList.toggle('translate-x-full', !isAiOpen);
+        }
 
-  // ── Tabs ──
-  $('.tab-nav a').on('click', function (e) {
-    e.preventDefault();
-    var target = $(this).data('target');
-    $('.tab-nav li').removeClass('active');
-    $(this).closest('li').addClass('active');
-    $('.tab-pane').removeClass('active');
-    $('#tab-' + target).addClass('active');
-    if (target === 'photo' || target === 'awards') {
-      setTimeout(function () {
-        var $pane = $('#tab-' + target);
-        $('html,body').animate({ scrollTop: $pane.offset().top - 80 }, 600);
-      }, 60);
-    }
-  });
+        function switchAITab(tab) {
+            const isQa = tab === 'qa';
+            document.getElementById('tabBtnQa').className = `flex-1 py-3 text-center font-bold transition-all ${isQa ? 'text-brandRed border-b-2 border-brandRed' : 'text-gray-500 hover:text-brandRed'}`;
+            document.getElementById('tabBtnDemo').className = `flex-1 py-3 text-center font-bold transition-all ${!isQa ? 'text-brandRed border-b-2 border-brandRed' : 'text-gray-500 hover:text-brandRed'}`;
+            document.getElementById('panelQa').classList.toggle('hidden', !isQa);
+            document.getElementById('panelDemo').classList.toggle('hidden', isQa);
+        }
 
-  // ── Lightbox ──
-  function closeLightbox() {
-    $('#lightbox').removeClass('open');
-    $('body').css('overflow', '');
-  }
-  $(document).on('click', '.gal-item', function (e) {
-    e.preventDefault();
-    _galItems = [];
-    _galCaptions = [];
-    $(this).closest('.photo-gallery, .award-gallery').find('.gal-item').each(function() {
-      _galItems.push($(this).data('src'));
-      _galCaptions.push($(this).data('caption') || '');
-    });
-    var src = $(this).data('src');
-    var idx = _galItems.indexOf(src);
-    _openLightbox(idx >= 0 ? idx : 0);
-  });
-  $(document).on('click', '#lightbox-close', function (e) {
-    e.stopPropagation();
-    closeLightbox();
-  });
-  $(document).on('click', '#lightbox', function (e) {
-    if (e.target === this) closeLightbox();
-  });
+        function toggleApiKeyInput() { document.getElementById('apiKeyModal').classList.toggle('hidden'); }
 
-  // ── More / Less toggle for album ──
-  var expanded = false;
-  $('#btn-more').on('click', function (e) {
-    e.preventDefault();
-    expanded = !expanded;
-    if (expanded) {
-      $('.media-item.more').css({ display: 'block' });
-      // re-trigger grid layout
-      setTimeout(function () {
-        $('.media-item.more').css('opacity', 0).animate({ opacity: 1 }, 400);
-      }, 10);
-      $(this).text('LESS VIEW').addClass('active');
-    } else {
-      $('.media-item.more').fadeOut(300);
-      $(this).text('MORE VIEW').removeClass('active');
-    }
-  });
+        function saveApiKey() {
+            const val = document.getElementById('geminiUserApiKey').value.trim();
+            if (val) customApiKey = val;
+            toggleApiKeyInput();
+        }
 
-  // ── Mobile menu ──
-  $('#ham-btn').on('click', function () {
-    $('#m-overlay').addClass('open');
-    $('body').css('overflow', 'hidden');
-  });
-  $('#m-close-btn, #m-overlay .m-nav-list a').on('click', function () {
-    $('#m-overlay').removeClass('open');
-    $('body').css('overflow', '');
-  });
+        async function fetchGeminiAPI(userQuery, systemPrompt = '') {
+            const apiKey = customApiKey;
+            if (!apiKey) return "Vui lòng nhập Gemini API Key để sử dụng tính năng AI (bấm nút 'API Key' phía dưới).";
 
-  // ── Language dropdown: click to open ──
-  $('.lang-btn').on('click', function(e) {
-    e.stopPropagation();
-    $('.lang-wrap').toggleClass('open');
-  });
-  $(document).on('click', function() {
-    $('.lang-wrap').removeClass('open');
-  });
-  $('.lang-drop').on('click', function(e) {
-    e.stopPropagation();
-  });
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+            const payload = { contents: [{ parts: [{ text: userQuery }] }] };
+            if (systemPrompt) payload.systemInstruction = { parts: [{ text: systemPrompt }] };
 
-  // ── Zalo popup ──
-  $('#zalo-btn').on('click', function(e) {
-    e.preventDefault();
-    $('#zalo-popup').toggleClass('show');
-  });
-  $(document).on('click', function(e) {
-    if (!$(e.target).closest('#zalo-btn, #zalo-popup').length) {
-      $('#zalo-popup').removeClass('show');
-    }
-  });
+            try {
+                const response = await fetch(apiUrl, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+                if (!response.ok) throw new Error(`Status: ${response.status}`);
+                const result = await response.json();
+                return result.candidates?.[0]?.content?.parts?.[0]?.text || "Không có phản hồi từ AI.";
+            } catch (error) {
+                return "Lỗi kết nối AI. Kiểm tra lại API Key và thử lại nhé!";
+            }
+        }
 
-  // ── Go to top ──
-  $('.goTop').on('click', function (e) {
-    e.preventDefault();
-    $('html, body').animate({ scrollTop: 0 }, 300);
-  });
+        async function sendChatMessage() {
+            const input = document.getElementById('aiChatInput');
+            const messageText = input.value.trim();
+            if (!messageText) return;
+            const chatMessages = document.getElementById('aiChatMessages');
 
-  // ── Nav hover: show background overlay strip ──
-  $('.gnb-pc').on('mouseenter', function () {
-    if (!$header.hasClass('is-scrolled')) {
-      $header.css('background', 'rgba(255,255,255,0.97)');
-      $header.find('.logo-wrap a').css('color', '#111');
-      $header.find('.gnb-pc > li > a').css('color', '#222');
-      $header.find('.lang-btn').css('color', '#333');
-    }
-  }).on('mouseleave', function () {
-    if (!$header.hasClass('is-scrolled')) {
-      $header.css('background', '');
-      $header.find('.logo-wrap a').css('color', '');
-      $header.find('.gnb-pc > li > a').css('color', '');
-      $header.find('.lang-btn').css('color', '');
-    }
-  });
+            chatMessages.innerHTML += `<div class="flex gap-2.5 items-start justify-end"><div class="bg-brandRed text-white p-3 rounded-2xl shadow-sm max-w-[85%] leading-relaxed">${messageText}</div><div class="w-6 h-6 rounded-full bg-gray-300 flex-shrink-0 flex items-center justify-center text-[9px]"><i class="fa-solid fa-user"></i></div></div>`;
+            chatMessages.innerHTML += `<div id="aiLoadingMsg" class="flex gap-2.5 items-start"><div class="w-6 h-6 rounded-full bg-brandRed text-white flex-shrink-0 flex items-center justify-center font-bold text-[9px]">MD</div><div class="bg-white p-3 rounded-2xl border border-brandRed/10 shadow-sm max-w-[85%] flex items-center gap-1.5"><span class="w-1.5 h-1.5 bg-brandRed rounded-full animate-bounce"></span><span class="w-1.5 h-1.5 bg-brandRed rounded-full animate-bounce" style="animation-delay:150ms"></span><span class="w-1.5 h-1.5 bg-brandRed rounded-full animate-bounce" style="animation-delay:300ms"></span></div></div>`;
+            input.value = '';
+            chatMessages.scrollTop = chatMessages.scrollHeight;
 
-  // ── Image hover: switchImg effect ──
-  $('.sns-icons a').on('mouseenter', function () {
-    $(this).find('i').addClass('fa-spin-once');
-  });
-</script>
+            const systemPrompt = `Bạn đóng vai Nguyễn Thị Mỹ Diệu — Live Host & TikTok Ecommerce specialist. Triết lý: "Chạm - Đúng - Đủ". Kinh nghiệm: MIA.vn (TikTok Shop, GMVMax, 6.9 tỷ kỷ lục cá nhân), CTV Freelance (Sicoli, Guiaruan), June Sun Yvan (Skintific). Trả lời nhiệt huyết, chuyên nghiệp, xưng "mình", gọi "bạn" hoặc "quý anh/chị".`;
 
-<!-- Lightbox -->
-<div id="lightbox" onclick="if(event.target===this){document.getElementById('lightbox').classList.remove('open');document.body.style.overflow=''}">
-  <span id="lightbox-close" onclick="document.getElementById('lightbox').classList.remove('open');document.body.style.overflow=''">&times;</span>
-  <span id="lightbox-prev">&#8249;</span>
-  <div id="lightbox-img-wrap">
-    <img id="lightbox-img" src="" alt="">
-  </div>
-  <span id="lightbox-next">&#8250;</span>
-  <div id="lightbox-caption"></div>
-  <div id="lightbox-counter"></div>
-  <div id="lightbox-zoom-btns">
-    <button id="lb-zoom-in" title="Phóng to">&#128269;+</button>
-    <button id="lb-zoom-out" title="Thu nhỏ">&#128269;−</button>
-    <button id="lb-zoom-reset" title="Về mặc định">&#8635;</button>
-  </div>
-</div>
-<script>
-  var _galItems = [];
-  var _galCaptions = [];
-  var _galIndex = 0;
-  var _zoom = 1;
+            const responseText = await fetchGeminiAPI(messageText, systemPrompt);
+            document.getElementById('aiLoadingMsg')?.remove();
+            chatMessages.innerHTML += `<div class="flex gap-2.5 items-start"><div class="w-6 h-6 rounded-full bg-brandRed text-white flex-shrink-0 flex items-center justify-center font-bold text-[9px]">MD</div><div class="bg-white p-3 rounded-2xl border border-brandRed/10 shadow-sm max-w-[85%] leading-relaxed">${responseText.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>').replace(/\n/g,'<br>')}</div></div>`;
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
 
-  function _setZoom(z) {
-    _zoom = Math.min(4, Math.max(1, z));
-    document.getElementById('lightbox-img').style.transform = 'scale(' + _zoom + ')';
-  }
-  function _openLightbox(index) {
-    _galIndex = index;
-    _setZoom(1);
-    document.getElementById('lightbox-img').src = _galItems[index];
-    document.getElementById('lightbox-caption').textContent = _galCaptions[index] || '';
-    document.getElementById('lightbox-counter').textContent = (index + 1) + ' / ' + _galItems.length;
-    document.getElementById('lightbox').classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-  function _prevImg() { _openLightbox((_galIndex - 1 + _galItems.length) % _galItems.length); }
-  function _nextImg() { _openLightbox((_galIndex + 1) % _galItems.length); }
+        function handleChatKeyPress(e) { if (e.key === 'Enter') sendChatMessage(); }
 
-  document.getElementById('lightbox-prev').onclick = function(e) { e.stopPropagation(); _prevImg(); };
-  document.getElementById('lightbox-next').onclick = function(e) { e.stopPropagation(); _nextImg(); };
-  document.getElementById('lb-zoom-in').onclick  = function(e) { e.stopPropagation(); _setZoom(_zoom + 0.5); };
-  document.getElementById('lb-zoom-out').onclick = function(e) { e.stopPropagation(); _setZoom(_zoom - 0.5); };
-  document.getElementById('lb-zoom-reset').onclick = function(e) { e.stopPropagation(); _setZoom(1); };
+        async function generateHooks() {
+            const industry = document.getElementById('hookIndustry').value;
+            const productName = document.getElementById('hookProductName').value.trim();
+            if (!productName) { alert("Vui lòng nhập tên sản phẩm!"); return; }
 
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-      document.getElementById('lightbox').classList.remove('open');
-      document.body.style.overflow = '';
-    }
-    if (e.key === 'ArrowLeft') _prevImg();
-    if (e.key === 'ArrowRight') _nextImg();
-    if (e.key === '+' || e.key === '=') _setZoom(_zoom + 0.5);
-    if (e.key === '-') _setZoom(_zoom - 0.5);
-  });
-</script>
+            const resultContainer = document.getElementById('hookResultContainer');
+            const resultText = document.getElementById('hookResultText');
+            resultContainer.classList.remove('hidden');
+            resultText.innerHTML = `<div class="flex items-center gap-2 text-brandRed py-2"><i class="fa-solid fa-spinner animate-spin"></i> Đang tạo hook sáng tạo...</div>`;
+
+            const prompt = `Sản phẩm: ${productName} | Ngành: ${industry}\n\nViết 2 Hook mở đầu cuốn hút cho livestream/video ngắn và 1 ý tưởng kịch bản Live Host theo triết lý "Chạm - Đúng - Đủ". Văn phong tiếng Việt, năng lượng cao, thực tế, dùng icon sinh động.`;
+
+            const result = await fetchGeminiAPI(prompt, "Bạn là chuyên gia tạo Hook & Kịch bản Livestream TikTok theo phong cách 'Chạm - Đúng - Đủ'.");
+            resultText.innerHTML = result.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>').replace(/\n/g,'<br>');
+        }
+    </script>
 </body>
 </html>
