@@ -102,29 +102,29 @@
             <div id="slidesWrapper" class="slide-container flex flex-col gap-16 md:gap-24">
 
                 <!-- ==================== SLIDE 1: TRANG BÌA ==================== -->
-                <section id="slide-0" class="slide-item" style="position:relative; min-height:85vh; background:#1A1A1A; border-radius:1.5rem; overflow:hidden; display:flex; flex-direction:column; box-shadow:0 25px 60px rgba(0,0,0,0.4);">
+                <section id="slide-0" class="slide-item" style="position:relative; min-height:85vh; background:#ffffff; border-radius:1.5rem; overflow:hidden; display:flex; flex-direction:column; box-shadow:0 8px 40px rgba(0,0,0,0.10); border:1px solid rgba(179,26,36,0.08);">
 
-                    <!-- Photo right side — background-image để control position dễ hơn -->
-                    <div style="position:absolute; right:0; top:0; width:48%; height:100%; pointer-events:none; z-index:1;">
-                        <div style="width:100%; height:100%; background-image:url('image/9d171256-5d53-4482-8b5c-a38731db6858.jpg'); background-size:cover; background-position:left top;"></div>
-                        <!-- blend left -->
-                        <div style="position:absolute; inset:0; background:linear-gradient(to right, #1A1A1A 0%, rgba(26,26,26,0.6) 30%, transparent 70%);"></div>
-                        <!-- fade bottom -->
-                        <div style="position:absolute; inset:0; background:linear-gradient(to top, #1A1A1A 0%, transparent 45%);"></div>
+                    <!-- Photo: absolute right, show full face using object-contain so nothing is cropped -->
+                    <div style="position:absolute; right:0; top:0; width:48%; height:100%; pointer-events:none; z-index:1; display:flex; align-items:center; justify-content:flex-end;">
+                        <img src="image/9d171256-5d53-4482-8b5c-a38731db6858.jpg"
+                             alt="Nguyễn Thị Mỹ Diệu"
+                             style="width:100%; height:100%; object-fit:cover; object-position:25% center;">
+                        <!-- subtle left-edge fade to blend with white bg -->
+                        <div style="position:absolute; inset:0; background:linear-gradient(to right, #ffffff 0%, rgba(255,255,255,0.5) 20%, transparent 50%);"></div>
                     </div>
 
                     <!-- All content -->
                     <div style="position:relative; z-index:10; display:flex; flex-direction:column; flex:1; padding:2.5rem 3rem;">
 
-                        <!-- Nav menu -->
-                        <div style="display:flex; flex-wrap:wrap; gap:0.5rem; justify-content:space-between; align-items:center; padding-bottom:1.25rem; border-bottom:1px solid rgba(255,255,255,0.1); margin-bottom:0;">
+                        <!-- Nav menu — không đụng vào -->
+                        <div style="display:flex; flex-wrap:wrap; gap:0.5rem; justify-content:space-between; align-items:center; padding-bottom:1.25rem; border-bottom:1px solid rgba(179,26,36,0.12); margin-bottom:0;">
                             <button onclick="goToSlide(2)" style="background:none;border:none;cursor:pointer;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.18em;color:#B31A24;font-family:'Plus Jakarta Sans',sans-serif;">About</button>
-                            <button onclick="goToSlide(3)" style="background:none;border:none;cursor:pointer;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.18em;color:rgba(255,255,255,0.45);font-family:'Plus Jakarta Sans',sans-serif;">Journey</button>
-                            <button onclick="goToSlide(4)" style="background:none;border:none;cursor:pointer;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.18em;color:rgba(255,255,255,0.45);font-family:'Plus Jakarta Sans',sans-serif;">Work Experience</button>
-                            <button onclick="goToSlide(6)" style="background:none;border:none;cursor:pointer;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.18em;color:rgba(255,255,255,0.45);font-family:'Plus Jakarta Sans',sans-serif;">Achievements</button>
-                            <button onclick="goToSlide(7)" style="background:none;border:none;cursor:pointer;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.18em;color:rgba(255,255,255,0.45);font-family:'Plus Jakarta Sans',sans-serif;">Skills</button>
-                            <button onclick="goToSlide(8)" style="background:none;border:none;cursor:pointer;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.18em;color:rgba(255,255,255,0.45);font-family:'Plus Jakarta Sans',sans-serif;">Career Vision</button>
-                            <button onclick="goToSlide(9)" style="background:none;border:none;cursor:pointer;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.18em;color:rgba(255,255,255,0.45);font-family:'Plus Jakarta Sans',sans-serif;">Contact</button>
+                            <button onclick="goToSlide(3)" style="background:none;border:none;cursor:pointer;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.18em;color:rgba(30,30,30,0.4);font-family:'Plus Jakarta Sans',sans-serif;">Journey</button>
+                            <button onclick="goToSlide(4)" style="background:none;border:none;cursor:pointer;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.18em;color:rgba(30,30,30,0.4);font-family:'Plus Jakarta Sans',sans-serif;">Work Experience</button>
+                            <button onclick="goToSlide(6)" style="background:none;border:none;cursor:pointer;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.18em;color:rgba(30,30,30,0.4);font-family:'Plus Jakarta Sans',sans-serif;">Achievements</button>
+                            <button onclick="goToSlide(7)" style="background:none;border:none;cursor:pointer;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.18em;color:rgba(30,30,30,0.4);font-family:'Plus Jakarta Sans',sans-serif;">Skills</button>
+                            <button onclick="goToSlide(8)" style="background:none;border:none;cursor:pointer;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.18em;color:rgba(30,30,30,0.4);font-family:'Plus Jakarta Sans',sans-serif;">Career Vision</button>
+                            <button onclick="goToSlide(9)" style="background:none;border:none;cursor:pointer;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.18em;color:rgba(30,30,30,0.4);font-family:'Plus Jakarta Sans',sans-serif;">Contact</button>
                         </div>
 
                         <!-- Main content -->
@@ -137,14 +137,14 @@
 
                             <!-- Name + quote -->
                             <div style="margin-top:2rem; display:flex; align-items:flex-start; gap:0.75rem;">
-                                <svg style="width:24px;height:24px;color:#B31A24;flex-shrink:0;margin-top:4px;" fill="none" stroke="#B31A24" viewBox="0 0 24 24">
+                                <svg style="width:24px;height:24px;flex-shrink:0;margin-top:4px;" fill="none" stroke="#B31A24" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
                                 </svg>
                                 <div>
-                                    <h2 class="editable" contenteditable="false" style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:900; color:#fff; text-transform:uppercase; letter-spacing:-0.01em; font-size:1.3rem; line-height:1.1;">
+                                    <h2 class="editable" contenteditable="false" style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:900; color:#1E1E1E; text-transform:uppercase; letter-spacing:-0.01em; font-size:1.3rem; line-height:1.1;">
                                         NGUYỄN THỊ MỸ DIỆU
                                     </h2>
-                                    <p class="editable" contenteditable="false" style="font-family:'Plus Jakarta Sans',sans-serif; color:rgba(255,255,255,0.45); font-style:italic; line-height:1.65; font-size:0.75rem; margin-top:0.75rem; max-width:26rem;">
+                                    <p class="editable" contenteditable="false" style="font-family:'Plus Jakarta Sans',sans-serif; color:#555; font-style:italic; line-height:1.65; font-size:0.75rem; margin-top:0.75rem; max-width:26rem;">
                                         "A brand storyteller who strives to create real human value — touching customers' emotions and breaking through revenue conversion for businesses."
                                     </p>
                                 </div>
@@ -152,8 +152,8 @@
                         </div>
 
                         <!-- Footer -->
-                        <div style="display:flex; justify-content:space-between; align-items:center; padding-top:1rem; border-top:1px solid rgba(255,255,255,0.1); font-size:11px;">
-                            <span style="color:rgba(255,255,255,0.25); font-family:'Plus Jakarta Sans',sans-serif;">© 2026 NGUYỄN THỊ MỸ DIỆU</span>
+                        <div style="display:flex; justify-content:space-between; align-items:center; padding-top:1rem; border-top:1px solid rgba(179,26,36,0.1); font-size:11px;">
+                            <span style="color:rgba(30,30,30,0.35); font-family:'Plus Jakarta Sans',sans-serif;">© 2026 NGUYỄN THỊ MỸ DIỆU</span>
                             <span style="color:#B31A24; font-weight:800; letter-spacing:0.15em; font-family:'Plus Jakarta Sans',sans-serif; font-size:10px;">TAP OR CLICK NEXT SLIDE</span>
                         </div>
 
