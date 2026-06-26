@@ -655,17 +655,12 @@
         </div>
     </main>
 
-    <!-- FLOATING SLIDE NAVIGATION FOOTER -->
-    <nav id="slideControls" class="fixed bottom-0 left-0 w-full bg-white border-t border-brandRed/10 p-4 z-40 transition-transform duration-300">
-        <div class="max-w-6xl mx-auto flex justify-between items-center">
-            <button onclick="prevSlide()" class="px-4 py-2 bg-brandCream border border-brandRed/30 text-brandRed text-sm font-bold rounded-xl hover:bg-brandCreamDark active:scale-95 transition-all">
-                <i class="fa-solid fa-chevron-left mr-2"></i> Slide trước
-            </button>
-            <div id="slideCounter" class="text-xs font-bold text-gray-500 uppercase tracking-widest">
-                Slide 1 / 10
-            </div>
-            <button onclick="nextSlide()" class="px-4 py-2 bg-brandRed text-white text-sm font-bold rounded-xl hover:bg-brandRedHover active:scale-95 transition-all">
-                Slide tiếp theo <i class="fa-solid fa-chevron-right ml-2"></i>
+    <!-- FLOATING SLIDE NAVIGATION FOOTER (hidden) -->
+    <nav id="slideControls" class="hidden">
+        <div>
+            <button onclick="prevSlide()"></button>
+            <div id="slideCounter"></div>
+            <button onclick="nextSlide()">
             </button>
         </div>
     </nav>
