@@ -211,7 +211,6 @@
 
                     <div class="flex justify-between items-center text-xs text-gray-500 pt-4 border-t border-brandRed/10">
                         <span>GIỚI THIỆU BẢN THÂN</span>
-                        <span>03 / 10</span>
                     </div>
                 </section>
 
@@ -281,7 +280,6 @@
 
                     <div class="flex justify-between items-center text-xs text-gray-500 pt-4 border-t border-brandRed/10">
                         <span>HÀNH TRÌNH SỰ NGHIỆP</span>
-                        <span>04 / 10</span>
                     </div>
                 </section>
 
@@ -348,7 +346,6 @@
 
                     <div class="flex justify-between items-center text-xs text-gray-500 pt-4 border-t border-brandRed/10">
                         <span>DỰ ÁN TIÊU BIỂU — MIA.VN</span>
-                        <span>05 / 10</span>
                     </div>
                 </section>
 
@@ -415,7 +412,6 @@
 
                     <div class="flex justify-between items-center text-xs text-gray-500 pt-4 border-t border-brandRed/10">
                         <span>CTV & SKINTIFIC.VN</span>
-                        <span>06 / 10</span>
                     </div>
                 </section>
 
@@ -460,7 +456,6 @@
 
                     <div class="flex justify-between items-center text-xs text-gray-500 pt-4 border-t border-brandRed/10">
                         <span>THÀNH TỰU & GIẢI THƯỞNG</span>
-                        <span>07 / 10</span>
                     </div>
                 </section>
 
@@ -529,7 +524,6 @@
 
                     <div class="flex justify-between items-center text-xs text-gray-500 pt-4 border-t border-brandRed/10">
                         <span>KỸ NĂNG & ĐIỂM MẠNH</span>
-                        <span>08 / 10</span>
                     </div>
                 </section>
 
@@ -576,7 +570,6 @@
 
                     <div class="flex justify-between items-center text-xs text-gray-500 pt-4 border-t border-brandRed/10">
                         <span>MỤC TIÊU & ĐỊNH HƯỚNG</span>
-                        <span>09 / 10</span>
                     </div>
                 </section>
 
@@ -641,7 +634,6 @@
 
                     <div class="flex justify-between items-center text-xs text-white/50 pt-4 border-t border-white/10">
                         <span>© 2026 NGUYỄN THỊ MỸ DIỆU</span>
-                        <span>10 / 10</span>
                     </div>
                 </section>
 
@@ -767,14 +759,8 @@
         let customApiKey = '';
 
         window.onload = function() {
-            setMode('slide');
+            document.querySelectorAll('.slide-item').forEach(slide => { slide.style.display = 'flex'; });
             updateControls();
-            document.addEventListener('keydown', function(e) {
-                if (viewMode === 'slide' && !editMode) {
-                    if (e.key === 'ArrowRight') nextSlide();
-                    else if (e.key === 'ArrowLeft') prevSlide();
-                }
-            });
         };
 
         function toggleViewMode(mode) { setMode(mode); }
@@ -808,10 +794,11 @@
 
         function goToSlide(idx) {
             currentSlide = idx;
-            if (viewMode === 'slide') {
-                document.querySelectorAll('.slide-item').forEach((slide, i) => { slide.style.display = i === idx ? 'flex' : 'none'; });
-            } else {
-                document.querySelectorAll('.slide-item')[idx].scrollIntoView({ behavior: 'smooth', block: 'center' });
+            const slides = document.querySelectorAll('.slide-item');
+            if (slides[idx]) {
+                const headerH = (document.querySelector('header') || {offsetHeight: 0}).offsetHeight + 16;
+                const top = slides[idx].getBoundingClientRect().top + window.scrollY - headerH;
+                window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
             }
             updateControls();
         }
@@ -950,21 +937,9 @@
     </button>
 
     <script>
-        // Show/hide back-to-top button based on current slide
-        const _origGoToSlide = goToSlide;
-        function goToSlide(idx) {
-            _origGoToSlide(idx);
-            document.getElementById('backToTopBtn').style.display = idx === 0 ? 'none' : 'flex';
-        }
-
-        // Also handle scroll mode visibility
         window.addEventListener('scroll', function() {
             const btn = document.getElementById('backToTopBtn');
-            if (window.scrollY > 300) {
-                btn.style.display = 'flex';
-            } else {
-                btn.style.display = 'none';
-            }
+            btn.style.display = window.scrollY > 300 ? 'flex' : 'none';
         });
     </script>
 </body>
