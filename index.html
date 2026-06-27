@@ -880,9 +880,13 @@
             input.value = '';
             _chatCount++;
 
-            const reply = _chatCount === 1
-                ? 'Midiuxinhiu nhất trần gian đang phát triển sản phẩm này vui lòng thử lại sau nha 🥰'
-                : 'Đọc lại câu hỏi đầu tiên của Midiuxinhiu nha 😄';
+            const replies = [
+                'Midiuxinhiu nhất trần gian đang phát triển sản phẩm này vui lòng thử lại sau nha 🥰',
+                'Đọc lại câu hỏi đầu tiên của Midiuxinhiu nha 😄',
+                'Bớt hỏi đi, Midiuxinhiu mệt nhaa 😮‍💨',
+                'Sao lì quá dị 😤',
+            ];
+            const reply = _chatCount <= 4 ? replies[_chatCount - 1] : replies[1];
 
             setTimeout(() => {
                 chatMessages.innerHTML += `<div class="flex gap-2.5 items-start"><div class="w-6 h-6 rounded-full bg-brandRed text-white flex-shrink-0 flex items-center justify-center font-bold text-[9px]">MD</div><div class="bg-white p-3 rounded-2xl border border-brandRed/10 shadow-sm max-w-[85%] leading-relaxed">${reply}</div></div>`;
