@@ -62,6 +62,43 @@
         ::-webkit-scrollbar-track { background: #ECE8DF; }
         ::-webkit-scrollbar-thumb { background: #B31A24; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #91121A; }
+
+        /* ── Responsive: mobile ─────────────────────────── */
+        @media (max-width: 639px) {
+            /* Nav: scroll ngang, không wrap */
+            header nav {
+                flex-wrap: nowrap !important;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                padding-bottom: 2px;
+                scrollbar-width: none;
+                gap: 1rem !important;
+            }
+            header nav::-webkit-scrollbar { display: none; }
+            header nav button { font-size: 9px !important; white-space: nowrap; }
+
+            /* Cover slide: ẩn ảnh, text full-width */
+            #coverPhoto { display: none !important; }
+            #coverContent { padding: 1.5rem !important; }
+            #coverTextArea { max-width: 100% !important; padding: 1rem 0 !important; }
+            #slide-0 h1 { font-size: clamp(3.5rem, 18vw, 5.5rem) !important; }
+            #slide-0 h2 { font-size: 1rem !important; }
+        }
+
+        /* ── Responsive: tablet ─────────────────────────── */
+        @media (min-width: 640px) and (max-width: 1023px) {
+            #coverPhoto { width: 50% !important; }
+            #coverTextArea { max-width: 52% !important; }
+            #coverContent { padding: 2rem !important; }
+            #slide-0 h1 { font-size: clamp(4rem, 10vw, 7rem) !important; }
+        }
+
+        /* Đảm bảo hình ảnh không bị tràn */
+        img { max-width: 100%; height: auto; }
+
+        /* Gallery ảnh wrap đúng trên mọi màn hình */
+        .gallery-grid { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+        .gallery-grid img { flex: 1 1 200px; min-width: 0; object-fit: cover; border-radius: 0.75rem; }
     </style>
 </head>
 <body class="grid-bg min-h-screen text-brandDark relative antialiased transition-colors duration-300">
@@ -97,7 +134,7 @@
                 <section id="slide-0" class="slide-item" style="position:relative; min-height:85vh; background:#ffffff; border-radius:1.5rem; overflow:hidden; display:flex; flex-direction:column; box-shadow:0 8px 40px rgba(0,0,0,0.10); border:1px solid rgba(179,26,36,0.08);">
 
                     <!-- Photo: chỉ fade trái để blend với text, chủ thể nổi bật -->
-                    <div style="position:absolute; right:0; top:68px; bottom:54px; width:58%; pointer-events:none; z-index:1;">
+                    <div id="coverPhoto" style="position:absolute; right:0; top:68px; bottom:54px; width:58%; pointer-events:none; z-index:1;">
                         <img src="image/9d171256-5d53-4482-8b5c-a38731db6858.jpg"
                              alt="Nguyễn Thị Mỹ Diệu"
                              style="width:100%; height:100%; object-fit:cover; object-position:left top; filter:contrast(1.05);">
@@ -106,10 +143,10 @@
                     </div>
 
                     <!-- All content -->
-                    <div style="position:relative; z-index:10; display:flex; flex-direction:column; flex:1; padding:2.5rem 3rem;">
+                    <div id="coverContent" style="position:relative; z-index:10; display:flex; flex-direction:column; flex:1; padding:2.5rem 3rem;">
 
                         <!-- Main content -->
-                        <div style="flex:1; display:flex; flex-direction:column; justify-content:center; padding:2rem 0; max-width:55%;">
+                        <div id="coverTextArea" style="flex:1; display:flex; flex-direction:column; justify-content:center; padding:2rem 0; max-width:55%;">
 
                             <!-- PORTFOLIO -->
                             <h1 style="font-family:Montserrat,sans-serif; font-weight:900; text-transform:uppercase; color:#B31A24; line-height:0.88; letter-spacing:-0.03em; font-size:clamp(5rem,12vw,9.5rem); user-select:none;">
@@ -665,20 +702,11 @@
                 <div class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center"><i class="fa-solid fa-robot"></i></div>
                 <div>
                     <h3 class="font-bold text-sm tracking-wide">Osin của Midiuxinhiu</h3>
-                    <p class="text-[10px] text-brandCream/70 font-medium">Hỏi về Mỹ Diệu hoặc tạo Hook sáng tạo</p>
+                    <p class="text-[10px] text-brandCream/70 font-medium">Chat với Osin của Mỹ Diệu</p>
                 </div>
             </div>
             <button onclick="toggleAICopilot()" class="w-8 h-8 rounded-full hover:bg-white/10 flex items-center justify-center transition-all">
                 <i class="fa-solid fa-xmark"></i>
-            </button>
-        </div>
-
-        <div class="flex border-b border-gray-200 text-xs bg-brandCream">
-            <button onclick="switchAITab('qa')" id="tabBtnQa" class="flex-1 py-3 text-center font-bold text-brandRed border-b-2 border-brandRed transition-all">
-                <i class="fa-regular fa-comments mr-1.5"></i>HỎI VỀ MỸ DIỆU
-            </button>
-            <button onclick="switchAITab('demo')" id="tabBtnDemo" class="flex-1 py-3 text-center font-bold text-gray-500 hover:text-brandRed transition-all">
-                <i class="fa-solid fa-clapperboard mr-1.5"></i>TẠO HOOK SÁNG TẠO
             </button>
         </div>
 
@@ -700,53 +728,7 @@
                 </div>
             </div>
 
-            <div id="panelDemo" class="hidden space-y-4">
-                <div class="bg-white p-4 rounded-2xl border border-brandRed/10 shadow-sm space-y-3.5">
-                    <div class="text-xs">
-                        <label class="block font-bold text-brandDark uppercase tracking-wider mb-1.5">1. Chọn Ngành Hàng</label>
-                        <select id="hookIndustry" class="w-full p-2.5 bg-brandCream border border-brandRed/10 rounded-xl font-medium focus:outline-none focus:ring-1 focus:ring-brandRed">
-                            <option value="TikTok Shop & Ecommerce">TikTok Shop & Ecommerce</option>
-                            <option value="Fashion & Lifestyle">Thời trang & Phong cách sống</option>
-                            <option value="Beauty & Cosmetics">Làm đẹp & Mỹ phẩm</option>
-                            <option value="F&B Nightlife">Ẩm thực & Giải trí về đêm</option>
-                        </select>
-                    </div>
-                    <div class="text-xs">
-                        <label class="block font-bold text-brandDark uppercase tracking-wider mb-1.5">2. Tên Sản phẩm</label>
-                        <input id="hookProductName" type="text" placeholder="Ví dụ: Vali kéo 24 inch, Son môi..." class="w-full p-2.5 bg-brandCream border border-brandRed/10 rounded-xl font-medium focus:outline-none focus:ring-1 focus:ring-brandRed">
-                    </div>
-                    <button onclick="generateHooks()" class="w-full py-3 bg-gradient-to-r from-brandRed to-brandRedHover text-white text-xs font-bold rounded-xl shadow transition-all hover:shadow-lg flex items-center justify-center gap-1.5">
-                        <i class="fa-solid fa-wand-magic-sparkles"></i> AI TẠO HOOK SÁNG TẠO
-                    </button>
-                </div>
-                <div id="hookResultContainer" class="hidden bg-white p-4 rounded-2xl border border-emerald-400/20 shadow-sm space-y-3">
-                    <div class="flex items-center gap-2 pb-2 border-b border-gray-100">
-                        <span class="flex h-2 w-2 relative">
-                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                            <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                        </span>
-                        <h4 class="text-[11px] font-bold text-emerald-600 uppercase tracking-widest">Kịch bản Storytelling đề xuất</h4>
-                    </div>
-                    <div id="hookResultText" class="text-xs text-gray-700 leading-relaxed whitespace-pre-wrap"></div>
-                </div>
-            </div>
         </div>
-
-        <div class="px-4 py-2 bg-brandCream border-t border-brandRed/10 flex justify-between items-center text-[10px] text-gray-500">
-            <span>Powered by Gemini AI</span>
-            <button onclick="toggleApiKeyInput()" class="hover:underline hover:text-brandRed flex items-center gap-1"><i class="fa-solid fa-key"></i> API Key</button>
-        </div>
-
-        <div id="apiKeyModal" class="hidden absolute inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
-            <div class="bg-white p-4 rounded-2xl shadow-xl w-full max-w-xs space-y-3 border border-brandRed/10">
-                <h4 class="text-xs font-bold text-brandDark uppercase tracking-wider">Cài đặt Gemini API Key</h4>
-                <p class="text-[10px] text-gray-500">Nhập API Key Gemini của bạn để kích hoạt tính năng AI.</p>
-                <input id="geminiUserApiKey" type="password" placeholder="AIza..." class="w-full p-2 border border-gray-300 rounded-lg text-xs">
-                <div class="flex gap-2">
-                    <button onclick="saveApiKey()" class="flex-1 py-1.5 bg-brandRed text-white text-xs rounded-lg font-bold">Lưu</button>
-                    <button onclick="toggleApiKeyInput()" class="flex-1 py-1.5 bg-gray-200 text-gray-700 text-xs rounded-lg font-bold">Đóng</button>
-                </div>
-            </div>
         </div>
     </div>
 
@@ -835,40 +817,6 @@
             sidebar.classList.toggle('translate-x-full', !isAiOpen);
         }
 
-        function switchAITab(tab) {
-            const isQa = tab === 'qa';
-            document.getElementById('tabBtnQa').className = `flex-1 py-3 text-center font-bold transition-all ${isQa ? 'text-brandRed border-b-2 border-brandRed' : 'text-gray-500 hover:text-brandRed'}`;
-            document.getElementById('tabBtnDemo').className = `flex-1 py-3 text-center font-bold transition-all ${!isQa ? 'text-brandRed border-b-2 border-brandRed' : 'text-gray-500 hover:text-brandRed'}`;
-            document.getElementById('panelQa').classList.toggle('hidden', !isQa);
-            document.getElementById('panelDemo').classList.toggle('hidden', isQa);
-        }
-
-        function toggleApiKeyInput() { document.getElementById('apiKeyModal').classList.toggle('hidden'); }
-
-        function saveApiKey() {
-            const val = document.getElementById('geminiUserApiKey').value.trim();
-            if (val) customApiKey = val;
-            toggleApiKeyInput();
-        }
-
-        async function fetchGeminiAPI(userQuery, systemPrompt = '') {
-            const apiKey = customApiKey;
-            if (!apiKey) return "Vui lòng nhập Gemini API Key để sử dụng tính năng AI (bấm nút 'API Key' phía dưới).";
-
-            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
-            const payload = { contents: [{ parts: [{ text: userQuery }] }] };
-            if (systemPrompt) payload.systemInstruction = { parts: [{ text: systemPrompt }] };
-
-            try {
-                const response = await fetch(apiUrl, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
-                if (!response.ok) throw new Error(`Status: ${response.status}`);
-                const result = await response.json();
-                return result.candidates?.[0]?.content?.parts?.[0]?.text || "Không có phản hồi từ AI.";
-            } catch (error) {
-                return "Lỗi kết nối AI. Kiểm tra lại API Key và thử lại nhé!";
-            }
-        }
-
         let _chatCount = 0;
         function sendChatMessage() {
             const input = document.getElementById('aiChatInput');
@@ -898,21 +846,6 @@
 
         function handleChatKeyPress(e) { if (e.key === 'Enter') sendChatMessage(); }
 
-        async function generateHooks() {
-            const industry = document.getElementById('hookIndustry').value;
-            const productName = document.getElementById('hookProductName').value.trim();
-            if (!productName) { alert("Vui lòng nhập tên sản phẩm!"); return; }
-
-            const resultContainer = document.getElementById('hookResultContainer');
-            const resultText = document.getElementById('hookResultText');
-            resultContainer.classList.remove('hidden');
-            resultText.innerHTML = `<div class="flex items-center gap-2 text-brandRed py-2"><i class="fa-solid fa-spinner animate-spin"></i> Đang tạo hook sáng tạo...</div>`;
-
-            const prompt = `Sản phẩm: ${productName} | Ngành: ${industry}\n\nViết 2 Hook mở đầu cuốn hút cho livestream/video ngắn và 1 ý tưởng kịch bản Live Host theo triết lý "Chạm - Đúng - Đủ". Văn phong tiếng Việt, năng lượng cao, thực tế, dùng icon sinh động.`;
-
-            const result = await fetchGeminiAPI(prompt, "Bạn là chuyên gia tạo Hook & Kịch bản Livestream TikTok theo phong cách 'Chạm - Đúng - Đủ'.");
-            resultText.innerHTML = result.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>').replace(/\n/g,'<br>');
-        }
     </script>
 
     <!-- Back to top button -->
