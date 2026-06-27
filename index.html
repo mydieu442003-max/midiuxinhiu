@@ -919,5 +919,53 @@
             resultText.innerHTML = result.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>').replace(/\n/g,'<br>');
         }
     </script>
+
+    <!-- Back to top button -->
+    <button id="backToTopBtn"
+        onclick="goToSlide(0)"
+        title="Về trang đầu"
+        style="
+            position:fixed;
+            bottom:2rem;
+            right:2rem;
+            z-index:9999;
+            width:48px;
+            height:48px;
+            border-radius:50%;
+            background:#B31A24;
+            color:#fff;
+            border:none;
+            cursor:pointer;
+            display:none;
+            align-items:center;
+            justify-content:center;
+            box-shadow:0 4px 16px rgba(179,26,36,0.35);
+            transition:opacity 0.3s, transform 0.3s;
+        "
+        onmouseenter="this.style.background='#91121A'; this.style.transform='scale(1.1)'"
+        onmouseleave="this.style.background='#B31A24'; this.style.transform='scale(1)'">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+    </button>
+
+    <script>
+        // Show/hide back-to-top button based on current slide
+        const _origGoToSlide = goToSlide;
+        function goToSlide(idx) {
+            _origGoToSlide(idx);
+            document.getElementById('backToTopBtn').style.display = idx === 0 ? 'none' : 'flex';
+        }
+
+        // Also handle scroll mode visibility
+        window.addEventListener('scroll', function() {
+            const btn = document.getElementById('backToTopBtn');
+            if (window.scrollY > 300) {
+                btn.style.display = 'flex';
+            } else {
+                btn.style.display = 'none';
+            }
+        });
+    </script>
 </body>
 </html>
