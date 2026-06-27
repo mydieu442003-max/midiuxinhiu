@@ -869,22 +869,26 @@
             }
         }
 
-        async function sendChatMessage() {
+        let _chatCount = 0;
+        function sendChatMessage() {
             const input = document.getElementById('aiChatInput');
             const messageText = input.value.trim();
             if (!messageText) return;
             const chatMessages = document.getElementById('aiChatMessages');
 
             chatMessages.innerHTML += `<div class="flex gap-2.5 items-start justify-end"><div class="bg-brandRed text-white p-3 rounded-2xl shadow-sm max-w-[85%] leading-relaxed">${messageText}</div><div class="w-6 h-6 rounded-full bg-gray-300 flex-shrink-0 flex items-center justify-center text-[9px]"><i class="fa-solid fa-user"></i></div></div>`;
-            chatMessages.innerHTML += `<div id="aiLoadingMsg" class="flex gap-2.5 items-start"><div class="w-6 h-6 rounded-full bg-brandRed text-white flex-shrink-0 flex items-center justify-center font-bold text-[9px]">MD</div><div class="bg-white p-3 rounded-2xl border border-brandRed/10 shadow-sm max-w-[85%] flex items-center gap-1.5"><span class="w-1.5 h-1.5 bg-brandRed rounded-full animate-bounce"></span><span class="w-1.5 h-1.5 bg-brandRed rounded-full animate-bounce" style="animation-delay:150ms"></span><span class="w-1.5 h-1.5 bg-brandRed rounded-full animate-bounce" style="animation-delay:300ms"></span></div></div>`;
             input.value = '';
-            chatMessages.scrollTop = chatMessages.scrollHeight;
+            _chatCount++;
 
-            const systemPrompt = `Bạn đóng vai Nguyễn Thị Mỹ Diệu — Live Host & TikTok Ecommerce specialist. Triết lý: "Chạm - Đúng - Đủ". Kinh nghiệm: MIA.vn (TikTok Shop, GMVMax, 6.9 tỷ kỷ lục cá nhân), CTV Freelance (Sicoli, Guiaruan), June Sun Yvan (Skintific). Trả lời nhiệt huyết, chuyên nghiệp, xưng "mình", gọi "bạn" hoặc "quý anh/chị".`;
+            const reply = _chatCount === 1
+                ? 'Midiuxinhiu nhất trần gian đang phát triển sản phẩm này vui lòng thử lại sau nha 🥰'
+                : 'Đọc lại câu hỏi đầu tiên của Midiuxinhiu nha 😄';
 
-            const responseText = await fetchGeminiAPI(messageText, systemPrompt);
-            document.getElementById('aiLoadingMsg')?.remove();
-            chatMessages.innerHTML += `<div class="flex gap-2.5 items-start"><div class="w-6 h-6 rounded-full bg-brandRed text-white flex-shrink-0 flex items-center justify-center font-bold text-[9px]">MD</div><div class="bg-white p-3 rounded-2xl border border-brandRed/10 shadow-sm max-w-[85%] leading-relaxed">${responseText.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>').replace(/\n/g,'<br>')}</div></div>`;
+            setTimeout(() => {
+                chatMessages.innerHTML += `<div class="flex gap-2.5 items-start"><div class="w-6 h-6 rounded-full bg-brandRed text-white flex-shrink-0 flex items-center justify-center font-bold text-[9px]">MD</div><div class="bg-white p-3 rounded-2xl border border-brandRed/10 shadow-sm max-w-[85%] leading-relaxed">${reply}</div></div>`;
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }, 600);
+
             chatMessages.scrollTop = chatMessages.scrollHeight;
         }
 
