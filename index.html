@@ -354,25 +354,27 @@
                     <!-- Concept Livestream -->
                     <div>
                         <p class="text-[10px] font-extrabold text-gray-400 uppercase tracking-widest mb-2">✦ Concept Livestream</p>
-                        <div style="columns:4; column-gap:0.6rem;">
-                            <img src="images/albulm4/Concept/Tiếp viên hàng không.jpg"           alt="" class="w-full rounded-xl mb-2 block" style="break-inside:avoid;">
-                            <img src="images/albulm4/Concept/Phim Đại chiến trên không.jpg"      alt="" class="w-full rounded-xl mb-2 block" style="break-inside:avoid;">
-                            <img src="images/albulm4/Concept/Học sinh.jpg"                        alt="" class="w-full rounded-xl mb-2 block" style="break-inside:avoid;">
-                            <img src="images/albulm4/Concept/xăng.jpg"                           alt="" class="w-full rounded-xl mb-2 block" style="break-inside:avoid;">
-                            <img src="images/albulm4/Concept/Collab Tony Việt.jpg"                alt="" class="w-full rounded-xl mb-2 block" style="break-inside:avoid;">
-                            <img src="images/albulm4/Concept/Cừu.jpg"                             alt="" class="w-full rounded-xl mb-2 block" style="break-inside:avoid;">
-                            <img src="images/albulm4/Concept/Tấm cám.jpg"                         alt="" class="w-full rounded-xl mb-2 block" style="break-inside:avoid;">
-                            <img src="images/albulm4/Concept/Sự kiện Tiktok.jpg"                  alt="" class="w-full rounded-xl mb-2 block" style="break-inside:avoid;">
-                            <img src="images/albulm4/Concept/Collab Như Thuần  .jpg"              alt="" class="w-full rounded-xl mb-2 block" style="break-inside:avoid;">
-                            <img src="images/albulm4/Concept/Collab Vũ Ngọc Anh vs Gil Lê.jpg"   alt="" class="w-full rounded-xl mb-2 block" style="break-inside:avoid;">
+                        <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:0.5rem; align-items:start;">
+                            <img src="images/albulm4/Concept/Tiếp viên hàng không.jpg"          data-caption="Tiếp viên hàng không" onclick="openLb(this)" class="w-full rounded-xl cursor-pointer hover:opacity-90 transition-opacity">
+                            <img src="images/albulm4/Concept/Phim Đại chiến trên không.jpg"     data-caption="Phim Đại chiến trên không" onclick="openLb(this)" class="w-full rounded-xl cursor-pointer hover:opacity-90 transition-opacity">
+                            <img src="images/albulm4/Concept/Học sinh.jpg"                       data-caption="Học sinh" onclick="openLb(this)" class="w-full rounded-xl cursor-pointer hover:opacity-90 transition-opacity">
+                            <img src="images/albulm4/Concept/xăng.jpg"                          data-caption="Xăng" onclick="openLb(this)" class="w-full rounded-xl cursor-pointer hover:opacity-90 transition-opacity">
+
+                            <img src="images/albulm4/Concept/Sự kiện Tiktok.jpg"                data-caption="Sự kiện Tiktok" onclick="openLb(this)" class="w-full rounded-xl cursor-pointer hover:opacity-90 transition-opacity">
+                            <img src="images/albulm4/Concept/Cừu.jpg"                            data-caption="Cừu" onclick="openLb(this)" class="w-full rounded-xl cursor-pointer hover:opacity-90 transition-opacity" style="grid-column:span 2;">
+                            <img src="images/albulm4/Concept/Tấm cám.jpg"                        data-caption="Tấm cám" onclick="openLb(this)" class="w-full rounded-xl cursor-pointer hover:opacity-90 transition-opacity">
+
+                            <img src="images/albulm4/Concept/Collab Tony Việt.jpg"               data-caption="Collab Tony Việt" onclick="openLb(this)" class="w-full rounded-xl cursor-pointer hover:opacity-90 transition-opacity">
+                            <img src="images/albulm4/Concept/Collab Như Thuần  .jpg"             data-caption="Collab Như Thuần" onclick="openLb(this)" class="w-full rounded-xl cursor-pointer hover:opacity-90 transition-opacity">
+                            <img src="images/albulm4/Concept/Collab Vũ Ngọc Anh vs Gil Lê.jpg"  data-caption="Collab Vũ Ngọc Anh vs Gil Lê" onclick="openLb(this)" class="w-full rounded-xl cursor-pointer hover:opacity-90 transition-opacity" style="grid-column:span 2;">
                         </div>
                     </div>
 
                     <!-- Noel + Tết -->
                     <div class="grid grid-cols-3 gap-2">
-                        <img src="images/albulm4/Noel/Xe bus quảng bá vali.jpg"   alt="" class="w-full rounded-xl object-contain">
-                        <img src="images/albulm4/Noel/Xe Bus quảng bá vali 2.jpg" alt="" class="w-full rounded-xl object-contain">
-                        <img src="images/albulm4/Tết/Tết 2026.jpg"                alt="" class="w-full rounded-xl object-contain">
+                        <img src="images/albulm4/Noel/Xe bus quảng bá vali.jpg"   data-caption="Noel — Xe bus quảng bá vali" onclick="openLb(this)" class="w-full rounded-xl cursor-pointer hover:opacity-90 transition-opacity">
+                        <img src="images/albulm4/Noel/Xe Bus quảng bá vali 2.jpg" data-caption="Noel — Xe Bus quảng bá vali 2" onclick="openLb(this)" class="w-full rounded-xl cursor-pointer hover:opacity-90 transition-opacity">
+                        <img src="images/albulm4/Tết/Tết 2026.jpg"                data-caption="Tết 2026" onclick="openLb(this)" class="w-full rounded-xl cursor-pointer hover:opacity-90 transition-opacity">
                     </div>
 
                     <div class="flex justify-between items-center text-xs text-gray-500 pt-2 border-t border-brandRed/10">
@@ -840,6 +842,27 @@
 
         function handleChatKeyPress(e) { if (e.key === 'Enter') sendChatMessage(); }
 
+    </script>
+
+    <!-- Lightbox -->
+    <div id="lb" onclick="closeLb()" style="display:none;position:fixed;inset:0;z-index:99999;background:rgba(0,0,0,0.92);align-items:center;justify-content:center;flex-direction:column;gap:1rem;padding:1.5rem;">
+        <button onclick="closeLb()" style="position:absolute;top:1rem;right:1.5rem;color:#fff;background:none;border:none;font-size:2rem;cursor:pointer;line-height:1;">✕</button>
+        <img id="lbImg" src="" style="max-width:90vw;max-height:80vh;object-fit:contain;border-radius:1rem;box-shadow:0 8px 40px rgba(0,0,0,0.5);" onclick="event.stopPropagation()">
+        <p id="lbCaption" style="color:#fff;font-size:0.85rem;font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;text-align:center;max-width:600px;opacity:0.85;"></p>
+    </div>
+    <script>
+        function openLb(el) {
+            document.getElementById('lbImg').src = el.src;
+            document.getElementById('lbCaption').textContent = el.dataset.caption || '';
+            const lb = document.getElementById('lb');
+            lb.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+        function closeLb() {
+            document.getElementById('lb').style.display = 'none';
+            document.body.style.overflow = '';
+        }
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
     </script>
 
     <!-- Back to top button -->
