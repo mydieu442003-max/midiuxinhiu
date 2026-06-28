@@ -492,34 +492,62 @@
                         </div>
                     </div>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-auto py-4">
-                        <div class="bg-brandCream p-6 rounded-2xl border border-brandRed/10 flex flex-col justify-between">
+                    <!-- Award text badges -->
+                    <div class="flex flex-wrap gap-3 mt-2">
+                        <div class="bg-brandCream border border-brandRed/15 rounded-2xl px-4 py-3 flex items-center gap-3 flex-1 min-w-[220px]">
+                            <span class="text-2xl">🏆</span>
                             <div>
-                                <div class="text-3xl mb-3">🏆</div>
-                                <h4 class="text-lg font-extrabold text-brandDark uppercase editable" contenteditable="false">Lập Kỷ Lục Doanh Thu & Tăng Trưởng 2025</h4>
-                                <p class="text-xs text-brandRed font-bold uppercase mt-1">Team Livestream TikTok — MIA.vn</p>
-                                <p class="text-xs text-gray-600 mt-3 leading-relaxed editable" contenteditable="false">Vinh danh đội ngũ vận hành & livestream xuất sắc nhất trong tối ưu chuyển đổi, bứt phá cột mốc doanh thu và xác lập kỷ lục GMV mới trên TikTok Shop năm 2025.</p>
-                            </div>
-                            <div class="flex flex-wrap gap-2 mt-4 pt-4 border-t border-brandRed/10">
-                                <span class="bg-brandRed/15 text-brandRed font-bold text-[10px] px-3 py-1 rounded-full uppercase">GMV Record</span>
-                                <span class="bg-brandRed/15 text-brandRed font-bold text-[10px] px-3 py-1 rounded-full uppercase">TikTok Shop</span>
-                                <span class="bg-brandRed/15 text-brandRed font-bold text-[10px] px-3 py-1 rounded-full uppercase">2025</span>
+                                <div class="font-extrabold text-sm text-brandDark leading-tight">Lập Kỷ Lục Doanh Thu & Tăng Trưởng 2025</div>
+                                <div class="text-[10px] text-brandRed font-bold uppercase mt-0.5">Team Livestream TikTok — MIA.vn</div>
+                                <div class="flex gap-1 mt-1.5 flex-wrap">
+                                    <span class="bg-brandRed/15 text-brandRed font-bold text-[9px] px-2 py-0.5 rounded-full uppercase">GMV Record</span>
+                                    <span class="bg-brandRed/15 text-brandRed font-bold text-[9px] px-2 py-0.5 rounded-full uppercase">TikTok Shop 2025</span>
+                                </div>
                             </div>
                         </div>
+                        <div class="bg-brandCream border border-brandRed/15 rounded-2xl px-4 py-3 flex items-center gap-3 flex-1 min-w-[220px]">
+                            <span class="text-2xl">🏅</span>
+                            <div>
+                                <div class="font-extrabold text-sm text-brandDark leading-tight">Chiến Binh Livestream Xuất Sắc 2025</div>
+                                <div class="text-[10px] text-brandRed font-bold uppercase mt-0.5">Cá nhân — MIA.vn</div>
+                                <div class="flex gap-1 mt-1.5 flex-wrap">
+                                    <span class="bg-brandRed/15 text-brandRed font-bold text-[9px] px-2 py-0.5 rounded-full uppercase">6.9 tỷ VND</span>
+                                    <span class="bg-brandRed/15 text-brandRed font-bold text-[9px] px-2 py-0.5 rounded-full uppercase">Top Host</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-                        <div class="bg-brandCream p-6 rounded-2xl border border-brandRed/10 flex flex-col justify-between">
-                            <div>
-                                <div class="text-3xl mb-3">🏅</div>
-                                <h4 class="text-lg font-extrabold text-brandDark uppercase editable" contenteditable="false">Chiến Binh Livestream Xuất Sắc 2025</h4>
-                                <p class="text-xs text-brandRed font-bold uppercase mt-1">Cá nhân — MIA.vn</p>
-                                <p class="text-xs text-gray-600 mt-3 leading-relaxed editable" contenteditable="false">Giải thưởng cá nhân danh giá dành cho Host Livestream có hiệu suất vượt trội, Retention Rate bùng nổ với kỷ lục doanh thu cá nhân đạt <strong>6.9 tỷ VND</strong> trong các chiến dịch Mega Live.</p>
-                            </div>
-                            <div class="flex flex-wrap gap-2 mt-4 pt-4 border-t border-brandRed/10">
-                                <span class="bg-brandRed/15 text-brandRed font-bold text-[10px] px-3 py-1 rounded-full uppercase">6.9 tỷ VND</span>
-                                <span class="bg-brandRed/15 text-brandRed font-bold text-[10px] px-3 py-1 rounded-full uppercase">Mega Live</span>
-                                <span class="bg-brandRed/15 text-brandRed font-bold text-[10px] px-3 py-1 rounded-full uppercase">Top Host</span>
-                            </div>
-                        </div>
+                    <!-- Award photos grid -->
+                    <div class="mt-5 grid gap-2" style="grid-template-columns: repeat(3,1fr); grid-template-rows: auto auto;">
+                        <!-- Row 1: 3 photos -->
+                        <img src="images/award/yep2025-lap-ky-luc.jpg"
+                             class="w-full rounded-xl object-cover cursor-pointer hover:opacity-90 transition-opacity"
+                             style="aspect-ratio:4/3;"
+                             data-caption="YEP 2025 — Lập Kỉ Lục Doanh Thu & Tăng Trưởng TikTok 2025"
+                             onclick="openLb(this)" alt="Lập kỉ lục">
+                        <img src="images/award/yep2025-mia-event.jpg"
+                             class="w-full rounded-xl object-cover cursor-pointer hover:opacity-90 transition-opacity"
+                             style="aspect-ratio:4/3;"
+                             data-caption="YEP 2025 — MIA Event"
+                             onclick="openLb(this)" alt="MIA Event">
+                        <img src="images/award/yep2025-6ty9.jpg"
+                             class="w-full rounded-xl object-cover cursor-pointer hover:opacity-90 transition-opacity"
+                             style="aspect-ratio:4/3;"
+                             data-caption="YEP 2025 — Doanh thu 6,9 tỷ đồng"
+                             onclick="openLb(this)" alt="6.9 tỷ">
+                        <!-- Row 2: 2 photos centered -->
+                        <img src="images/award/yep2025-cup-chien-binh.jpg"
+                             class="w-full rounded-xl object-cover cursor-pointer hover:opacity-90 transition-opacity"
+                             style="aspect-ratio:4/3;"
+                             data-caption="YEP 2025 — Cup Chiến Binh Livestream Xuất Sắc 2025"
+                             onclick="openLb(this)" alt="Cup chiến binh">
+                        <img src="images/award/yep2025-nhan-cup.jpg"
+                             class="w-full rounded-xl object-cover cursor-pointer hover:opacity-90 transition-opacity"
+                             style="aspect-ratio:4/3;"
+                             data-caption="YEP 2025 — Nhận Cup Chiến Binh Livestream Xuất Sắc MIA 2025"
+                             onclick="openLb(this)" alt="Nhận cup">
+                        <div></div>
                     </div>
 
                     <div class="flex justify-between items-center text-xs text-gray-500 pt-4 border-t border-brandRed/10">
