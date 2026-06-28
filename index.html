@@ -484,16 +484,15 @@
                 </section>
 
                 <!-- ==================== SLIDE 7: AWARDS ==================== -->
-                <section id="slide-6" class="slide-item min-h-[75vh] md:min-h-[85vh] bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-brandRed/10 flex flex-col justify-between relative transition-all duration-300" style="overflow:hidden;">
-                    <div>
-                        <div class="flex items-center gap-3 mb-4">
-                            <span class="text-xs font-black px-2 py-1 bg-brandRed text-white rounded">06</span>
-                            <span class="text-xs font-bold text-brandRed tracking-widest uppercase">Awards & Achievements</span>
-                        </div>
+                <section id="slide-6" class="slide-item min-h-[75vh] md:min-h-[85vh] bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-brandRed/10 flex flex-col relative transition-all duration-300" style="max-height:95vh; overflow:hidden; gap:0.75rem;">
+                    <!-- Header -->
+                    <div class="flex items-center gap-3">
+                        <span class="text-xs font-black px-2 py-1 bg-brandRed text-white rounded">06</span>
+                        <span class="text-xs font-bold text-brandRed tracking-widest uppercase">Awards & Achievements</span>
                     </div>
 
                     <!-- Award text badges -->
-                    <div class="flex flex-wrap gap-3 mt-2">
+                    <div class="flex flex-wrap gap-3">
                         <div class="bg-brandCream border border-brandRed/15 rounded-2xl px-4 py-3 flex items-center gap-3 flex-1 min-w-[220px]">
                             <span class="text-2xl">🏆</span>
                             <div>
@@ -518,42 +517,38 @@
                         </div>
                     </div>
 
-                    <!-- Award photos: 2-column equal-height layout -->
-                    <div class="mt-4" style="display:grid; grid-template-columns:1fr 1fr; gap:0.5rem; height:clamp(220px, 32vh, 340px); overflow:hidden;">
-                        <!-- Left column: 6ty9 + image.png, each 50% height -->
-                        <div style="display:grid; grid-template-rows:1fr 1fr; gap:0.5rem;">
+                    <!-- Award photos: flex:1 fills remaining height exactly -->
+                    <div style="flex:1; min-height:0; display:grid; grid-template-columns:1fr 1fr; gap:0.5rem; overflow:hidden;">
+                        <!-- Left column: 2 equal rows -->
+                        <div style="display:grid; grid-template-rows:1fr 1fr; gap:0.5rem; min-height:0;">
                             <div style="border-radius:0.75rem; overflow:hidden; cursor:pointer; min-height:0;" onclick="openLb(this.querySelector('img'))">
-                                <img src="images/award/yep2025-6ty9.jpg"
-                                     class="w-full h-full object-cover hover:opacity-90 transition-opacity"
+                                <img src="images/award/yep2025-6ty9.jpg" class="w-full h-full object-cover hover:opacity-90 transition-opacity"
                                      data-caption="YEP 2025 — Doanh thu 6,9 tỷ đồng" alt="6.9 tỷ">
                             </div>
                             <div style="border-radius:0.75rem; overflow:hidden; cursor:pointer; min-height:0;" onclick="openLb(this.querySelector('img'))">
-                                <img src="images/award/image.png"
-                                     class="w-full h-full object-cover hover:opacity-90 transition-opacity"
+                                <img src="images/award/image.png" class="w-full h-full object-cover hover:opacity-90 transition-opacity"
                                      data-caption="YEP 2025 — Cá Nhân Hiệu Suất Cao — Chiến Binh Livestream Xuất Sắc" alt="Group award">
                             </div>
                         </div>
-                        <!-- Right column: 3 equal images stacked -->
-                        <div style="display:grid; grid-template-rows:1fr 1fr 1fr; gap:0.5rem;">
+                        <!-- Right column: 3 equal rows -->
+                        <div style="display:grid; grid-template-rows:1fr 1fr 1fr; gap:0.5rem; min-height:0;">
                             <div style="border-radius:0.75rem; overflow:hidden; cursor:pointer; min-height:0;" onclick="openLb(this.querySelector('img'))">
-                                <img src="images/award/yep2025-lap-ky-luc.jpg"
-                                     class="w-full h-full object-cover hover:opacity-90 transition-opacity"
+                                <img src="images/award/yep2025-lap-ky-luc.jpg" class="w-full h-full object-cover hover:opacity-90 transition-opacity"
                                      data-caption="YEP 2025 — Lập Kỉ Lục Doanh Thu & Tăng Trưởng TikTok 2025" alt="Lập kỉ lục">
                             </div>
                             <div style="border-radius:0.75rem; overflow:hidden; cursor:pointer; min-height:0;" onclick="openLb(this.querySelector('img'))">
-                                <img src="images/award/yep2025-nhan-cup.jpg"
-                                     class="w-full h-full object-cover hover:opacity-90 transition-opacity"
+                                <img src="images/award/yep2025-nhan-cup.jpg" class="w-full h-full object-cover hover:opacity-90 transition-opacity"
                                      data-caption="YEP 2025 — Nhận Cup Chiến Binh Livestream Xuất Sắc MIA 2025" alt="Nhận cup">
                             </div>
                             <div style="border-radius:0.75rem; overflow:hidden; cursor:pointer; min-height:0;" onclick="openLb(this.querySelector('img'))">
-                                <img src="images/award/yep2025-cup-chien-binh.jpg"
-                                     class="w-full h-full object-cover hover:opacity-90 transition-opacity"
+                                <img src="images/award/yep2025-cup-chien-binh.jpg" class="w-full h-full object-cover hover:opacity-90 transition-opacity"
                                      data-caption="YEP 2025 — Cup Chiến Binh Livestream Xuất Sắc 2025" alt="Cup chiến binh">
                             </div>
                         </div>
                     </div>
 
-                    <div class="flex justify-between items-center text-xs text-gray-500 pt-4 border-t border-brandRed/10">
+                    <!-- Footer -->
+                    <div class="flex justify-between items-center text-xs text-gray-500 pt-2 border-t border-brandRed/10" style="flex-shrink:0;">
                         <span>THÀNH TỰU & GIẢI THƯỞNG</span>
                     </div>
                 </section>
