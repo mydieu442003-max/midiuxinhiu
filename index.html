@@ -300,21 +300,49 @@
                     </div>
 
                     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center my-auto">
-                        <div class="lg:col-span-7 grid grid-cols-3 gap-3">
-                            <div class="bg-brandCream rounded-2xl p-2 border border-brandRed/10 hover:shadow-lg transition-shadow">
-                                <video class="w-full rounded-xl aspect-[9/16] object-cover" controls playsinline preload="metadata">
-                                    <source src="video/62d00a0f-7314-46dc-bb45-1e355776a097.mp4" type="video/mp4">
-                                </video>
+                        <div class="lg:col-span-7 space-y-3">
+                            <!-- Tab buttons -->
+                            <div class="flex gap-2">
+                                <button id="vTabMia" onclick="switchVTab('mia')" class="px-4 py-1.5 rounded-full text-xs font-bold bg-brandRed text-white transition-all">📦 MIA Livestream</button>
+                                <button id="vTabVj"  onclick="switchVTab('vj')"  class="px-4 py-1.5 rounded-full text-xs font-bold bg-brandCream text-brandRed border border-brandRed/30 transition-all">🎤 VJ Booking</button>
                             </div>
-                            <div class="bg-brandCream rounded-2xl p-2 border border-brandRed/10 hover:shadow-lg transition-shadow">
-                                <video class="w-full rounded-xl aspect-[9/16] object-cover" controls playsinline preload="metadata">
-                                    <source src="video/c9bea248-1633-4404-aae7-8f7e4e91e63e.mp4" type="video/mp4">
-                                </video>
+
+                            <!-- MIA videos -->
+                            <div id="vGroupMia" class="grid grid-cols-3 gap-3">
+                                <div class="bg-brandCream rounded-2xl p-2 border border-brandRed/10 hover:shadow-lg transition-shadow">
+                                    <video class="w-full rounded-xl aspect-[9/16] object-cover" controls playsinline preload="metadata">
+                                        <source src="video/62d00a0f-7314-46dc-bb45-1e355776a097.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="bg-brandCream rounded-2xl p-2 border border-brandRed/10 hover:shadow-lg transition-shadow">
+                                    <video class="w-full rounded-xl aspect-[9/16] object-cover" controls playsinline preload="metadata">
+                                        <source src="video/c9bea248-1633-4404-aae7-8f7e4e91e63e.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="bg-brandCream rounded-2xl p-2 border border-brandRed/10 hover:shadow-lg transition-shadow">
+                                    <video class="w-full rounded-xl aspect-[9/16] object-cover" controls playsinline preload="metadata">
+                                        <source src="video/d5d58775-6402-48c1-96b3-c3059ce365c3.mp4" type="video/mp4">
+                                    </video>
+                                </div>
                             </div>
-                            <div class="bg-brandCream rounded-2xl p-2 border border-brandRed/10 hover:shadow-lg transition-shadow">
-                                <video class="w-full rounded-xl aspect-[9/16] object-cover" controls playsinline preload="metadata">
-                                    <source src="video/d5d58775-6402-48c1-96b3-c3059ce365c3.mp4" type="video/mp4">
-                                </video>
+
+                            <!-- VJ videos -->
+                            <div id="vGroupVj" class="grid grid-cols-3 gap-3 hidden">
+                                <div class="bg-brandCream rounded-2xl p-2 border border-brandRed/10 hover:shadow-lg transition-shadow">
+                                    <video class="w-full rounded-xl aspect-[9/16] object-cover" controls playsinline preload="metadata">
+                                        <source src="video/VJ 1.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="bg-brandCream rounded-2xl p-2 border border-brandRed/10 hover:shadow-lg transition-shadow">
+                                    <video class="w-full rounded-xl aspect-[9/16] object-cover" controls playsinline preload="metadata">
+                                        <source src="video/VJ 2.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                                <div class="bg-brandCream rounded-2xl p-2 border border-brandRed/10 hover:shadow-lg transition-shadow">
+                                    <video class="w-full rounded-xl aspect-[9/16] object-cover" controls playsinline preload="metadata">
+                                        <source src="video/VJ 3.mp4" type="video/mp4">
+                                    </video>
+                                </div>
                             </div>
                         </div>
 
@@ -330,6 +358,7 @@
                                     <li class="flex items-center gap-2"><i class="fa-solid fa-square-check text-brandRed"></i> Tạo kịch bản live, lên minigame</li>
                                     <li class="flex items-center gap-2"><i class="fa-solid fa-square-check text-brandRed"></i> Host Livestream cho các nền tảng số</li>
                                     <li class="flex items-center gap-2"><i class="fa-solid fa-square-check text-brandRed"></i> Tuyển dụng, training & quản lý team livestream</li>
+                                    <li class="flex items-center gap-2"><i class="fa-solid fa-square-check text-brandRed"></i> VJ Booking video</li>
                                     <li class="flex items-start gap-2 mt-3 bg-brandRed text-white px-3 py-2 rounded-xl font-extrabold text-xs">
                                         <i class="fa-solid fa-fire mt-0.5 flex-shrink-0"></i>
                                         <span>Doanh thu cá nhân xấp xỉ <span class="underline underline-offset-2">600tr – 1 tỷ / tháng</span></span>
@@ -338,6 +367,15 @@
                             </div>
                         </div>
                     </div>
+                    <script>
+                        function switchVTab(tab) {
+                            const isMia = tab === 'mia';
+                            document.getElementById('vGroupMia').classList.toggle('hidden', !isMia);
+                            document.getElementById('vGroupVj').classList.toggle('hidden', isMia);
+                            document.getElementById('vTabMia').className = `px-4 py-1.5 rounded-full text-xs font-bold transition-all ${isMia ? 'bg-brandRed text-white' : 'bg-brandCream text-brandRed border border-brandRed/30'}`;
+                            document.getElementById('vTabVj').className  = `px-4 py-1.5 rounded-full text-xs font-bold transition-all ${!isMia ? 'bg-brandRed text-white' : 'bg-brandCream text-brandRed border border-brandRed/30'}`;
+                        }
+                    </script>
 
                     <div class="flex justify-between items-center text-xs text-gray-500 pt-4 border-t border-brandRed/10">
                         <span>KINH NGHIỆM THỰC CHIẾN — MIA.VN</span>
