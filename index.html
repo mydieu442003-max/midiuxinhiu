@@ -486,40 +486,25 @@
                 <!-- ==================== SLIDE 7: AWARDS ==================== -->
                 <section id="slide-6" class="slide-item bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-brandRed/10 flex flex-col relative transition-all duration-300" style="height:88vh; max-height:900px; overflow:hidden; gap:0.75rem;">
                     <!-- Header -->
-                    <div class="flex items-center gap-3">
+                    <div class="flex items-center gap-3" style="flex-shrink:0;">
                         <span class="text-xs font-black px-2 py-1 bg-brandRed text-white rounded">06</span>
                         <span class="text-xs font-bold text-brandRed tracking-widest uppercase">Awards & Achievements</span>
                     </div>
 
-                    <!-- Award text badges -->
-                    <div class="flex flex-wrap gap-3">
-                        <div class="bg-brandCream border border-brandRed/15 rounded-2xl px-4 py-3 flex items-center gap-3 flex-1 min-w-[220px]">
-                            <span class="text-2xl">🏆</span>
-                            <div>
-                                <div class="font-extrabold text-sm text-brandDark leading-tight">Lập Kỷ Lục Doanh Thu & Tăng Trưởng 2025</div>
-                                <div class="text-[10px] text-brandRed font-bold uppercase mt-0.5">Team Livestream TikTok — MIA.vn</div>
-                                <div class="flex gap-1 mt-1.5 flex-wrap">
-                                    <span class="bg-brandRed/15 text-brandRed font-bold text-[9px] px-2 py-0.5 rounded-full uppercase">GMV Record</span>
-                                    <span class="bg-brandRed/15 text-brandRed font-bold text-[9px] px-2 py-0.5 rounded-full uppercase">TikTok Shop 2025</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="bg-brandCream border border-brandRed/15 rounded-2xl px-4 py-3 flex items-center gap-3 flex-1 min-w-[220px]">
-                            <span class="text-2xl">🏅</span>
-                            <div>
-                                <div class="font-extrabold text-sm text-brandDark leading-tight">Chiến Binh Livestream Xuất Sắc 2025</div>
-                                <div class="text-[10px] text-brandRed font-bold uppercase mt-0.5">Cá nhân — MIA.vn</div>
-                                <div class="flex gap-1 mt-1.5 flex-wrap">
-                                    <span class="bg-brandRed/15 text-brandRed font-bold text-[9px] px-2 py-0.5 rounded-full uppercase">6.9 tỷ VND</span>
-                                    <span class="bg-brandRed/15 text-brandRed font-bold text-[9px] px-2 py-0.5 rounded-full uppercase">Top Host</span>
-                                </div>
-                            </div>
-                        </div>
+                    <!-- Tab buttons -->
+                    <div class="flex gap-2" style="flex-shrink:0;">
+                        <button id="a6TabAward" onclick="switchA6Tab('award')"
+                            class="px-5 py-2 rounded-full text-xs font-bold bg-brandRed text-white transition-all">
+                            🏆 Giải thưởng
+                        </button>
+                        <button id="a6TabRecord" onclick="switchA6Tab('record')"
+                            class="px-5 py-2 rounded-full text-xs font-bold bg-brandCream text-brandRed border border-brandRed/30 transition-all">
+                            📊 Kỷ lục Doanh thu
+                        </button>
                     </div>
 
-                    <!-- Award photos: flex:1 fills remaining height exactly -->
-                    <div style="flex:1; min-height:0; display:grid; grid-template-columns:1fr 1fr; gap:0.5rem; overflow:hidden;">
-                        <!-- Left column: 2 equal rows -->
+                    <!-- Panel 1: Award photos -->
+                    <div id="a6PanelAward" style="flex:1; min-height:0; display:grid; grid-template-columns:1fr 1fr; gap:0.5rem; overflow:hidden;">
                         <div style="display:grid; grid-template-rows:1fr 1fr; gap:0.5rem; min-height:0;">
                             <div style="border-radius:0.75rem; overflow:hidden; cursor:pointer; min-height:0;" onclick="openLb(this.querySelector('img'))">
                                 <img src="images/award/yep2025-6ty9.jpg" class="w-full h-full object-cover hover:opacity-90 transition-opacity"
@@ -530,7 +515,6 @@
                                      data-caption="YEP 2025 — Cá Nhân Hiệu Suất Cao — Chiến Binh Livestream Xuất Sắc" alt="Group award">
                             </div>
                         </div>
-                        <!-- Right column: 3 equal rows -->
                         <div style="display:grid; grid-template-rows:1fr 1fr 1fr; gap:0.5rem; min-height:0;">
                             <div style="border-radius:0.75rem; overflow:hidden; cursor:pointer; min-height:0;" onclick="openLb(this.querySelector('img'))">
                                 <img src="images/award/yep2025-lap-ky-luc.jpg" class="w-full h-full object-cover hover:opacity-90 transition-opacity"
@@ -547,10 +531,48 @@
                         </div>
                     </div>
 
+                    <!-- Panel 2: Revenue records (hidden by default) -->
+                    <div id="a6PanelRecord" style="flex:1; min-height:0; display:none; grid-template-columns:repeat(6,1fr); gap:0.5rem; overflow:hidden;">
+                        <!-- Row 1: 3 images each span 2 cols -->
+                        <div style="grid-column:span 2; border-radius:0.75rem; overflow:hidden; cursor:pointer; min-height:0;" onclick="openLb(this.querySelector('img'))">
+                            <img src="images/award/z-100tr-2h-gruadian.jpg" class="w-full h-full object-cover hover:opacity-90 transition-opacity"
+                                 data-caption="100tr trong 2 tiếng — Mỹ phẩm Gruadian" alt="100tr Gruadian">
+                        </div>
+                        <div style="grid-column:span 2; border-radius:0.75rem; overflow:hidden; cursor:pointer; min-height:0;" onclick="openLb(this.querySelector('img'))">
+                            <img src="images/award/z-100tr-2h-vali-mia.jpg" class="w-full h-full object-cover hover:opacity-90 transition-opacity"
+                                 data-caption="100tr trong 2 tiếng — Vali MIA" alt="100tr Vali MIA">
+                        </div>
+                        <div style="grid-column:span 2; border-radius:0.75rem; overflow:hidden; cursor:pointer; min-height:0;" onclick="openLb(this.querySelector('img'))">
+                            <img src="images/award/z-200tr-2h-skintific.jpg" class="w-full h-full object-cover hover:opacity-90 transition-opacity"
+                                 data-caption="200tr trong 2 tiếng — Mỹ phẩm Skintific" alt="200tr Skintific">
+                        </div>
+                        <!-- Row 2: 2 images each span 3 cols -->
+                        <div style="grid-column:span 3; border-radius:0.75rem; overflow:hidden; cursor:pointer; min-height:0;" onclick="openLb(this.querySelector('img'))">
+                            <img src="images/award/z-200tr-3h-vali-mia.jpg" class="w-full h-full object-cover hover:opacity-90 transition-opacity"
+                                 data-caption="200tr trong 3 tiếng — Vali MIA" alt="200tr Vali MIA">
+                        </div>
+                        <div style="grid-column:span 3; border-radius:0.75rem; overflow:hidden; cursor:pointer; min-height:0;" onclick="openLb(this.querySelector('img'))">
+                            <img src="images/award/z-300tr-4h-gruadian.jpg" class="w-full h-full object-cover hover:opacity-90 transition-opacity"
+                                 data-caption="300tr trong 4 tiếng — Mỹ phẩm Gruadian" alt="300tr Gruadian">
+                        </div>
+                    </div>
+
                     <!-- Footer -->
                     <div class="flex justify-between items-center text-xs text-gray-500 pt-2 border-t border-brandRed/10" style="flex-shrink:0;">
                         <span>THÀNH TỰU & GIẢI THƯỞNG</span>
                     </div>
+
+                    <script>
+                        function switchA6Tab(tab) {
+                            const isAward = tab === 'award';
+                            const pAward = document.getElementById('a6PanelAward');
+                            const pRecord = document.getElementById('a6PanelRecord');
+                            pAward.style.display = isAward ? 'grid' : 'none';
+                            pRecord.style.display = isAward ? 'none' : 'grid';
+                            document.getElementById('a6TabAward').className  = `px-5 py-2 rounded-full text-xs font-bold transition-all ${isAward  ? 'bg-brandRed text-white' : 'bg-brandCream text-brandRed border border-brandRed/30'}`;
+                            document.getElementById('a6TabRecord').className = `px-5 py-2 rounded-full text-xs font-bold transition-all ${!isAward ? 'bg-brandRed text-white' : 'bg-brandCream text-brandRed border border-brandRed/30'}`;
+                        }
+                    </script>
                 </section>
 
                 <!-- ==================== SLIDE 8: SKILLS ==================== -->
