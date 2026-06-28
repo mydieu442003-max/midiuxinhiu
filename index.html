@@ -83,6 +83,25 @@
             #coverTextArea { max-width: 100% !important; padding: 1rem 0 !important; }
             #slide-0 h1 { font-size: clamp(3.5rem, 18vw, 5.5rem) !important; }
             #slide-0 h2 { font-size: 1rem !important; }
+
+            /* Album photo grids: 2 cột trên mobile */
+            .album-row-4  { grid-template-columns: repeat(2, 1fr) !important; }
+            .album-row-3  { grid-template-columns: repeat(2, 1fr) !important; }
+            .album-row-featured { grid-template-columns: 1fr !important; }
+
+            /* Awards slide: scroll nội bộ trong 92vh trên mobile */
+            #slide-6 { height: 92vh !important; max-height: none !important; overflow: hidden !important; }
+            #a6PanelAward, #a6PanelRecord { overflow-y: auto !important; -webkit-overflow-scrolling: touch; }
+            /* Award photos: 1 cột, inner div dùng flex column */
+            #a6PanelAward { grid-template-columns: 1fr !important; }
+            #a6PanelAward > div { display: flex !important; flex-direction: column !important; grid-template-rows: unset !important; gap: 0.5rem; min-height: unset !important; }
+            #a6PanelAward > div > div { aspect-ratio: 4/3 !important; min-height: unset !important; }
+            /* Revenue photos: 2 cột */
+            #a6PanelRecord { grid-template-columns: repeat(2,1fr) !important; }
+            #a6PanelRecord > div { grid-column: span 1 !important; aspect-ratio: 4/3 !important; min-height: unset !important; }
+
+            /* Larita placeholder grid: 1 cột trên mobile */
+            #slide-larita .lg\:col-span-7 .grid { grid-template-columns: 1fr !important; }
         }
 
         /* ── Responsive: tablet ─────────────────────────── */
@@ -308,7 +327,7 @@
                             </div>
 
                             <!-- MIA videos -->
-                            <div id="vGroupMia" class="grid grid-cols-3 gap-3">
+                            <div id="vGroupMia" class="grid grid-cols-1 sm:grid-cols-3 gap-3">
                                 <div class="bg-brandCream rounded-2xl p-2 border border-brandRed/10 hover:shadow-lg transition-shadow">
                                     <video class="w-full rounded-xl aspect-[9/16] object-cover" controls playsinline preload="metadata">
                                         <source src="video/62d00a0f-7314-46dc-bb45-1e355776a097.mp4" type="video/mp4">
@@ -327,7 +346,7 @@
                             </div>
 
                             <!-- VJ videos -->
-                            <div id="vGroupVj" class="grid grid-cols-3 gap-3 hidden">
+                            <div id="vGroupVj" class="grid grid-cols-1 sm:grid-cols-3 gap-3 hidden">
                                 <div class="bg-brandCream rounded-2xl p-2 border border-brandRed/10 hover:shadow-lg transition-shadow">
                                     <video class="w-full rounded-xl aspect-[9/16] object-cover" controls playsinline preload="none" poster="images/photo/VJ 3.png">
                                         <source src="video/VJ 1.mp4" type="video/mp4">
@@ -365,7 +384,7 @@
                                     </li>
                                 </ul>
                             </div>
-                            <button onclick="goToSlide(6)" class="mt-4 flex items-center gap-2 px-5 py-2.5 bg-brandRed text-white text-xs font-bold rounded-full hover:bg-brandRedHover transition-colors shadow">
+                            <button onclick="goToSlide(5)" class="mt-4 flex items-center gap-2 px-5 py-2.5 bg-brandRed text-white text-xs font-bold rounded-full hover:bg-brandRedHover transition-colors shadow">
                                 <i class="fa-solid fa-arrow-right"></i> Dự án Larita
                             </button>
                         </div>
@@ -397,7 +416,7 @@
                         <p class="text-[10px] font-extrabold text-gray-400 uppercase tracking-widest mb-2">✦ Concept Livestream</p>
 
                         <!-- Row 1: 4 ảnh tự nhiên -->
-                        <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:0.5rem; margin-bottom:0.5rem;">
+                        <div class="album-row-4" style="display:grid; grid-template-columns:repeat(4,1fr); gap:0.5rem; margin-bottom:0.5rem;">
                             <img src="images/albulm4/Concept/Tiếp viên hàng không.jpg"      data-caption="Tiếp viên hàng không"      onclick="openLb(this)" class="w-full rounded-xl cursor-pointer hover:opacity-90 transition-opacity">
                             <img src="images/albulm4/Concept/Phim Đại chiến trên không.jpg" data-caption="Phim Đại chiến trên không" onclick="openLb(this)" class="w-full rounded-xl cursor-pointer hover:opacity-90 transition-opacity">
                             <img src="images/albulm4/Concept/Học sinh.jpg"                   data-caption="Học sinh"                   onclick="openLb(this)" class="w-full rounded-xl cursor-pointer hover:opacity-90 transition-opacity">
@@ -405,7 +424,7 @@
                         </div>
 
                         <!-- Row 2: Sự kiện | Cừu (span 2, lớn) | Tấm cám — stretch fill -->
-                        <div style="display:grid; grid-template-columns:1fr 2fr 1fr; gap:0.5rem; margin-bottom:0.5rem;">
+                        <div class="album-row-featured" style="display:grid; grid-template-columns:1fr 2fr 1fr; gap:0.5rem; margin-bottom:0.5rem;">
                             <div style="display:flex; align-self:stretch;">
                                 <img src="images/albulm4/Concept/Sự kiện Tiktok.jpg" data-caption="Sự kiện Tiktok" onclick="openLb(this)" style="width:100%;height:100%;object-fit:cover;border-radius:0.75rem;cursor:pointer;" class="hover:opacity-90 transition-opacity">
                             </div>
@@ -416,7 +435,7 @@
                         </div>
 
                         <!-- Row 3: 3 Collab to bằng nhau -->
-                        <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:0.5rem;">
+                        <div class="album-row-3" style="display:grid; grid-template-columns:repeat(3,1fr); gap:0.5rem;">
                             <img src="images/albulm4/Concept/Collab Tony Việt.jpg"              data-caption="Collab Tony Việt"              onclick="openLb(this)" class="w-full rounded-xl cursor-pointer hover:opacity-90 transition-opacity" style="aspect-ratio:1;object-fit:cover;">
                             <img src="images/albulm4/Concept/Collab Như Thuần  .jpg"            data-caption="Collab Như Thuần"              onclick="openLb(this)" class="w-full rounded-xl cursor-pointer hover:opacity-90 transition-opacity" style="aspect-ratio:1;object-fit:cover;">
                             <img src="images/albulm4/Concept/Collab Vũ Ngọc Anh vs Gil Lê.jpg" data-caption="Collab Vũ Ngọc Anh vs Gil Lê" onclick="openLb(this)" class="w-full rounded-xl cursor-pointer hover:opacity-90 transition-opacity" style="aspect-ratio:1;object-fit:cover;">
@@ -424,7 +443,7 @@
                     </div>
 
                     <!-- Noel + Tết to bằng nhau -->
-                    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:0.5rem;">
+                    <div class="album-row-3" style="display:grid; grid-template-columns:repeat(3,1fr); gap:0.5rem;">
                         <img src="images/albulm4/Noel/Xe bus quảng bá vali.jpg"   data-caption="Noel — Xe bus quảng bá vali"   onclick="openLb(this)" class="w-full rounded-xl cursor-pointer hover:opacity-90 transition-opacity" style="aspect-ratio:4/3;object-fit:cover;">
                         <img src="images/albulm4/Noel/Xe Bus quảng bá vali 2.jpg" data-caption="Noel — Xe Bus quảng bá vali 2" onclick="openLb(this)" class="w-full rounded-xl cursor-pointer hover:opacity-90 transition-opacity" style="aspect-ratio:4/3;object-fit:cover;">
                         <img src="images/albulm4/Tết/Tết 2026.jpg"                data-caption="Tết 2026"                       onclick="openLb(this)" class="w-full rounded-xl cursor-pointer hover:opacity-90 transition-opacity" style="aspect-ratio:4/3;object-fit:cover;">
@@ -432,6 +451,57 @@
 
                     <div class="flex justify-between items-center text-xs text-gray-500 pt-2 border-t border-brandRed/10">
                         <span>ALBUM ẢNH HẬU TRƯỜNG</span>
+                    </div>
+                </section>
+
+                <!-- ==================== SLIDE 5b: LARITA ==================== -->
+                <section id="slide-larita" class="slide-item min-h-[75vh] md:min-h-[85vh] bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-brandRed/10 flex flex-col justify-between relative transition-all duration-300">
+                    <div>
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="text-xs font-black px-2 py-1 bg-brandRed text-white rounded">04+</span>
+                            <span class="text-xs font-bold text-brandRed tracking-widest uppercase">Kinh Nghiệm Thực Chiến — Larita</span>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center my-auto">
+                        <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-3">
+                            <div class="bg-brandCream rounded-2xl p-2 border border-brandRed/10 flex items-center justify-center aspect-[9/16]">
+                                <span class="text-xs text-gray-400 text-center px-2">Video sắp cập nhật</span>
+                            </div>
+                            <div class="bg-brandCream rounded-2xl p-2 border border-brandRed/10 flex items-center justify-center aspect-[9/16]">
+                                <span class="text-xs text-gray-400 text-center px-2">Video sắp cập nhật</span>
+                            </div>
+                            <div class="bg-brandCream rounded-2xl p-2 border border-brandRed/10 flex items-center justify-center aspect-[9/16]">
+                                <span class="text-xs text-gray-400 text-center px-2">Video sắp cập nhật</span>
+                            </div>
+                        </div>
+
+                        <div class="lg:col-span-5 space-y-4">
+                            <h3 class="super-title text-4xl md:text-5xl text-brandRed font-black leading-tight">LARITA</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <div class="bg-brandCream p-1 px-3 rounded text-xs font-bold text-gray-700 inline-block">
+                                    E-Commerce Product Manager
+                                </div>
+                                <div class="bg-brandRed/10 p-1 px-3 rounded text-xs font-bold text-brandRed inline-block">
+                                    Thương hiệu Vali — MIA Retail
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="font-extrabold text-sm text-brandDark uppercase tracking-wider mb-2">Scope of work (02/2026 – 05/2026)</h4>
+                                <ul class="space-y-1.5 text-xs text-gray-600">
+                                    <li class="flex items-start gap-2"><i class="fa-solid fa-square-check text-brandRed mt-0.5 flex-shrink-0"></i> Quản lý end-to-end ra mắt thương hiệu vali Larita trên TikTok Shop, Shopee, Website & kênh Offline</li>
+                                    <li class="flex items-start gap-2"><i class="fa-solid fa-square-check text-brandRed mt-0.5 flex-shrink-0"></i> Định nghĩa tầm nhìn sản phẩm, product roadmap & KPI framework cho từng giai đoạn ra mắt</li>
+                                    <li class="flex items-start gap-2"><i class="fa-solid fa-square-check text-brandRed mt-0.5 flex-shrink-0"></i> Xây dựng Customer Personas, Customer Journey Maps & chiến lược CRM thu hút và giữ chân khách hàng</li>
+                                    <li class="flex items-start gap-2"><i class="fa-solid fa-square-check text-brandRed mt-0.5 flex-shrink-0"></i> Phối hợp 6–7 team: Thiết kế, Nội dung, E-commerce, Digital Marketing, Vận hành & Kinh doanh Offline</li>
+                                    <li class="flex items-start gap-2"><i class="fa-solid fa-square-check text-brandRed mt-0.5 flex-shrink-0"></i> Ứng dụng AI tools & customer insights cho nghiên cứu thị trường, định vị sản phẩm & ra quyết định chiến lược</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-between items-center text-xs text-gray-500 pt-4 border-t border-brandRed/10">
+                        <span>DỰ ÁN LARITA — MIA RETAIL</span>
+                        <span>02/2026 – 05/2026</span>
                     </div>
                 </section>
 
@@ -445,7 +515,7 @@
                     </div>
 
                     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center my-auto">
-                        <div class="lg:col-span-7 grid grid-cols-3 gap-3">
+                        <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-3">
                             <div class="bg-brandCream rounded-2xl p-2 border border-brandRed/10 hover:shadow-lg transition-shadow">
                                 <video class="w-full rounded-xl aspect-[9/16] object-cover" controls playsinline preload="metadata">
                                     <source src="video/CTV CC.mp4" type="video/mp4">
@@ -480,47 +550,6 @@
 
                     <div class="flex justify-between items-center text-xs text-gray-500 pt-4 border-t border-brandRed/10">
                         <span>FREELANCE LIVESTREAM</span>
-                    </div>
-                </section>
-
-                <!-- ==================== SLIDE 6: LARITA ==================== -->
-                <section id="slide-larita" class="slide-item min-h-[75vh] md:min-h-[85vh] bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-brandRed/10 flex flex-col justify-between relative transition-all duration-300">
-                    <div>
-                        <div class="flex items-center gap-3 mb-4">
-                            <span class="text-xs font-black px-2 py-1 bg-brandRed text-white rounded">05+</span>
-                            <span class="text-xs font-bold text-brandRed tracking-widest uppercase">Dự án nổi bật — Larita</span>
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center my-auto">
-                        <div class="lg:col-span-7 grid grid-cols-3 gap-3">
-                            <div class="bg-brandCream rounded-2xl p-2 border border-brandRed/10 flex items-center justify-center aspect-[9/16]">
-                                <span class="text-xs text-gray-400 text-center px-2">Video sắp cập nhật</span>
-                            </div>
-                            <div class="bg-brandCream rounded-2xl p-2 border border-brandRed/10 flex items-center justify-center aspect-[9/16]">
-                                <span class="text-xs text-gray-400 text-center px-2">Video sắp cập nhật</span>
-                            </div>
-                            <div class="bg-brandCream rounded-2xl p-2 border border-brandRed/10 flex items-center justify-center aspect-[9/16]">
-                                <span class="text-xs text-gray-400 text-center px-2">Video sắp cập nhật</span>
-                            </div>
-                        </div>
-
-                        <div class="lg:col-span-5 space-y-4">
-                            <h3 class="super-title text-4xl md:text-5xl text-brandRed font-black leading-tight">LARITA</h3>
-                            <div class="bg-brandCream p-1 px-3 rounded text-xs font-bold text-gray-700 inline-block">
-                                CTV Livestream
-                            </div>
-                            <div>
-                                <h4 class="font-extrabold text-sm text-brandDark uppercase tracking-wider mb-2">Scope of work</h4>
-                                <ul class="space-y-1.5 text-xs text-gray-600">
-                                    <li class="flex items-center gap-2"><i class="fa-solid fa-square-check text-brandRed"></i> Nội dung sắp cập nhật</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="flex justify-between items-center text-xs text-gray-500 pt-4 border-t border-brandRed/10">
-                        <span>DỰ ÁN NỔI BẬT — LARITA</span>
                     </div>
                 </section>
 
