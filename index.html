@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mỹ Diệu – NTMD</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23B31A24'/><text x='16' y='22' font-family='Arial' font-weight='900' font-size='13' fill='white' text-anchor='middle'>MD</text></svg>">
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts -->
@@ -135,6 +136,14 @@
         }
         .lang-btn:hover { background: rgba(179,26,36,0.08); color: #B31A24; border-color: #B31A24; }
         .active-lang { background: #B31A24 !important; color: #fff !important; border-color: #B31A24 !important; }
+        .lang-option {
+            display: block; width: 100%; text-align: center; background: none; border: none;
+            cursor: pointer; font-size: 9px; font-weight: 900; letter-spacing: 0.1em;
+            color: rgba(30,30,30,0.55); font-family: 'Plus Jakarta Sans', sans-serif;
+            padding: 6px 14px; transition: all 0.15s; white-space: nowrap;
+        }
+        .lang-option:hover { background: rgba(179,26,36,0.07); color: #B31A24; }
+        .lang-option.active-opt { color: #B31A24; font-weight: 900; background: rgba(179,26,36,0.05); }
     </style>
 </head>
 <body class="grid-bg min-h-screen text-brandDark relative antialiased transition-colors duration-300">
@@ -151,10 +160,16 @@
                 <button onclick="goToSlide(8)" data-i18n="nav_skills" style="background:none;border:none;cursor:pointer;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.15em;color:rgba(30,30,30,0.5);font-family:'Plus Jakarta Sans',sans-serif;">Skills</button>
                 <button onclick="goToSlide(9)" data-i18n="nav_vision" style="background:none;border:none;cursor:pointer;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.15em;color:rgba(30,30,30,0.5);font-family:'Plus Jakarta Sans',sans-serif;">Career Vision</button>
                 <button onclick="goToSlide(10)" data-i18n="nav_contact" style="background:none;border:none;cursor:pointer;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.15em;color:rgba(30,30,30,0.5);font-family:'Plus Jakarta Sans',sans-serif;">Contact</button>
-                <div style="display:flex;gap:0.375rem;align-items:center;border-left:1px solid rgba(179,26,36,0.2);padding-left:1rem;">
-                    <button onclick="switchLang('vi')" id="langVi" class="lang-btn active-lang" title="Tiếng Việt">VNS</button>
-                    <button onclick="switchLang('en')" id="langEn" class="lang-btn" title="English">ENG</button>
-                    <button onclick="switchLang('cn')" id="langCn" class="lang-btn" title="中文">CN</button>
+                <div class="lang-dropdown" style="position:relative;border-left:1px solid rgba(179,26,36,0.2);padding-left:1rem;">
+                    <button id="langDropBtn" onclick="toggleLangDrop(event)" class="lang-btn active-lang" title="Chọn ngôn ngữ" style="display:flex;align-items:center;gap:4px;">
+                        <span id="langDropLabel">VNS</span>
+                        <svg width="7" height="5" viewBox="0 0 7 5" fill="currentColor" style="opacity:0.7;flex-shrink:0;transition:transform 0.2s;" id="langDropArrow"><path d="M3.5 5L0 0h7z"/></svg>
+                    </button>
+                    <div id="langDropMenu" style="display:none;position:absolute;top:calc(100% + 6px);right:0;background:white;border:1.5px solid rgba(179,26,36,0.18);border-radius:8px;overflow:hidden;z-index:200;min-width:58px;box-shadow:0 4px 16px rgba(0,0,0,0.12);">
+                        <button onclick="chooseLang('vi')" class="lang-option active-opt" id="lopt_vi">VNS</button>
+                        <button onclick="chooseLang('en')" class="lang-option" id="lopt_en">ENG</button>
+                        <button onclick="chooseLang('cn')" class="lang-option" id="lopt_cn">CN</button>
+                    </div>
                 </div>
             </nav>
         </div>
@@ -891,6 +906,7 @@
         window.onload = function() {
             document.querySelectorAll('.slide-item').forEach(slide => { slide.style.display = 'flex'; });
             updateControls();
+            switchLang('vi');
         };
 
         function toggleViewMode(mode) { setMode(mode); }
@@ -998,14 +1014,14 @@
         const translations = {
             vi: {
                 // Nav
-                nav_about: 'About', nav_journey: 'Journey', nav_work: 'Work Experience',
-                nav_achievements: 'Achievements', nav_skills: 'Skills',
-                nav_vision: 'Career Vision', nav_contact: 'Contact',
+                nav_about: 'Giới Thiệu', nav_journey: 'Hành Trình', nav_work: 'Kinh Nghiệm',
+                nav_achievements: 'Thành Tích', nav_skills: 'Kỹ Năng',
+                nav_vision: 'Định Hướng', nav_contact: 'Liên Hệ',
                 // Cover
                 cover_role: 'Livestream',
                 cover_quote: '"Đúng nền tảng - Vững kịch bản - Chắc doanh số"',
                 // Slide 2 — About
-                slide_about_label: 'My Profile',
+                slide_about_label: 'Hồ Sơ Cá Nhân',
                 about_subtitle: '🌟 "Chạm - Đúng - Đủ"',
                 about_desc: 'Xin chào, mình là <strong>Nguyễn Thị Mỹ Diệu</strong> — một Leader Livestream tràn ngập năng lượng và sự nhạy bén sáng tạo. Với kinh nghiệm thực chiến trong lĩnh vực Ecommerce và Host Livestream, mình nhận thức sâu sắc rằng một phiên live chuyển đổi cao không chỉ cần người dẫn giỏi — mà cần cả chiến lược nội dung, kịch bản chặt chẽ và khả năng kéo đúng cảm xúc khách hàng vào đúng thời điểm. Triết lý mình theo đuổi xuyên suốt:',
                 cham_title: 'CHẠM', cham_desc: 'Chạm sâu sắc vào đúng mạch cảm xúc khách hàng.',
@@ -1013,7 +1029,7 @@
                 du_title: 'ĐỦ', du_desc: 'Đủ lượng thông tin cần thiết kích thích chuyển đổi.',
                 about_footer: 'GIỚI THIỆU BẢN THÂN',
                 // Slide 3 — Journey
-                journey_label: 'Work Experience',
+                journey_label: 'Kinh Nghiệm Làm Việc',
                 journey_mia_date: '10/2024 – Hiện tại',
                 journey_mia_role: 'Lead Team Livestream & TikTok Ecommerce',
                 journey_mia_desc: 'Vận hành chiến dịch GMVMax, Host Livestream, TikTok/Facebook Ads, quản lý & đào tạo team livestream.',
@@ -1026,7 +1042,7 @@
                 slide_mia_label: 'Kinh Nghiệm Thực Chiến',
                 tab_mia: '📦 MIA Livestream', tab_vj: '🎤 VJ Booking',
                 mia_platform: 'TikTok Shop — Vali & Hành lý du lịch',
-                mia_scope_header: 'Scope of work (10/2024 – Hiện tại)',
+                mia_scope_header: 'Phạm vi công việc (10/2024 – Hiện tại)',
                 mia_scope_1: 'Lên deal list & chiến lược phiên live hàng tháng, phối hợp cùng các phòng ban',
                 mia_scope_2: 'Viết kịch bản live, thiết kế minigame & flash sale để kéo tương tác và chốt đơn',
                 mia_scope_3: 'Host Livestream TikTok, Shopee, Facebook,... — điều phối phòng live, xử lý tình huống thực chiến',
@@ -1046,10 +1062,11 @@
                 larita_scope_3: 'Phân tích hành vi khách hàng, tối ưu tỷ lệ chuyển đổi & xây dựng chiến lược giữ chân',
                 larita_scope_4: 'Hỗ trợ phối hợp 6–7 team: Nội dung, Design, Ecom, Digital Marketing, Vận hành & Sales Offline',
                 larita_scope_5: 'Theo dõi GMV & tỷ lệ chuyển đổi theo từng phiên, đề xuất cải tiến dựa trên dữ liệu thực tế',
+                larita_scope_header: 'Phạm vi công việc (02/2026 – 05/2026)',
                 larita_footer: 'DỰ ÁN LARITA — MIA RETAIL',
                 // Slide 5 — CTV
                 slide_ctv_label: 'CTV Freelance',
-                ctv_scope_header: 'Scope of work',
+                ctv_scope_header: 'Phạm vi công việc',
                 ctv_scope_1: 'Host Livestream đa nền tảng: TikTok, Shopee, Facebook, Lazada — linh hoạt ngành hàng',
                 ctv_scope_2: 'Thuyết phục & tư vấn sản phẩm trực tiếp, dẫn dắt phòng live chốt đơn hiệu quả',
                 ctv_scope_3: 'Giữ tương tác, kéo traffic & tạo đỉnh chuyển đổi trong suốt phiên live',
@@ -1057,11 +1074,11 @@
                 ctv_scope_5: 'Ngành hàng đa dạng: mỹ phẩm, thời trang, gia dụng...',
                 ctv_footer: 'FREELANCE LIVESTREAM',
                 // Slide 6 — Awards
-                slide_awards_label: 'Awards & Achievements',
+                slide_awards_label: 'Thành Tích & Giải Thưởng',
                 awards_tab1: '🏆 Giải thưởng', awards_tab2: '📊 Kỷ lục Doanh thu',
                 awards_footer: 'THÀNH TỰU & GIẢI THƯỞNG',
                 // Slide 7 — Skills
-                slide_skills_label: 'Skills & Expertise',
+                slide_skills_label: 'Kỹ Năng & Chuyên Môn',
                 skills_heading1: 'Kỹ năng chuyên môn', skills_heading2: 'Điểm mạnh cốt lõi',
                 skill_host_live: 'Host Livestream', skill_gmv: 'GMV Strategy',
                 skill_script: 'Kịch bản Live', skill_team: 'Team Training',
@@ -1074,7 +1091,7 @@
                 strength_desc3: 'Thích nghi nhanh trong môi trường tốc độ cao, luôn bám sát & vượt mục tiêu GMV.',
                 skills_footer: 'KỸ NĂNG & ĐIỂM MẠNH',
                 // Slide 8 — Career Vision
-                slide_vision_label: 'Career Vision',
+                slide_vision_label: 'Định Hướng Nghề Nghiệp',
                 vision_title: 'LỘ TRÌNH', vision_subtitle: 'Định hướng phát triển',
                 vision_quote: '"Đúng nền tảng — Vững kịch bản — Chắc doanh số."',
                 vision_stage1_label: 'Hiện tại',
@@ -1084,7 +1101,7 @@
                 vision_footer: 'MỤC TIÊU & ĐỊNH HƯỚNG',
                 // Slide 9 — Contact
                 contact_header: 'Liên Hệ Trực Tiếp',
-                contact_phone_label: 'Phone Number', contact_email_label: 'Email Address',
+                contact_phone_label: 'Số Điện Thoại', contact_email_label: 'Địa Chỉ Email',
             },
             en: {
                 // Nav
@@ -1284,14 +1301,39 @@
                 const key = el.getAttribute('data-i18n-html');
                 if (t[key] !== undefined) el.innerHTML = t[key];
             });
-            // Update active lang button styling
-            ['Vi','En','Cn'].forEach(id => {
-                const btn = document.getElementById('lang' + id);
-                if (btn) btn.classList.remove('active-lang');
+            // Update dropdown label
+            const labels = {vi:'VNS', en:'ENG', cn:'CN'};
+            const lbl = document.getElementById('langDropLabel');
+            if (lbl) lbl.textContent = labels[lang] || lang.toUpperCase();
+            // Update active option highlighting
+            ['vi','en','cn'].forEach(l => {
+                const opt = document.getElementById('lopt_' + l);
+                if (opt) opt.classList.toggle('active-opt', l === lang);
             });
-            const active = document.getElementById('lang' + lang.charAt(0).toUpperCase() + lang.slice(1));
-            if (active) active.classList.add('active-lang');
         }
+
+        function toggleLangDrop(e) {
+            e.stopPropagation();
+            const menu = document.getElementById('langDropMenu');
+            const arrow = document.getElementById('langDropArrow');
+            const open = menu.style.display === 'block';
+            menu.style.display = open ? 'none' : 'block';
+            if (arrow) arrow.style.transform = open ? '' : 'rotate(180deg)';
+        }
+
+        function chooseLang(lang) {
+            switchLang(lang);
+            document.getElementById('langDropMenu').style.display = 'none';
+            const arrow = document.getElementById('langDropArrow');
+            if (arrow) arrow.style.transform = '';
+        }
+
+        document.addEventListener('click', function() {
+            const menu = document.getElementById('langDropMenu');
+            const arrow = document.getElementById('langDropArrow');
+            if (menu) menu.style.display = 'none';
+            if (arrow) arrow.style.transform = '';
+        });
 
     </script>
 
