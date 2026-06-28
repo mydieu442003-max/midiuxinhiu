@@ -354,27 +354,39 @@
                     <!-- Concept Livestream -->
                     <div>
                         <p class="text-[10px] font-extrabold text-gray-400 uppercase tracking-widest mb-2">✦ Concept Livestream</p>
-                        <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:0.5rem; align-items:start;">
-                            <img src="images/albulm4/Concept/Tiếp viên hàng không.jpg"          data-caption="Tiếp viên hàng không" onclick="openLb(this)" class="w-full rounded-xl cursor-pointer hover:opacity-90 transition-opacity">
-                            <img src="images/albulm4/Concept/Phim Đại chiến trên không.jpg"     data-caption="Phim Đại chiến trên không" onclick="openLb(this)" class="w-full rounded-xl cursor-pointer hover:opacity-90 transition-opacity">
-                            <img src="images/albulm4/Concept/Học sinh.jpg"                       data-caption="Học sinh" onclick="openLb(this)" class="w-full rounded-xl cursor-pointer hover:opacity-90 transition-opacity">
-                            <img src="images/albulm4/Concept/xăng.jpg"                          data-caption="Xăng" onclick="openLb(this)" class="w-full rounded-xl cursor-pointer hover:opacity-90 transition-opacity">
 
-                            <img src="images/albulm4/Concept/Sự kiện Tiktok.jpg"                data-caption="Sự kiện Tiktok" onclick="openLb(this)" class="w-full rounded-xl cursor-pointer hover:opacity-90 transition-opacity">
-                            <img src="images/albulm4/Concept/Cừu.jpg"                            data-caption="Cừu" onclick="openLb(this)" class="w-full rounded-xl cursor-pointer hover:opacity-90 transition-opacity" style="grid-column:span 2;">
-                            <img src="images/albulm4/Concept/Tấm cám.jpg"                        data-caption="Tấm cám" onclick="openLb(this)" class="w-full rounded-xl cursor-pointer hover:opacity-90 transition-opacity">
+                        <!-- Row 1: 4 ảnh tự nhiên -->
+                        <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:0.5rem; margin-bottom:0.5rem;">
+                            <img src="images/albulm4/Concept/Tiếp viên hàng không.jpg"      data-caption="Tiếp viên hàng không"      onclick="openLb(this)" class="w-full rounded-xl cursor-pointer hover:opacity-90 transition-opacity">
+                            <img src="images/albulm4/Concept/Phim Đại chiến trên không.jpg" data-caption="Phim Đại chiến trên không" onclick="openLb(this)" class="w-full rounded-xl cursor-pointer hover:opacity-90 transition-opacity">
+                            <img src="images/albulm4/Concept/Học sinh.jpg"                   data-caption="Học sinh"                   onclick="openLb(this)" class="w-full rounded-xl cursor-pointer hover:opacity-90 transition-opacity">
+                            <img src="images/albulm4/Concept/xăng.jpg"                      data-caption="Xăng"                      onclick="openLb(this)" class="w-full rounded-xl cursor-pointer hover:opacity-90 transition-opacity">
+                        </div>
 
-                            <img src="images/albulm4/Concept/Collab Tony Việt.jpg"               data-caption="Collab Tony Việt" onclick="openLb(this)" class="w-full rounded-xl cursor-pointer hover:opacity-90 transition-opacity">
-                            <img src="images/albulm4/Concept/Collab Như Thuần  .jpg"             data-caption="Collab Như Thuần" onclick="openLb(this)" class="w-full rounded-xl cursor-pointer hover:opacity-90 transition-opacity">
-                            <img src="images/albulm4/Concept/Collab Vũ Ngọc Anh vs Gil Lê.jpg"  data-caption="Collab Vũ Ngọc Anh vs Gil Lê" onclick="openLb(this)" class="w-full rounded-xl cursor-pointer hover:opacity-90 transition-opacity" style="grid-column:span 2;">
+                        <!-- Row 2: Sự kiện | Cừu (span 2, lớn) | Tấm cám — stretch fill -->
+                        <div style="display:grid; grid-template-columns:1fr 2fr 1fr; gap:0.5rem; margin-bottom:0.5rem;">
+                            <div style="display:flex; align-self:stretch;">
+                                <img src="images/albulm4/Concept/Sự kiện Tiktok.jpg" data-caption="Sự kiện Tiktok" onclick="openLb(this)" style="width:100%;height:100%;object-fit:cover;border-radius:0.75rem;cursor:pointer;" class="hover:opacity-90 transition-opacity">
+                            </div>
+                            <img src="images/albulm4/Concept/Cừu.jpg"       data-caption="Cừu"       onclick="openLb(this)" class="w-full rounded-xl cursor-pointer hover:opacity-90 transition-opacity">
+                            <div style="display:flex; align-self:stretch;">
+                                <img src="images/albulm4/Concept/Tấm cám.jpg" data-caption="Tấm cám" onclick="openLb(this)" style="width:100%;height:100%;object-fit:cover;border-radius:0.75rem;cursor:pointer;" class="hover:opacity-90 transition-opacity">
+                            </div>
+                        </div>
+
+                        <!-- Row 3: 3 Collab to bằng nhau -->
+                        <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:0.5rem;">
+                            <img src="images/albulm4/Concept/Collab Tony Việt.jpg"              data-caption="Collab Tony Việt"              onclick="openLb(this)" class="w-full rounded-xl cursor-pointer hover:opacity-90 transition-opacity" style="aspect-ratio:1;object-fit:cover;">
+                            <img src="images/albulm4/Concept/Collab Như Thuần  .jpg"            data-caption="Collab Như Thuần"              onclick="openLb(this)" class="w-full rounded-xl cursor-pointer hover:opacity-90 transition-opacity" style="aspect-ratio:1;object-fit:cover;">
+                            <img src="images/albulm4/Concept/Collab Vũ Ngọc Anh vs Gil Lê.jpg" data-caption="Collab Vũ Ngọc Anh vs Gil Lê" onclick="openLb(this)" class="w-full rounded-xl cursor-pointer hover:opacity-90 transition-opacity" style="aspect-ratio:1;object-fit:cover;">
                         </div>
                     </div>
 
-                    <!-- Noel + Tết -->
-                    <div class="grid grid-cols-3 gap-2">
-                        <img src="images/albulm4/Noel/Xe bus quảng bá vali.jpg"   data-caption="Noel — Xe bus quảng bá vali" onclick="openLb(this)" class="w-full rounded-xl cursor-pointer hover:opacity-90 transition-opacity">
-                        <img src="images/albulm4/Noel/Xe Bus quảng bá vali 2.jpg" data-caption="Noel — Xe Bus quảng bá vali 2" onclick="openLb(this)" class="w-full rounded-xl cursor-pointer hover:opacity-90 transition-opacity">
-                        <img src="images/albulm4/Tết/Tết 2026.jpg"                data-caption="Tết 2026" onclick="openLb(this)" class="w-full rounded-xl cursor-pointer hover:opacity-90 transition-opacity">
+                    <!-- Noel + Tết to bằng nhau -->
+                    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:0.5rem;">
+                        <img src="images/albulm4/Noel/Xe bus quảng bá vali.jpg"   data-caption="Noel — Xe bus quảng bá vali"   onclick="openLb(this)" class="w-full rounded-xl cursor-pointer hover:opacity-90 transition-opacity" style="aspect-ratio:4/3;object-fit:cover;">
+                        <img src="images/albulm4/Noel/Xe Bus quảng bá vali 2.jpg" data-caption="Noel — Xe Bus quảng bá vali 2" onclick="openLb(this)" class="w-full rounded-xl cursor-pointer hover:opacity-90 transition-opacity" style="aspect-ratio:4/3;object-fit:cover;">
+                        <img src="images/albulm4/Tết/Tết 2026.jpg"                data-caption="Tết 2026"                       onclick="openLb(this)" class="w-full rounded-xl cursor-pointer hover:opacity-90 transition-opacity" style="aspect-ratio:4/3;object-fit:cover;">
                     </div>
 
                     <div class="flex justify-between items-center text-xs text-gray-500 pt-2 border-t border-brandRed/10">
