@@ -484,7 +484,7 @@
                 </section>
 
                 <!-- ==================== SLIDE 7: AWARDS ==================== -->
-                <section id="slide-6" class="slide-item min-h-[75vh] md:min-h-[85vh] bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-brandRed/10 flex flex-col justify-between relative transition-all duration-300">
+                <section id="slide-6" class="slide-item min-h-[75vh] md:min-h-[85vh] bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-brandRed/10 flex flex-col justify-between relative transition-all duration-300" style="overflow:hidden;">
                     <div>
                         <div class="flex items-center gap-3 mb-4">
                             <span class="text-xs font-black px-2 py-1 bg-brandRed text-white rounded">06</span>
@@ -519,33 +519,33 @@
                     </div>
 
                     <!-- Award photos: 2-column equal-height layout -->
-                    <div class="mt-4" style="display:grid; grid-template-columns:1fr 1fr; gap:0.5rem; height:380px;">
-                        <!-- Left column: 6ty9 + image.png equal halves -->
-                        <div style="display:flex; flex-direction:column; gap:0.5rem; height:100%;">
-                            <div style="flex:1; border-radius:0.75rem; overflow:hidden; cursor:pointer;" onclick="openLb(this.querySelector('img'))">
+                    <div class="mt-4" style="display:grid; grid-template-columns:1fr 1fr; gap:0.5rem; aspect-ratio:16/9; max-height:420px;">
+                        <!-- Left column: 6ty9 + image.png, each 50% height -->
+                        <div style="display:grid; grid-template-rows:1fr 1fr; gap:0.5rem;">
+                            <div style="border-radius:0.75rem; overflow:hidden; cursor:pointer; min-height:0;" onclick="openLb(this.querySelector('img'))">
                                 <img src="images/award/yep2025-6ty9.jpg"
                                      class="w-full h-full object-cover hover:opacity-90 transition-opacity"
                                      data-caption="YEP 2025 — Doanh thu 6,9 tỷ đồng" alt="6.9 tỷ">
                             </div>
-                            <div style="flex:1; border-radius:0.75rem; overflow:hidden; cursor:pointer;" onclick="openLb(this.querySelector('img'))">
+                            <div style="border-radius:0.75rem; overflow:hidden; cursor:pointer; min-height:0;" onclick="openLb(this.querySelector('img'))">
                                 <img src="images/award/image.png"
                                      class="w-full h-full object-cover hover:opacity-90 transition-opacity"
                                      data-caption="YEP 2025 — Cá Nhân Hiệu Suất Cao — Chiến Binh Livestream Xuất Sắc" alt="Group award">
                             </div>
                         </div>
                         <!-- Right column: 3 equal images stacked -->
-                        <div style="display:flex; flex-direction:column; gap:0.5rem; height:100%;">
-                            <div style="flex:1; border-radius:0.75rem; overflow:hidden; cursor:pointer;" onclick="openLb(this.querySelector('img'))">
+                        <div style="display:grid; grid-template-rows:1fr 1fr 1fr; gap:0.5rem;">
+                            <div style="border-radius:0.75rem; overflow:hidden; cursor:pointer; min-height:0;" onclick="openLb(this.querySelector('img'))">
                                 <img src="images/award/yep2025-lap-ky-luc.jpg"
                                      class="w-full h-full object-cover hover:opacity-90 transition-opacity"
                                      data-caption="YEP 2025 — Lập Kỉ Lục Doanh Thu & Tăng Trưởng TikTok 2025" alt="Lập kỉ lục">
                             </div>
-                            <div style="flex:1; border-radius:0.75rem; overflow:hidden; cursor:pointer;" onclick="openLb(this.querySelector('img'))">
+                            <div style="border-radius:0.75rem; overflow:hidden; cursor:pointer; min-height:0;" onclick="openLb(this.querySelector('img'))">
                                 <img src="images/award/yep2025-nhan-cup.jpg"
                                      class="w-full h-full object-cover hover:opacity-90 transition-opacity"
                                      data-caption="YEP 2025 — Nhận Cup Chiến Binh Livestream Xuất Sắc MIA 2025" alt="Nhận cup">
                             </div>
-                            <div style="flex:1; border-radius:0.75rem; overflow:hidden; cursor:pointer;" onclick="openLb(this.querySelector('img'))">
+                            <div style="border-radius:0.75rem; overflow:hidden; cursor:pointer; min-height:0;" onclick="openLb(this.querySelector('img'))">
                                 <img src="images/award/yep2025-cup-chien-binh.jpg"
                                      class="w-full h-full object-cover hover:opacity-90 transition-opacity"
                                      data-caption="YEP 2025 — Cup Chiến Binh Livestream Xuất Sắc 2025" alt="Cup chiến binh">
