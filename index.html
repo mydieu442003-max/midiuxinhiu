@@ -491,6 +491,9 @@
                         <span class="text-xs font-bold text-brandRed tracking-widest uppercase">Awards & Achievements</span>
                     </div>
 
+                    <!-- Constrained content wrapper: prevents photos from getting too wide on large screens -->
+                    <div style="flex:1; min-height:0; max-width:820px; width:100%; margin:0 auto; display:flex; flex-direction:column; gap:0.75rem;">
+
                     <!-- Tab buttons -->
                     <div class="flex gap-2" style="flex-shrink:0;">
                         <button id="a6TabAward" onclick="switchA6Tab('award')"
@@ -556,6 +559,8 @@
                                  data-caption="300tr trong 4 tiếng — Mỹ phẩm Gruadian" alt="300tr Gruadian">
                         </div>
                     </div>
+
+                    </div><!-- end constrained wrapper -->
 
                     <!-- Footer -->
                     <div class="flex justify-between items-center text-xs text-gray-500 pt-2 border-t border-brandRed/10" style="flex-shrink:0;">
